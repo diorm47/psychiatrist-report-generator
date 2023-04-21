@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychiatrisches Berichtsformular</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Psychiatrischer Bericht</h1>
+<form id="psych-report-form">
+    <!-- TYP DES BERICHTS -->
+    <div class="form-section">
+        <fieldset>
+            <legend>TYP DES BERICHTS</legend>
+            <select id="report-type">
+                <option value="entlassungsbericht-akut">Entlassungsbericht (Austrittsbericht) stationäre Behandlung:
+                    Akutstation
+                </option>
+                <option value="entlassungsbericht-psychotherapiestation">Entlassungsbericht (Austrittsbericht)
+                    stationäre Behandlung: Psychotherapiestation
+                </option>
+                <option value="abschlussbericht-ambulant">Abschlussbericht ambulante Behandlung</option>
+                <option value="erstgesprach-ambulant">Bericht über das ambulante Erstgespräch</option>
+                <option value="verlaufsbericht-ambulant">Verlaufsbericht ambulant</option>
+                <option value="arztbericht-krankenkasse">Arztbericht an die Krankenkasse</option>
+                <option value="iv-bericht">IV-Bericht (Invalidenversicherung)</option>
+                <option value="psychiatrisches-konsilium">Bericht des psychiatrischen Konsiliums</option>
+                <option value="stellungnahme-arbeitsfahigkeit">Psychiatrische Stellungnahme zur Arbeitsfähigkeit
+                </option>
+                <option value="psychopharmakologischer-konsultationsbericht">Psychopharmakologischer
+                    Konsultationsbericht
+                </option>
+            </select>
+        </fieldset>
+    </div>
+    <!-- 1 -->
+    <!-- INFORMATIONEN ZUM PATIENTEN -->
+    <div class="form-section">
+        <fieldset>
+            <legend>INFORMATIONEN ZUM PATIENTEN</legend>
+            <div class="button">
+                <button onclick="open_menu(this)">Open/Close</button>
+            </div>
+            <div class="form-content" id="form-content">
+                <label for="last-name">Name:</label>
+                <input type="text" id="last-name" required>
+                <label for="first-name">Vorname:</label>
+                <input type="text" id="first-name" required>
+                <label for="birthdate">Geburtsdatum:</label>
+                <input type="text" id="birthdate" required>
+                <label for="birthplace">Geburtsort:</label>
+                <input type="text" id="birthplace" required>
+
+                <div>
+                    <label>Gender:</label>
+                    <input type="radio" id="gender-male" name="gender" value="männlich" required>
+                    <label for="gender-male">Männlich</label>
+                    <input type="radio" id="gender-female" name="gender" value="weiblich">
+                    <label for="gender-female">Weiblich</label>
+                    <input type="radio" id="gender-nonbinary" name="gender" value="nicht-binär">
+                    <label for="gender-nonbinary">Nicht-binär</label>
+                </div>
+
+                <div>
+                    <label>Familienstand:</label>
+                    <input type="radio" id="marital-status-single" name="marital-status" value="ledig" required>
+                    <label for="marital-status-single">Ledig</label>
+                    <input type="radio" id="marital-status-married" name="marital-status" value="verheiratet">
+                    <label for="marital-status-married">Verheiratet</label>
+                    <input type="radio" id="marital-status-divorced" name="marital-status" value="geschieden">
+                    <label for="marital-status-divorced">Geschieden</label>
+                    <input type="radio" id="marital-status-widowed" name="marital-status" value="verwitwet">
+                    <label for="marital-status-widowed">Verwitwet</label>
+                </div>
+
+                <label for="children">Kinder (Anzahl, Gender und Alter):</label>
+                <input type="text" id="children">
+                <label for="education">Bildungsgrad:</label>
+                <select id="education">
+                    <option value="keine">Keine abgeschlossene Ausbildung</option>
+                    <option value="volksschule">Obligatorische Volksschule</option>
+                    <option value="gymnasium">Gymnasium</option>
+                    <option value="berufslehre">Berufslehre</option>
+                    <option value="hochere-fachschule">Höhere Fachschule</option>
+                    <option value="fachhochschule">Fachhochschule</option>
+                    <option value="universitat">Universität</option>
+                </select>
+                <label for="occupation">Berufliche Tätigkeit:</label>
+                <input type="text" id="occupation">
+                <label for="employment">Beschäftigungsgrad:</label>
+                <input type="text" id="employment">
+                <label for="employer">Aktueller Arbeitgeber:</label>
+                <input type="text" id="employer">
+                <label for="native-language">Muttersprache (falls anders, als Deutsch):</label>
+                <input type="text" id="native-language">
+                <label for="language-skills">Sprachkenntnisse (weitere Sprachen und Niveau):</label>
+                <input type="text" id="language-skills">
+                <label for="religion">Konfession:</label>
+                <input type="text" id="religion">
+                <label for="income-source">Finanzielles Einkommen durch:</label>
+                <input type="text" id="income-source">
+                <label for="residence">Wohnort:</label>
+                <input type="text" id="residence">
+
+                <div>
+                    <label>Art der Unterkunft:</label>
+                    <input type="radio" id="accommodation-ownership" name="accommodation" value="Eigentum" required>
+                    <label for="accommodation-ownership">Eigentum</label>
+                    <input type="radio" id="accommodation-rent" name="accommodation" value="Miete">
+                    <label for="accommodation-rent">Miete</label>
+                    <input type="radio" id="accommodation-shared" name="accommodation" value="Wohngemeinschaft">
+                    <label for="accommodation-shared">Wohngemeinschaft</label>
+                    <input type="radio" id="accommodation-homeless" name="accommodation" value="Obdachlos">
+                    <label for="accommodation-homeless">Obdachlos</label>
+                </div>
+
+                <div>
+                    <label>Wohnumstände:</label>
+                    <input type="radio" id="living-alone" name="living-arrangement" value="Allein" required>
+                    <label for="living-alone">Allein</label>
+                    <input type="radio" id="living-family" name="living-arrangement" value="Mit der Familie">
+                    <label for="living-family">Mit der Familie</label>
+                    <input type="radio" id="living-partner" name="living-arrangement" value="mit Partner:In">
+                    <label for="living-partner">mit Partner:In</label>
+                    <input type="radio" id="living-roommates" name="living-arrangement" value="mit Mitbewohner:Innen">
+                    <label for="living-roommates">mit Mitbewohner:Innen</label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <!-- 2 -->
+    <!-- INFORMATIONEN ZUR BEHANDLUNG -->
+    <div class="form-section">
+        <fieldset>
+            <legend>INFORMATIONEN ZUR BEHANDLUNG</legend>
+            <div class="button">
+                <button onclick="open_menu(this)">Open/Close</button>
+            </div>
+            <div class="form-content" id="form-content1">
+                <div>
+                    <label>Art der psychiatrischen Institution:</label>
+                    <input type="radio" id="institution-clinic" name="institution" value="Klinik" required>
+                    <label for="institution-clinic">Klinik</label>
+                    <input type="radio" id="institution-dayclinic" name="institution" value="Tagesklinik">
+                    <label for="institution-dayclinic">Tagesklinik</label>
+                    <input type="radio" id="institution-ambulatory" name="institution" value="Ambulatorium">
+                    <label for="institution-ambulatory">Ambulatorium</label>
+                    <input type="radio" id="institution-practice" name="institution" value="Praxis">
+                    <label for="institution-practice">Praxis</label>
+                </div>
+                <label for="institution-name">Name der psychiatrischen Institution:</label>
+                <input type="text" id="institution-name">
+
+                <div>
+                    <label>Setting der Behandlung:</label>
+                    <input type="radio" id="treatment-setting-ambulatory" name="treatment-setting" value="ambulant"
+                           required>
+                    <label for="treatment-setting-ambulatory">ambulant</label>
+                    <input type="radio" id="treatment-setting-partial" name="treatment-setting" value="teilstationär">
+                    <label for="treatment-setting-partial">teilstationär</label>
+                    <input type="radio" id="treatment-setting-inpatient" name="treatment-setting" value="stationär">
+                    <label for="treatment-setting-inpatient">stationär</label>
+                </div>
+
+                <div>
+                    <label>Format der Behandlung:</label>
+                    <input type="radio" id="treatment-format-individual" name="treatment-format" value="Einzeltherapie"
+                           required>
+                    <label for="treatment-format-individual">Einzeltherapie</label>
+                    <input type="radio" id="treatment-format-family" name="treatment-format" value="Familiensitzungen">
+                    <label for="treatment-format-family">Familiensitzungen</label>
+                    <input type="radio" id="treatment-format-group" name="treatment-format" value="Gruppentherapie">
+                    <label for="treatment-format-group">Gruppentherapie</label>
+                    <input type="radio" id="treatment-format-mixed" name="treatment-format"
+                           value="Überwiegend Einzelsitzungen, vereinzelt auch Systemsitzungen">
+                    <label for="treatment-format-mixed">Überwiegend Einzelsitzungen, vereinzelt auch
+                        Systemsitzungen</label>
+                </div>
+
+                <label for="referrer-name">Zuweisende Person: Name und Funktion</label>
+                <input type="text" id="referrer-name">
+                <label for="preliminary-consultation-date">Datum des Indikationsgesprächs bzw. Vorgesprächs (falls
+                    zutreffend):</label>
+                <input type="text" id="preliminary-consultation-date">
+                <label for="treatment-start-date">Datum des Beginns der Behandlung:</label>
+                <input type="text" id="treatment-start-date">
+                <label for="treatment-end-date">Datum des Behandlungsabschlusses (falls zutreffend):</label>
+                <input type="text" id="treatment-end-date">
+                <label for="therapy-sessions">Anzahl der durchgeführten Therapiesitzungen:</label>
+                <input type="number" id="therapy-sessions" min="0">
+                <br>
+                <label for="session-frequency-duration">Häufigkeit und Dauer der Therapiesitzungen:</label>
+                <input type="text" id="session-frequency-duration">
+                <label for="therapy-language">Die Sprache, in der die Therapie stattgefunden hat (falls ein Dolmetscher
+                    oder ein anderes spezielles Mittel zur Übersetzung verwendet wurde, bitte angeben):</label>
+                <input type="text" id="therapy-language">
+            </div>
+
+        </fieldset>
+    </div>
+    <!-- 3 -->
+    <!-- GRUND FÜR DIE BEHANDLUNG -->
+    <div class="form-section">
+        <fieldset>
+            <legend>GRUND FÜR DIE BEHANDLUNG</legend>
+            <div class="button">
+                <button onclick="open_menu(this)">Open/Close</button>
+            </div>
+            <div class="form-content" id="form-content2">
+                <div id="symptoms-list">
+                    <div class="symptom">
+                        <fieldset>
+                            <legend>Vorhandene psychopathologische Symptome:</legend>
+
+                            <label for="symptom-1">Symptom:</label>
+                            <input type="text" id="symptom-1">
+
+                            <div>
+                                <label>Schweregrad:</label>
+                                <input type="radio" id="severity-1-minor" name="severity-1" value="geringfügig"
+                                       required>
+                                <label for="severity-1-minor">geringfügig</label>
+                                <input type="radio" id="severity-1-moderate" name="severity-1" value="deutlich">
+                                <label for="severity-1-moderate">deutlich</label>
+                                <input type="radio" id="severity-1-severe" name="severity-1" value="stark">
+                                <label for="severity-1-severe">stark</label>
+                                <input type="radio" id="severity-1-extreme" name="severity-1" value="extrem">
+                                <label for="severity-1-extreme">extrem</label>
+                            </div>
+
+                            <div>
+                                <label>Entwicklungsart:</label>
+                                <input type="radio" id="development-1-gradual" name="development-1" value="schleichend"
+                                       required>
+                                <label for="development-1-gradual">schleichend</label>
+                                <input type="radio" id="development-1-sudden" name="development-1" value="abrupt">
+                                <label for="development-1-sudden">abrupt</label>
+                                <input type="radio" id="development-1-episodic" name="development-1" value="episodisch">
+                                <label for="development-1-episodic">episodisch</label>
+                            </div>
+
+                            <div>
+                                <label>Dauer:</label>
+                                <input type="radio" id="duration-1-acute" name="duration-1" value="akut" required>
+                                <label for="duration-1-acute">akut</label>
+                                <input type="radio" id="duration-1-chronic" name="duration-1" value="chronisch">
+                                <label for="duration-1-chronic">chronisch</label>
+                            </div>
+
+                            <label for="symptom-1-timing">Zeitpunkt des Auftretens sowie eventueller Verschlechterung
+                                oder Verbesserung:</label>
+                            <input type="text" id="symptom-1-timing">
+                            <div id="symptom-container"></div>
+                            <br>
+                            <button type="button" onclick="addSymptom()" id="add-symptom">Add</button>
+                            <div>
+                                <div id="other-problems">
+                                    <fieldset>
+                                        <legend>Andere behandlungsrelevante Verhaltensweisen oder emotionale Probleme:
+                                        </legend>
+                                        <div>
+                                            <label>Probleme im Zusammenhang mit Angst:</label>
+                                            <input type="checkbox" id="anxiety-problems-general"
+                                                   value="Generalisierte Ängste">
+                                            <label for="anxiety-problems-general">Generalisierte Ängste</label>
+                                            <input type="checkbox" id="anxiety-problems-phobias" value="Phobien">
+                                            <label for="anxiety-problems-phobias">Phobien</label>
+                                            <input type="checkbox" id="anxiety-problems-social" value="Soziale Ängste">
+                                            <label for="anxiety-problems-social">Soziale Ängste</label>
+                                            <input type="checkbox" id="anxiety-problems-panic" value="Panikattacken">
+                                            <label for="anxiety-problems-panic">Panikattacken</label>
+                                        </div>
+                                        <div>
+                                            <label>Probleme im Zusammenhang mit Emotionen, Stimmung und
+                                                Emotionsregulation:</label>
+                                            <input type="checkbox" id="emotional-problems-sadness" value="Traurigkeit">
+                                            <label for="emotional-problems-sadness">Traurigkeit</label>
+                                            <input type="checkbox" id="emotional-problems-guilt" value="Schuldgefühle">
+                                            <label for="emotional-problems-guilt">Schuldgefühle</label>
+                                            <input type="checkbox" id="emotional-problems-insufficiency"
+                                                   value="Insuffizienzgefühle">
+                                            <label for="emotional-problems-insufficiency">Insuffizienzgefühle</label>
+                                            <input type="checkbox" id="emotional-problems-shame" value="Schamgefühle">
+                                            <label for="emotional-problems-shame">Schamgefühle</label>
+                                            <input type="checkbox" id="emotional-problems-anger" value="Ärger">
+                                            <label for="emotional-problems-anger">Ärger</label>
+                                            <input type="checkbox" id="emotional-problems-frustration"
+                                                   value="Frustration">
+                                            <label for="emotional-problems-frustration">Frustration</label>
+                                            <input type="checkbox" id="emotional-problems-loss"
+                                                   value="Verlusterlebnisse">
+                                            <label for="emotional-problems-loss">Verlusterlebnisse</label>
+                                            <input type="checkbox" id="emotional-problems-regulation"
+                                                   value="Emotionsregulationsdefizite">
+                                            <label for="emotional-problems-regulation">Emotionsregulationsdefizite</label>
+                                            <input type="checkbox" id="emotional-problems-empathy"
+                                                   value="Probleme mit Empathie und Perspektivenübernahme">
+                                            <label for="emotional-problems-empathy">Probleme mit Empathie und
+                                                Perspektivenübernahme</label>
+                                            <input type="checkbox" id="emotional-problems-uncontrolled-anger"
+                                                   value="Unkontrollierte Wut oder Aggression">
+                                            <label for="emotional-problems-uncontrolled-anger">Unkontrollierte Wut oder
+                                                Aggression</label>
+                                        </div>
+                                        <div>
+                                            <label>Probleme im Zusammenhang mit Impulskontrolle:</label>
+                                            <input type="checkbox" id="impulse-control-problems"
+                                                   value="Probleme mit der Impulskontrolle">
+                                            <label for="impulse-control-problems">Probleme mit der
+                                                Impulskontrolle</label>
+                                            <input type="checkbox" id="compulsive-behavior" value="Zwänge">
+                                            <label for="compulsive-behavior">Zwänge</label>
+                                        </div>
+                                        <div>
+                                            <label>Probleme im Zusammenhang mit Kommunikation und Beziehungen:</label>
+                                            <input type="checkbox" id="communication-problems-needs"
+                                                   value="Schwierigkeiten in der Kommunikation von Bedürfnissen und Grenzen">
+                                            <label for="communication-problems-needs">Schwierigkeiten in der
+                                                Kommunikation von
+                                                Bedürfnissen und Grenzen</label>
+                                            <input type="checkbox" id="communication-problems-assertiveness"
+                                                   value="Schwierigkeiten in der Durchsetzungsfähigkeit">
+                                            <label for="communication-problems-assertiveness">Schwierigkeiten in der
+                                                Durchsetzungsfähigkeit</label>
+                                            <input type="checkbox" id="communication-problems-conflict"
+                                                   value="Schwierigkeiten in der Konfliktfähigkeit">
+                                            <label for="communication-problems-conflict">Schwierigkeiten in der
+                                                Konfliktfähigkeit</label>
+                                            <input type="checkbox" id="communication-problems-social-behavior"
+                                                   value="Probleme mit dem sozialen Verhalten">
+                                            <label for="communication-problems-social-behavior">Probleme mit dem
+                                                sozialen
+                                                Verhalten</label>
+                                            <input type="checkbox" id="communication-problems-relationships"
+                                                   value="Probleme in Beziehungen">
+                                            <label for="communication-problems-relationships">Probleme in
+                                                Beziehungen</label>
+                                            <input type="checkbox" id="communication-problems-family-conflicts"
+                                                   value="Familienkonflikte">
+                                            <label for="communication-problems-family-conflicts">Familienkonflikte</label>
+                                        </div>
+                                        <div>
+                                            <label>Probleme im Zusammenhang mit den kognitiven Funktionen:</label>
+                                            <input type="checkbox" id="cognitive-problems-concentration"
+                                                   value="Konzentrationsprobleme">
+                                            <label for="cognitive-problems-concentration">Konzentrationsprobleme</label>
+                                            <input type="checkbox" id="cognitive-problems-memory"
+                                                   value="Probleme mit dem Gedächtnis">
+                                            <label for="cognitive-problems-memory">Probleme mit dem Gedächtnis</label>
+                                            <input type="checkbox" id="cognitive-problems-perception"
+                                                   value="Probleme mit der Auffassung">
+                                            <label for="cognitive-problems-perception">Probleme mit der
+                                                Auffassung</label>
+                                            <input type="checkbox" id="cognitive-problems-flexibility"
+                                                   value="Probleme mit der kognitiven Flexibilität">
+                                            <label for="cognitive-problems-flexibility">Probleme mit der kognitiven
+                                                Flexibilität</label>
+                                            <input type="checkbox" id="cognitive-problems-creativity"
+                                                   value="Probleme mit der Kreativität">
+                                            <label for="cognitive-problems-creativity">Probleme mit der
+                                                Kreativität</label>
+                                        </div>
+                                        <div>
+                                            <label>Probleme im Zusammenhang mit eigenem Selbst:</label>
+                                            <input type="checkbox" id="self-problems-image"
+                                                   value="Probleme mit dem Selbstbild und Selbstwahrnehmung">
+                                            <label for="self-problems-image">Probleme mit dem Selbstbild und
+                                                Selbstwahrnehmung</label>
+                                            <input type="checkbox" id="self-problems-esteem"
+                                                   value="Probleme mit dem Selbstwertgefühl">
+                                            <label for="self-problems-esteem">Probleme mit dem Selbstwertgefühl</label>
+                                            <input type="checkbox" id="self-problems-acceptance"
+                                                   value="Probleme mit der Selbstakzeptanz">
+                                            <label for="self-problems-acceptance">Probleme mit der
+                                                Selbstakzeptanz</label>
+                                            <input type="checkbox" id="self-problems-confidence"
+                                                   value="Probleme mit dem Selbstvertrauen">
+                                            <label for="self-problems-confidence">Probleme mit dem
+                                                Selbstvertrauen</label>
+                                            <input type="checkbox" id="self-problems-respect"
+                                                   value="Probleme mit der Selbstachtung">
+                                            <label for="self-problems-respect">Probleme mit der Selbstachtung</label>
+                                            <input type="checkbox" id="self-problems-reflection"
+                                                   value="Probleme mit der Selbstreflexion">
+                                            <label for="self-problems-reflection">Probleme mit der
+                                                Selbstreflexion</label>
+                                            <input type="checkbox" id="self-problems-awareness"
+                                                   value="Probleme mit dem Selbstbewusstsein">
+                                            <label for="self-problems-awareness">Probleme mit dem
+                                                Selbstbewusstsein</label>
+                                        </div>
+                                        <div>
+                                            <label>Probleme im Zusammenhang mit der psychischen Anpassung:</label>
+                                            <input type="checkbox" id="adaptation-problems-resilience"
+                                                   value="Probleme mit der Resilienz">
+                                            <label for="adaptation-problems-resilience">Probleme mit der
+                                                Resilienz</label>
+                                            <input type="checkbox" id="adaptation-problems-psychological-resistance"
+                                                   value="Probleme mit der psychischen Widerstandsfähigkeit">
+                                            <label for="adaptation-problems-psychological-resistance">Probleme mit der
+                                                psychischen Widerstandsfähigkeit</label>
+                                        </div>
+                                        <div>
+                                            <label>Probleme im Zusammenhang mit der Erfahrung von Trauma und
+                                                Missbrauch:</label>
+                                            <input type="checkbox" id="trauma-problems-coping-trauma"
+                                                   value="Schwierigkeiten bei der Bewältigung von Trauma">
+                                            <label for="trauma-problems-coping-trauma">Schwierigkeiten bei der
+                                                Bewältigung von
+                                                Trauma</label>
+                                            <input type="checkbox" id="trauma-problems-coping-abuse"
+                                                   value="Schwierigkeiten bei der Bewältigung von Missbrauchserfahrungen">
+                                            <label for="trauma-problems-coping-abuse">Schwierigkeiten bei der
+                                                Bewältigung von
+                                                Missbrauchserfahrungen</label>
+                                        </div>
+                                        <div>
+                                            <label>Probleme im Zusammenhang mit körperlichen und psychosomatischen
+                                                Faktoren:</label>
+                                            <input type="checkbox" id="physical-problems-sleep"
+                                                   value="Probleme mit dem Schlaf">
+                                            <label for="physical-problems-sleep">Probleme mit dem Schlaf</label>
+                                            <input type="checkbox" id="physical-problems-sexual"
+                                                   value="Sexuelle Probleme oder Dysfunktionen">
+                                            <label for="physical-problems-sexual">Sexuelle Probleme oder
+                                                Dysfunktionen</label>
+                                            <input type="checkbox" id="physical-problems-psychosomatic"
+                                                   value="Psychosomatische Beschwerden">
+                                            <label for="physical-problems-psychosomatic">Psychosomatische
+                                                Beschwerden</label>
+                                            <input type="checkbox" id="physical-problems-body-perception"
+                                                   value="Probleme mit der Körperwahrnehmung">
+                                            <label for="physical-problems-body-perception">Probleme mit der
+                                                Körperwahrnehmung</label>
+                                            <input type="checkbox" id="physical-problems-eating"
+                                                   value="Probleme mit dem Essverhalten">
+                                            <label for="physical-problems-eating">Probleme mit dem Essverhalten</label>
+                                            <input type="checkbox"
+                                                   id="physical-problems-psychological-consequences-illness"
+                                                   value="Probleme im Umgang mit psychischen Folgen von körperlichen Erkrankungen">
+                                            <label for="physical-problems-psychological-consequences-illness">Probleme
+                                                im Umgang
+                                                mit psychischen Folgen von körperlichen Erkrankungen</label>
+                                            <input type="checkbox"
+                                                   id="physical-problems-psychological-consequences-injury"
+                                                   value="Probleme im Umgang mit psychischen Folgen von Verletzungen">
+                                            <label for="physical-problems-psychological-consequences-injury">Probleme im
+                                                Umgang
+                                                mit psychischen Folgen von Verletzungen</label>
+                                        </div>
+                                        <div>
+                                            <label>Sonstige Probleme:</label>
+                                            <input type="checkbox" id="other-problems-self-regulation"
+                                                   value="Probleme mit der Selbstregulation">
+                                            <label for="other-problems-self-regulation">Probleme mit der
+                                                Selbstregulation</label>
+                                            <input type="checkbox" id="other-problems-motivation"
+                                                   value="Probleme mit der Motivation">
+                                            <label for="other-problems-motivation">Probleme mit der Motivation</label>
+                                            <input type="checkbox" id="other-problems-decision-making"
+                                                   value="Probleme mit der Entscheidungsfindung">
+                                            <label for="other-problems-decision-making">Probleme mit der
+                                                Entscheidungsfindung</label>
+                                            <input type="checkbox" id="other-problems-problem-solving"
+                                                   value="Probleme mit dem Problemlösungsverhalten">
+                                            <label for="other-problems-problem-solving">Probleme mit dem
+                                                Problemlösungsverhalten</label>
+
+                                        </div>
+                                        <legend>Auswirkungen auf das tägliche Leben</legend>
+
+                                        <label for="daily-life-impact-minor">Auswirkungen auf das tägliche Leben der
+                                            Gesamtheit der
+                                            Symptome und weiterer Probleme:</label>
+                                        <div>
+                                            <input type="radio" id="daily-life-impact-minor" name="daily-life-impact"
+                                                   value="geringfügig">
+                                            <label for="daily-life-impact-minor">geringfügig</label>
+                                            <input type="radio" id="daily-life-impact-moderate" name="daily-life-impact"
+                                                   value="mässig">
+                                            <label for="daily-life-impact-moderate">mässig</label>
+                                            <input type="radio" id="daily-life-impact-severe" name="daily-life-impact"
+                                                   value="schwerwiegend">
+                                            <label for="daily-life-impact-severe">schwerwiegend</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <!-- 4 -->
+    <!-- DIAGNOSE(N) -->
+    <div class="form-section">
+        <fieldset>
+            <legend>DIAGNOSE(N)</legend>
+            <div class="button">
+                <button onclick="open_menu(this)">Open/Close</button>
+            </div>
+            <div class="form-content" id="form-content3">
+                <label for="main-diagnosis">Psychiatrische Hauptdiagnose:</label>
+                <input type="text" id="main-diagnosis" name="main-diagnosis">
+
+                <label for="secondary-diagnoses">Psychiatrische Nebendiagnosen:</label>
+                <input type="text" id="secondary-diagnoses" name="secondary-diagnoses">
+
+                <label for="somatic-diagnoses">Somatische Diagnosen:</label>
+                <input type="text" id="somatic-diagnoses" name="somatic-diagnoses">
+            </div>
+        </fieldset>
+    </div>
+    <!-- 5 -->
+    <!-- DEFIZITE UND RESSOURCEN -->
+    <div class="form-section">
+        <fieldset>
+            <legend>DEFIZITE UND RESSOURCEN</legend>
+            <div class="button">
+                <button onclick="open_menu(this)">Open/Close</button>
+            </div>
+            <div class="form-content" id="form-content4">
+                <div class="deficits">
+                    <h3>Defizite</h3>
+                    <!-- Checkbox options for deficits -->
+                    <label><input type="checkbox" name="deficits"
+                                  value="Fehlende soziale oder familiäre Unterstützung">Fehlende soziale oder
+                        familiäre Unterstützung</label>
+                    <label><input type="checkbox" name="deficits" value="Fehlen eines sozialen Netzes">Fehlen eines
+                        sozialen Netzes</label>
+                    <label><input type="checkbox" name="deficits" value="Kritische finanzielle Situation">Kritische
+                        finanzielle Situation</label>
+                    <label><input type="checkbox" name="deficits" value="Kritische Wohnsituation">Kritische
+                        Wohnsituation</label>
+                    <label><input type="checkbox" name="deficits" value="Fehlen des festen Wohnsitzes">Fehlen des
+                        festen Wohnsitzes</label>
+                    <label><input type="checkbox" name="deficits" value="Fehlende Tagesstruktur">Fehlende
+                        Tagesstruktur</label>
+                    <label><input type="checkbox" name="deficits" value="Arbeitslosigkeit">Arbeitslosigkeit</label>
+                    <label><input type="checkbox" name="deficits" value="Körperliche Krankheit">Körperliche
+                        Krankheit [Textfeld]</label>
+                    <label><input type="checkbox" name="deficits" value="Schwere körperliche Behinderung">Schwere
+                        körperliche Behinderung [Textfeld]</label>
+                    <label><input type="checkbox" name="deficits" value="Fehlende Behandlungsmotivation">Fehlende
+                        Behandlungsmotivation</label>
+                    <label><input type="checkbox" name="deficits" value="Erfahrung von Flucht">Erfahrung von
+                        Flucht</label>
+                    <label><input type="checkbox" name="deficits"
+                                  value="Migrationshintergrund">Migrationshintergrund</label>
+                </div>
+
+                <div class="resources">
+                    <h3>Ressourcen</h3>
+                    <!-- Checkbox options for resources -->
+                    <label><input type="checkbox" name="resources" value="Familiär gut eingebettet">Familiär gut
+                        eingebettet</label>
+                    <label><input type="checkbox" name="resources" value="Sozial gut eingebettet">Sozial gut
+                        eingebettet</label>
+                    <label><input type="checkbox" name="resources" value="Hohe Behandlungsmotivation">Hohe
+                        Behandlungsmotivation</label>
+                    <label><input type="checkbox" name="resources"
+                                  value="Die in der Vergangenheit entwickelten Bewältigungsmechanismen">Die in der
+                        Vergangenheit entwickelten Bewältigungsmechanismen</label>
+                    <label><input type="checkbox" name="resources" value="Gute Introspektionsfähigkeit">Gute
+                        Introspektionsfähigkeit</label>
+                    <label><input type="checkbox" name="resources" value="Hohe Resilienz">Hohe Resilienz</label>
+                    <label><input type="checkbox" name="resources" value="Gute Selbstfürsorge">Gute
+                        Selbstfürsorge</label>
+                    <label><input type="checkbox" name="resources" value="Vorhandensein einer festen Arbeitsstelle">Vorhandensein
+                        einer festen Arbeitsstelle</label>
+                    <label><input type="checkbox" name="resources"
+                                  value="Stabile zufriedenstellende finanzielle Situation">Stabile
+                        zufriedenstellende finanzielle Situation</label>
+                    <label><input type="checkbox" name="resources" value="Interessen und Hobbies">Interessen und
+                        Hobbies [Textfeld]</label>
+                    <label><input type="checkbox" name="resources" value="Gute Integration und Assimilation">Gute
+                        Integration und Assimilation</label>
+                    <label><input type="checkbox" name="resources" value="Hohe Intelligenz">Hohe Intelligenz</label>
+                    <label><input type="checkbox" name="resources" value="Hoher Bildungsgrad">Hoher
+                        Bildungsgrad</label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <!-- 4 -->
+    <!-- FUNKTIONSFÄHIGKEIT (NACH MINI ICF) -->
+    <div class="form-section">
+        <fieldset>
+            <legend>FUNKTIONSFÄHIGKEIT (NACH MINI ICF)</legend>
+            <div class="button">
+                <button onclick="open_menu(this)">Open/Close</button>
+            </div>
+            <!-- Radio button options for functional impairments -->
+            <div class="functional-impairments">
+                <!-- Anpassung an Regeln und Routinen -->
+                <div class="form-content" id="form-content5">
+                    <h3>Beeinträchtigungen der Fähigkeiten</h3>
+                    <div class="impairment">
+                        <label>Anpassung an Regeln und Routinen:</label>
+                        <label><input type="radio" name="rules-adaptation" value="keine">keine</label>
+                        <label><input type="radio" name="rules-adaptation" value="leichte">leichte</label>
+                        <label><input type="radio" name="rules-adaptation"
+                                      value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="rules-adaptation" value="schwere">schwere</label>
+                        <label><input type="radio" name="rules-adaptation" value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Strukturierung von Aufgaben -->
+                    <div class="impairment">
+                        <label>Strukturierung von Aufgaben:</label>
+                        <label><input type="radio" name="tasks-structuring" value="keine">keine</label>
+                        <label><input type="radio" name="tasks-structuring" value="leichte">leichte</label>
+                        <label><input type="radio" name="tasks-structuring"
+                                      value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="tasks-structuring" value="schwere">schwere</label>
+                        <label><input type="radio" name="tasks-structuring"
+                                      value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Flexibilität und Umstellungsfähigkeit -->
+                    <div class="impairment">
+                        <label>Flexibilität und Umstellungsfähigkeit:</label>
+                        <label><input type="radio" name="flexibility" value="keine">keine</label>
+                        <label><input type="radio" name="flexibility" value="leichte">leichte</label>
+                        <label><input type="radio" name="flexibility" value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="flexibility" value="schwere">schwere</label>
+                        <label><input type="radio" name="flexibility" value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Anwendung fachlicher Kompetenzen -->
+                    <div class="impairment">
+                        <label>Anwendung fachlicher Kompetenzen:</label>
+                        <label><input type="radio" name="expertise-application" value="keine">keine</label>
+                        <label><input type="radio" name="expertise-application" value="leichte">leichte</label>
+                        <label><input type="radio" name="expertise-application"
+                                      value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="expertise-application" value="schwere">schwere</label>
+                        <label><input type="radio" name="expertise-application" value="vollständige">vollständige
+                        </label>
+                    </div>
+                    <!-- Entscheidungs- und Urteilsfähigkeit -->
+                    <div class="impairment">
+                        <label>Entscheidungs- und Urteilsfähigkeit:</label>
+                        <label><input type="radio" name="decision-making" value="keine">keine</label>
+                        <label><input type="radio" name="decision-making" value="leichte">leichte</label>
+                        <label><input type="radio" name="decision-making"
+                                      value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="decision-making" value="schwere">schwere</label>
+                        <label><input type="radio" name="decision-making" value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Durchhaltefähigkeit -->
+                    <div class="impairment">
+                        <label>Durchhaltefähigkeit:</label>
+                        <label><input type="radio" name="perseverance" value="keine">keine</label>
+                        <label><input type="radio" name="perseverance" value="leichte">leichte</label>
+                        <label><input type="radio" name="perseverance" value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="perseverance" value="schwere">schwere</label>
+                        <label><input type="radio" name="perseverance" value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Selbstbehauptungsfähigkeit -->
+                    <div class="impairment">
+                        <label>Selbstbehauptungsfähigkeit:</label>
+                        <label><input type="radio" name="assertiveness" value="keine">keine</label>
+                        <label><input type="radio" name="assertiveness" value="leichte">leichte</label>
+                        <label><input type="radio" name="assertiveness" value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="assertiveness" value="schwere">schwere</label>
+                        <label><input type="radio" name="assertiveness" value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Kontaktfähigkeit zu Dritten -->
+                    <div class="impairment">
+                        <label>Kontaktfähigkeit zu Dritten:</label>
+                        <label><input type="radio" name="third-party-contact" value="keine">keine</label>
+                        <label><input type="radio" name="third-party-contact" value="leichte">leichte</label>
+                        <label><input type="radio" name="third-party-contact"
+                                      value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="third-party-contact" value="schwere">schwere</label>
+                        <label><input type="radio" name="third-party-contact"
+                                      value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Gruppenfähigkeit -->
+                    <div class="impairment">
+                        <label>Gruppenfähigkeit:</label>
+                        <label><input type="radio" name="group-ability" value="keine">keine</label>
+                        <label><input type="radio" name="group-ability" value="leichte">leichte</label>
+                        <label><input type="radio" name="group-ability" value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="group-ability" value="schwere">schwere</label>
+                        <label><input type="radio" name="group-ability" value="vollständige">vollständige</label>
+                    </div>
+                    <!-- Familiäre und/oder intime Beziehungen -->
+                    <div class="impairment">
+                        <label>Familiäre und/oder intime Beziehungen:</label>
+                        <label><input type="radio" name="family-intimate-relations" value="keine">keine</label>
+                        <label><input type="radio" name="family-intimate-relations" value="leichte">leichte</label>
+                        <label><input type="radio" name="family-intimate-relations" value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="family-intimate-relations" value="schwere">schwere</label>
+                        <label><input type="radio" name="family-intimate-relations"
+                                      value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Spontan-Aktivitäten -->
+                    <div class="impairment">
+                        <label>Spontan-Aktivitäten:</label>
+                        <label><input type="radio" name="spontaneous-activities" value="keine">keine</label>
+                        <label><input type="radio" name="spontaneous-activities" value="leichte">leichte</label>
+                        <label><input type="radio" name="spontaneous-activities"
+                                      value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="spontaneous-activities" value="schwere">schwere</label>
+                        <label><input type="radio" name="spontaneous-activities"
+                                      value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Fähigkeit zur Selbstpflege -->
+                    <div class="impairment">
+                        <label>Fähigkeit zur Selbstpflege:</label>
+                        <label><input type="radio" name="self-care" value="keine">keine</label>
+                        <label><input type="radio" name="self-care" value="leichte">leichte</label>
+                        <label><input type="radio" name="self-care" value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="self-care" value="schwere">schwere</label>
+                        <label><input type="radio" name="self-care" value="vollständige">vollständige</label>
+                    </div>
+
+                    <!-- Verkehrs- und Wegefähigkeit -->
+                    <div class="impairment">
+                        <label>Verkehrs- und Wegefähigkeit:</label>
+                        <label><input type="radio" name="transportation-ability" value="keine">keine</label>
+                        <label><input type="radio" name="transportation-ability" value="leichte">leichte</label>
+                        <label><input type="radio" name="transportation-ability"
+                                      value="mittelgradige">mittelgradige</label>
+                        <label><input type="radio" name="transportation-ability" value="schwere">schwere</label>
+                        <label><input type="radio" name="transportation-ability"
+                                      value="vollständige">vollständige</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <!-- 5 -->
+    <!-- MEDIKAMENTÖSE BEHANDLUNG -->
+    <div class="form-section">
+        <fieldset>
+            <legend> MEDIKAMENTÖSE BEHANDLUNG</legend>
+            <div class="button">
+                <button onclick="open_menu(this)">Open/Close</button>
+            </div>
+            <div class="form-content">
+                <button onclick="add_block()">Add</button>
+                <div class="choice_menu">
+                    <div class="choice_part 0_search">
+                        <div class="choice" onclick="add_medicaments_1()"><p>Einleitung der Therapie</p></div>
+                        <!-- <div class="cross"><span>×</span></div> -->
+                    </div>
+                    <div class="choice_part 1_search">
+                        <div class="choice" onclick="add_medicaments_2()"><p>Fortsetzung der bereits verordneter Therapie</p></div>
+                        <!-- <div class="cross"><span>×</span></div> -->
+                    </div>
+                    <div class="choice_part 2_search">
+                        <div class="choice" onclick="add_medicaments_3()"><p>Ergänzung der bereits verordneter Therapie</p></div>
+                        <!-- <div class="cross"><span>×</span></div> -->
+                    </div>
+                    <div class="choice_part 3_search">
+                        <div class="choice" onclick="add_medicaments_4()"><p>Erhöhung der Tagesdosis</p></div>
+                        <!-- <div class="cross"><span>×</span></div> -->
+                    </div>
+                    <div class="choice_part 4_search">
+                        <div class="choice" onclick="add_medicaments_5()"><p>Reduktion der Tagesdosis</p></div>
+                        <!-- <div class="cross"><span>×</span></div> -->
+                    </div>
+                    <div class="choice_part 5_search">
+                        <div class="choice" onclick="add_medicaments_6()"><p>Umstellung von Medikament</p></div>
+                        <!-- <div class="cross"><span>×</span></div> -->
+                    </div>
+                    <div class="choice_part 6_search">
+                        <div class="choice" onclick="add_medicaments_7()"><p>Absetzen der Therapie</p></div>
+                        <!-- <div class="cross"><span>×</span></div> -->
+                    </div>
+                </div>
+                <div class="med-sections-container form-section" id="med-sections"></div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="form-section">
+        <fieldset>
+            <legend>Medikamente und Dosierungen bei Behandlungsabschluss</legend>
+            <label for="medications-dosages">Spezifische Medikamente und Dosierungen bei
+                Behandlungsabschluss:</label>
+            <textarea id="medications-dosages" rows="4"></textarea>
+        </fieldset>
+    </div>
+
+
+    <!-- Keine medikamentöse Behandlung -->
+    <div class="form-section">
+        <fieldset>
+            <legend>Keine medikamentöse Behandlung</legend>
+            <label>
+                <input type="radio" name="no_med_treatment" value="no_indication">
+                Da es keine spezifischen Indikationen für eine medikamentöse Behandlung gab, erfolgte die
+                Behandlung ausschliesslich psychotherapeutisch
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="no_med_treatment" value="patient_refusal">
+                Aufgrund der Weigerung der Indexperson gegen eine medikamentöse Therapie, wurde die Behandlung
+                ausschliesslich psychotherapeutisch durchgeführt.
+            </label>
+        </fieldset>
+ 
+    </div>
+    <!-- PSYCHOTHERAPEUTISCHE BEHANDLUNG -->
+    <div class="form-section">
+        <fieldset>
+            <legend> PSYCHOTHERAPEUTISCHE BEHANDLUNG</legend>
+            <div class="button">
+                <button onclick="open_menu(this)">Open/Close</button>
+            </div>
+
+            <!-- Aufbau und Charakter der therapeutischen Beziehung -->
+            <div class="form-content" id="form-content15">
+                <fieldset>
+                    <legend>Aufbau und Charakter der therapeutischen Beziehung</legend>
+
+                    <div class="form-row">
+                        <label>Vertrauensaufbau:</label>
+                        <input type="radio" name="trust" value="schnell" id="trust_schnell" required><label
+                            for="trust_schnell">schnell</label>
+                        <input type="radio" name="trust" value="langsam" id="trust_langsam"><label
+                            for="trust_langsam">langsam</label>
+                        <input type="radio" name="trust" value="inkonsequent" id="trust_inkonsequent"><label
+                            for="trust_inkonsequent">inkonsequent</label>
+                        <input type="radio" name="trust" value="nicht vorhanden"
+                               id="trust_nicht_vorhanden"><label for="trust_nicht_vorhanden">nicht
+                        vorhanden</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Kommunikationsstil:</label>
+                        <input type="radio" name="communication" value="offen" id="communication_offen"
+                               required><label for="communication_offen">offen</label>
+                        <input type="radio" name="communication" value="verschlossen"
+                               id="communication_verschlossen"><label
+                            for="communication_verschlossen">verschlossen</label>
+                        <input type="radio" name="communication" value="ambivalent"
+                               id="communication_ambivalent"><label
+                            for="communication_ambivalent">ambivalent</label>
+                        <input type="radio" name="communication" value="uneinheitlich"
+                               id="communication_uneinheitlich"><label
+                            for="communication_uneinheitlich">uneinheitlich</label>
+                    </div>
+
+                    <!-- Weitere Abschnitte und Unterabschnitte hier -->
+
+                    <div class="form-row">
+                        <label>Patientenbeteiligung:</label>
+                        <input type="radio" name="participation" value="aktiv" id="participation_aktiv"
+                               required><label for="participation_aktiv">aktiv</label>
+                        <input type="radio" name="participation" value="passiv" id="participation_passiv"><label
+                            for="participation_passiv">passiv</label>
+                        <input type="radio" name="participation" value="wechselnd"
+                               id="participation_wechselnd"><label
+                            for="participation_wechselnd">wechselnd</label>
+                        <input type="radio" name="participation" value="nicht vorhanden"
+                               id="participation_nicht_vorhanden"><label for="participation_nicht_vorhanden">nicht
+                        vorhanden</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Zusammenarbeit:</label>
+                        <input type="radio" name="collaboration" value="eng" id="collaboration_eng"
+                               required><label for="collaboration_eng">eng</label>
+                        <input type="radio" name="collaboration" value="mässig" id="collaboration_mässig"><label
+                            for="collaboration_mässig">mässig</label>
+                        <input type="radio" name="collaboration" value="gering" id="collaboration_gering"><label
+                            for="collaboration_gering">gering</label>
+                        <input type="radio" name="collaboration" value="kaum vorhanden"
+                               id="collaboration_kaum_vorhanden"><label for="collaboration_kaum_vorhanden">kaum
+                        vorhanden</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Therapeutische Allianz:</label>
+                        <input type="radio" name="alliance" value="stark" id="alliance_stark" required><label
+                            for="alliance_stark">stark</label>
+                        <input type="radio" name="alliance" value="mittelstark" id="alliance_mittelstark"><label
+                            for="alliance_mittelstark">mittelstark</label>
+                        <input type="radio" name="alliance" value="schwach" id="alliance_schwach"><label
+                            for="alliance_schwach">schwach</label>
+                        <input type="radio" name="alliance" value="nicht vorhanden"
+                               id="alliance_nicht_vorhanden"><label for="alliance_nicht_vorhanden">nicht
+                        vorhanden</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Fähigkeit, während der Sitzungen Feedback zu geben:</label>
+                        <input type="radio" name="feedback_giving" value="offen" id="feedback_giving_offen"
+                               required><label for="feedback_giving_offen">offen</label>
+                        <input type="radio" name="feedback_giving" value="zurückhaltend"
+                               id="feedback_giving_zurückhaltend"><label for="feedback_giving_zurückhaltend">zurückhaltend</label>
+                        <input type="radio" name="feedback_giving" value="inkonsistent"
+                               id="feedback_giving_inkonsistent"><label
+                            for="feedback_giving_inkonsistent">inkonsistent</label>
+                        <input type="radio" name="feedback_giving" value="fehlend"
+                               id="feedback_giving_fehlend"><label
+                            for="feedback_giving_fehlend">fehlend</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Fähigkeit, während der Sitzungen Feedback anzunehmen:</label>
+                        <input type="radio" name="feedback_receiving" value="offen"
+                               id="feedback_receiving_offen" required><label
+                            for="feedback_receiving_offen">offen</label>
+                        <input type="radio" name="feedback_receiving" value="abwehrend"
+                               id="feedback_receiving_abwehrend"><label
+                            for="feedback_receiving_abwehrend">abwehrend</label>
+                        <input type="radio" name="feedback_receiving" value="inkonsistent"
+                               id="feedback_receiving_inkonsistent"><label
+                            for="feedback_receiving_inkonsistent">inkonsistent</label>
+                        <input type="radio" name="feedback_receiving" value="ablehnend"
+                               id="feedback_receiving_ablehnend"><label
+                            for="feedback_receiving_ablehnend">ablehnend</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Proaktives Melden der während der Behandlung auftretenden Schwierigkeiten oder
+                            Anliegen:</label>
+                        <input type="radio" name="proactive_reporting" value="regelmässig"
+                               id="proactive_reporting_regelmässig" required><label
+                            for="proactive_reporting_regelmässig">regelmässig</label>
+                        <input type="radio" name="proactive_reporting" value="meistens"
+                               id="proactive_reporting_meistens"><label
+                            for="proactive_reporting_meistens">meistens</label>
+                        <input type="radio" name="proactive_reporting" value="selten"
+                               id="proactive_reporting_selten"><label
+                            for="proactive_reporting_selten">selten</label>
+                        <input type="radio" name="proactive_reporting" value="nie"
+                               id="proactive_reporting_nie"><label
+                            for="proactive_reporting_nie">nie</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Erwartungen von Therapie:</label>
+                        <input type="radio" name="therapy_expectations" value="realistisch"
+                               id="therapy_expectations_realistisch" required><label
+                            for="therapy_expectations_realistisch">realistisch</label>
+                        <input type="radio" name="therapy_expectations" value="zu hoch"
+                               id="therapy_expectations_zu_hoch"><label
+                            for="therapy therapy_expectations_zu_hoch">zu hoch</label>
+                        <input type="radio" name="therapy_expectations" value="zu niedrig"
+                               id="therapy_expectations_zu_niedrig"><label
+                            for="therapy_expectations_zu_niedrig">zu niedrig</label>
+                        <input type="radio" name="therapy_expectations" value="uneinheitlich"
+                               id="therapy_expectations_uneinheitlich"><label
+                            for="therapy_expectations_uneinheitlich">uneinheitlich</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Umgang mit den Grenzen der therapeutischen Beziehung:</label>
+                        <input type="radio" name="boundary_management" value="eingehalten"
+                               id="boundary_management_eingehalten" required><label
+                            for="boundary_management_eingehalten">eingehalten</label>
+                        <input type="radio" name="boundary_management" value="gelegentlich verletzt"
+                               id="boundary_management_gelegentlich_verletzt"><label
+                            for="boundary_management_gelegentlich_verletzt">gelegentlich verletzt</label>
+                        <input type="radio" name="boundary_management" value="häufig verletzt"
+                               id="boundary_management_häufig_verletzt"><label
+                            for="boundary_management_häufig_verletzt">häufig verletzt</label>
+                        <input type="radio" name="boundary_management" value="ständig verletzt"
+                               id="boundary_management_ständig_verletzt"><label
+                            for="boundary_management_ständig_verletzt">ständig verletzt</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Pünktlichkeit des Erscheinens zu den Sitzungen:</label>
+                        <input type="radio" name="punctuality" value="immer pünktlich"
+                               id="punctuality_immer_pünktlich" required><label
+                            for="punctuality_immer_pünktlich">immer pünktlich</label>
+                        <input type="radio" name="punctuality" value="gelegentlich verspätet"
+                               id="punctuality_gelegentlich_verspätet"><label
+                            for="punctuality_gelegentlich_verspätet">gelegentlich verspätet</label>
+                        <input type="radio" name="punctuality" value="häufig verspätet"
+                               id="punctuality_häufig_verspätet"><label for="punctuality_häufig_verspätet">häufig
+                        verspätet</label>
+                        <input type="radio" name="punctuality" value="sehr häufig verspätet"
+                               id="punctuality_sehr_häufig_verspätet"><label
+                            for="punctuality_sehr_häufig_verspätet">sehr häufig verspätet</label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Verpasste Sitzungen ohne Vorankündigung:</label>
+                        <input type="radio" name="missed_sessions" value="keine" id="missed_sessions_keine"
+                               required><label for="missed_sessions_keine">keine</label>
+                        <input type="radio" name="missed_sessions" value="selten"
+                               id="missed_sessions_selten"><label for="missed_sessions_selten">selten</label>
+                        <input type="radio" name="missed_sessions" value="oft" id="missed_sessions_oft"><label
+                            for="missed_sessions_oft">oft</label>
+                        <input type="radio" name="missed_sessions" value="sehr oft"
+                               id="missed_sessions_sehr_oft"><label for="missed_sessions_sehr_oft">sehr
+                        oft</label>
+                    </div>
+
+                </fieldset>
+
+
+                <!-- Psychotherapeutische Interventionen -->
+                <fieldset>
+                    <legend>Psychotherapeutische Interventionen</legend>
+                    <!-- Interventionen der kognitiv-behavioralen Therapie (CBT) -->
+                    <fieldset>
+                        <legend>Interventionen der kognitiv-behavioralen Therapie (CBT)</legend>
+                        <label><input type="checkbox" name="cbt-intervention"
+                                      value="Erkennen und Hinterfragen negativer Gedanken und Überzeugungen">
+                            Erkennen und Hinterfragen negativer Gedanken und Überzeugungen</label><br>
+                        <label><input type="checkbox" name="cbt-intervention"
+                                      value="Unterstützung beim Verstehen der Zusammenhänge zwischen den Gedanken, Gefühlen und Verhaltensweisen">
+                            Unterstützung beim Verstehen der Zusammenhänge zwischen den Gedanken, Gefühlen und
+                            Verhaltensweisen</label><br>
+                        <label><input type="checkbox" name="cbt-intervention"
+                                      value="Setzen und Erreichen spezifischer, messbarer Ziele"> Setzen und
+                            Erreichen spezifischer, messbarer Ziele</label><br>
+                        <label><input type="checkbox" name="cbt-intervention"
+                                      value="Üben von Entspannungstechniken wie Tiefenatmung, progressive Muskelentspannung oder Visualisierung">
+                            Üben von Entspannungstechniken wie Tiefenatmung, progressive Muskelentspannung oder
+                            Visualisierung</label><br>
+                        <label><input type="checkbox" name="cbt-intervention"
+                                      value="Führen eines Gedankentagebuchs oder Journals"> Führen eines
+                            Gedankentagebuchs oder Journals</label><br>
+                        <label><input type="checkbox" name="cbt-intervention"
+                                      value="Durchführung von Verhaltensexperimenten oder Rollenspielen">
+                            Durchführung von Verhaltensexperimenten oder Rollenspielen</label><br>
+                        <label><input type="checkbox" name="cbt-intervention"
+                                      value="Praktiken der Achtsamkeit und des Selbstmitgefühls"> Praktiken der
+                            Achtsamkeit und des Selbstmitgefühls</label><br>
+                        <label><input type="checkbox" name="cbt-intervention"
+                                      value="Verwendung von kognitiven Hilfsmitteln wie Flashcards oder Arbeitsblättern">
+                            Verwendung von kognitiven Hilfsmitteln wie Flashcards oder Arbeitsblättern</label>
+                    </fieldset>
+
+                    <!-- Interventionen der psychoanalytischen Therapie -->
+                    <fieldset>
+                        <legend>Interventionen der psychoanalytischen Therapie</legend>
+                        <label><input type="checkbox" name="psychoanalytic-intervention"
+                                      value="Erforschen vergangener Erfahrungen und Beziehungen"> Erforschen
+                            vergangener Erfahrungen und Beziehungen</label><br>
+                        <label><input type="checkbox" name="psychoanalytic-intervention"
+                                      value="Untersuchen unbewusster Gedanken, Gefühle und Verhaltensweisen">
+                            Untersuchen unbewusster Gedanken, Gefühle und Verhaltensweisen</label><br>
+                        <label><input type="checkbox" name="psychoanalytic-intervention"
+                                      value="Analyse von Übertragung und Gegenübertragung"> Analyse von
+                            Übertragung und Gegenübertragung</label><br>
+                        <label><input type="checkbox" name="psychoanalytic-intervention"
+                                      value="Einsatz von freier Assoziation und Traumanalyse"> Einsatz von
+                            freier Assoziation und Traumanalyse</label><br>
+                        <label><input type="checkbox" name="psychoanalytic-intervention"
+                                      value="Deutung von Widerstand und Abwehrmechanismen"> Deutung von
+                            Widerstand und Abwehrmechanismen</label><br>
+                        <label><input type="checkbox" name="psychoanalytic-intervention"
+                                      value="Untersuchung der Beziehung zwischen dem Patienten und Therapeuten">
+                            Untersuchung der Beziehung zwischen dem Patienten und Therapeuten</label>
+                    </fieldset>
+
+                    <!-- Interventionen der Familientherapie -->
+                    <fieldset>
+                        <legend>Interventionen der Familientherapie</legend>
+                        <label><input type="checkbox" name="family-intervention"
+                                      value="Verbesserung der Kommunikation und der Problemlösungsfähigkeiten">
+                            Verbesserung der Kommunikation und der Problemlösungsfähigkeiten</label><br>
+                        <label><input type="checkbox" name="family-intervention"
+                                      value="Grenzziehung und Konfliktbewältigung"> Grenzziehung und
+                            Konfliktbewältigung</label><br>
+                        <label><input type="checkbox" name="family-intervention"
+                                      value="Erkennen und Ändern negativer Interaktionsmuster"> Erkennen und
+                            Ändern negativer Interaktionsmuster</label><br>
+                        <label><input type="checkbox" name="family-intervention"
+                                      value="Etablierung neuer Rollen und Regeln innerhalb der Familie">
+                            Etablierung neuer Rollen und Regeln innerhalb der Familie</label><br>
+                        <label><input type="checkbox" name="family-intervention"
+                                      value="Verwendung von Genogrammen, um die Familiendynamik zu verstehen">
+                            Verwendung von Genogrammen, um die Familiendynamik zu verstehen</label><br>
+                        <label><input type="checkbox" name="family-intervention"
+                                      value="Förderung von aktivem Zuhören und Einfühlungsvermögen"> Förderung
+                            von aktivem Zuhören und Einfühlungsvermögen</label><br>
+                        <label><input type="checkbox" name="family-intervention"
+                                      value="Perspektivenwechsel/-übernahme">
+                            Perspektivenwechsel/-übernahme</label>
+                    </fieldset>
+
+                    <!-- Interventionen der Gestalttherapie und erfahrungsbasierten Therapie -->
+                    <fieldset>
+                        <legend>Interventionen der Gestalttherapie und erfahrungsbasierten Therapie</legend>
+                        <label><input type="checkbox" name="gestalt-experiential-intervention"
+                                      value="Ermutigung bei der Konzentration auf den gegenwärtigen Moment und das unmittelbare Erleben">
+                            Ermutigung bei der Konzentration auf den gegenwärtigen Moment und das unmittelbare
+                            Erleben</label><br>
+                        <label><input type="checkbox" name="gestalt-experiential-intervention"
+                                      value="Ermutigung, die Gefühle und Gedanken in einer nicht wertenden Umgebung auszudrücken">
+                            Ermutigung, die Gefühle und Gedanken in einer nicht wertenden Umgebung
+                            auszudrücken</label><br>
+                        <label><input type="checkbox" name="gestalt-experiential-intervention"
+                                      value="Einsatz kreativer Techniken wie Rollenspiele, Traumarbeit oder Körperarbeit">
+                            Einsatz kreativer Techniken wie Rollenspiele, Traumarbeit oder
+                            Körperarbeit</label><br>
+                        <label><input type="checkbox" name="gestalt-experiential-intervention"
+                                      value="Unterstützung bei der Identifizierung und Übernahme von Verantwortung für eigene Gedanken und Handlungen">
+                            Unterstützung bei der Identifizierung und Übernahme von Verantwortung für eigene
+                            Gedanken und Handlungen</label><br>
+                        <label><input type="checkbox" name="gestalt-experiential-intervention"
+                                      value="Ermutigung der Patienten, Risiken einzugehen und neue Verhaltensweisen auszuprobieren">
+                            Ermutigung der Patienten, Risiken einzugehen und neue Verhaltensweisen
+                            auszuprobieren</label>
+                    </fieldset>
+
+                    <!-- Interventionen der emotionsfokussierten Therapie -->
+                    <fieldset>
+                        <legend>Interventionen der emotionsfokussierten Therapie</legend>
+                        <label><input type="checkbox" name="emotion-focused-intervention"
+                                      value="Emotionen erkennen und ausdrücken"> Emotionen erkennen und
+                            ausdrücken</label><br>
+                        <label><input type="checkbox" name="emotion-focused-intervention"
+                                      value="Verstehen der Funktion und Bedeutung von Emotionen"> Verstehen der
+                            Funktion und Bedeutung von Emotionen</label><br>
+                        <label><input type="checkbox" name="emotion-focused-intervention"
+                                      value="Reflexion über frühere Erfahrungen, die zu den aktuellen Emotionsmustern beigetragen haben könnten">
+                            Reflexion über frühere Erfahrungen, die zu den aktuellen Emotionsmustern beigetragen
+                            haben könnten</label><br>
+                        <label><input type="checkbox" name="emotion-focused-intervention"
+                                      value="Untersuchung und Veränderung negativer Muster der Emotionsregulation">
+                            Untersuchung und Veränderung negativer Muster der Emotionsregulation</label><br>
+                        <label><input type="checkbox" name="emotion-focused-intervention"
+                                      value="Entwicklung neuer und anpassungsfähigerer Wege im Umgang mit Emotionen">
+                            Entwicklung neuer und anpassungsfähigerer Wege im Umgang mit Emotionen</label>
+                    </fieldset>
+
+                    <!-- Interventionen der achtsamkeitsbasierten Therapie -->
+                    <fieldset>
+                        <legend>Interventionen der achtsamkeitsbasierten Therapie</legend>
+                        <label><input type="checkbox" name="mindfulness-intervention"
+                                      value="Vermittlung von Achtsamkeitstechniken wie Meditation und Atemübungen an Patienten">
+                            Vermittlung von Achtsamkeitstechniken wie Meditation und Atemübungen an
+                            Patienten</label><br>
+                        <label><input type="checkbox" name="mindfulness-intervention"
+                                      value="Hilfe für Patienten, sich ihrer Gedanken, Gefühle und Körperempfindungen bewusster zu werden">
+                            Hilfe für Patienten, sich ihrer Gedanken, Gefühle und Körperempfindungen bewusster
+                            zu werden</label><br>
+                        <label><input type="checkbox" name="mindfulness-intervention"
+                                      value="Ermutigung der Patienten, eine nicht wertende Haltung sich selbst und anderen gegenüber zu entwickeln">
+                            Ermutigung der Patienten, eine nicht wertende Haltung sich selbst und anderen
+                            gegenüber zu entwickeln</label>
+                    </fieldset>
+
+                    <!-- Interventionen der existenziellen Therapie -->
+                    <fieldset>
+                        <legend>Interventionen der existenziellen Therapie</legend>
+                        <label><input type="checkbox" name="existential-intervention"
+                                      value="Ermutigung der Patienten zur Auseinandersetzung mit den Fragen nach dem Sinn und Zweck des Lebens">
+                            Ermutigung der Patienten zur Auseinandersetzung mit den Fragen nach dem Sinn und
+                            Zweck des Lebens</label><br>
+                        <label><input type="checkbox" name="existential-intervention"
+                                      value="Unterstützung der Patienten bei der Suche nach Sinn und Zweck in schwierigen Lebenssituationen">
+                            Unterstützung der Patienten bei der Suche nach Sinn und Zweck in schwierigen
+                            Lebenssituationen</label><br>
+                        <label><input type="checkbox" name="existential-intervention"
+                                      value="Unterstützung des Patienten bei der Erforschung des eigenen Platzes in der Welt">
+                            Unterstützung des Patienten bei der Erforschung des eigenen Platzes in der
+                            Welt</label><br>
+                        <label><input type="checkbox" name="existential-intervention"
+                                      value="Ermutigung der Patienten zur Übernahme von Verantwortung für das eigene Leben">
+                            Ermutigung der Patienten zur Übernahme von Verantwortung für das eigene
+                            Leben</label>
+                    </fieldset>
+                </fieldset>
+            </div>
+        </fieldset>
+    </div>
+    <!-- ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG -->
+    <div class="form-section">
+        <fieldset>
+            <legend> ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG (N)</legend>
+            <div class="button">
+                <button onclick="open_menu(this)">Open/Close</button>
+            </div>
+
+            <!-- Therapieeinhaltung durch den Patienten -->
+            <div class="form-content" id="form-content16">
+                <div class="form-section">
+                    <label>Therapieeinhaltung durch den Patienten:</label><br>
+                    <input type="radio" id="compliance-good" name="compliance" value="gute Einhaltung">
+                    <label for="compliance-good">Gute Einhaltung</label><br>
+                    <input type="radio" id="compliance-moderate" name="compliance" value="mässige Einhaltung">
+                    <label for="compliance-moderate">Mässige Einhaltung</label><br>
+                    <input type="radio" id="compliance-poor" name="compliance" value="schlechte Einhaltung">
+                    <label for="compliance-poor">Schlechte Einhaltung</label>
+                </div>
+
+                <!-- Auswirkungen der durchgeführten Behandlung auf spezifische psychopathologische Symptome -->
+                <div class="form-section">
+                    <label for="symptom-name">Auswirkungen der durchgeführten Behandlung auf spezifische
+                        psychopathologische Symptome:</label><br>
+                    <input type="text" id="symptom-name" name="symptom-name"
+                           placeholder="Namen von Symptomen"><br>
+                    <input type="radio" id="symptom-significant-improvement" name="symptom-effect"
+                           value="deutliche Verbesserung">
+                    <label for="symptom-significant-improvement">Deutliche Verbesserung</label><br>
+                    <input type="radio" id="symptom-slight-improvement" name="symptom-effect"
+                           value="leichte Verbesserung">
+                    <label for="symptom-slight-improvement">Leichte Verbesserung</label><br>
+                    <input type="radio" id="symptom-no-change" name="symptom-effect" value="keine Veränderung">
+                    <label for="symptom-no-change">Keine Veränderung</label><br>
+                    <input type="radio" id="symptom-slight-worsening" name="symptom-effect"
+                           value="leichte Verschlechterung">
+                    <label for="symptom-slight-worsening">Leichte Verschlechterung</label><br>
+                    <input type="radio" id="symptom-significant-worsening" name="symptom-effect"
+                           value="deutliche Verschlechterung">
+                    <label for="symptom-significant-worsening">Deutliche Verschlechterung</label>
+                </div>
+
+                <!-- Auswirkungen der durchgeführten Behandlung auf soziale Funktionsfähigkeit -->
+                <div class="form-section">
+                    <label>Auswirkungen der durchgeführten Behandlung auf soziale
+                        Funktionsfähigkeit:</label><br>
+                    <input type="radio" id="social-function-significant-improvement" name="social-function"
+                           value="deutliche Verbesserung">
+                    <label for="social-function-significant-improvement">Deutliche Verbesserung</label><br>
+                    <input type="radio" id="social-function-slight-improvement" name="social-function"
+                           value="leichte Verbesserung">
+                    <label for="social-function-slight-improvement">Leichte Verbesserung</label><br>
+                    <input type="radio" id="social-function-no-change" name="social-function"
+                           value="keine Veränderung">
+                    <label for="social-function-no-change">Keine Veränderung</label><br>
+                    <input type="radio" id="social-function-slight-worsening" name="social-function"
+                           value="leichte Verschlechterung">
+                    <label for="social-function-slight-worsening">Leichte Verschlechterung</label><br>
+                    <input type="radio" id="social-function-significant-worsening" name="social-function"
+                           value="deutliche Verschlechterung">
+                    <label for="social-function-significant-worsening">Deutliche Verschlechterung</label>
+                </div>
+
+                <!-- Auswirkungen der durchgeführten Behandlung auf die Beziehungen zu Familienmitgliedern -->
+                <div class="form-section">
+                    <label>Auswirkungen der durchgeführten Behandlung auf die Beziehungen zu
+                        Familienmitgliedern:</label><br>
+                    <input type="radio" id="family-relations-significant-improvement" name="family-relations"
+                           value="deutliche Verbesserung">
+                    <label for="family-relations-significant-improvement">Deutliche Verbesserung</label><br>
+                    <input type="radio" id="family-relations-slight-improvement" name="family-relations"
+                           value="leichte Verbesserung">
+                    <label for="family-relations-slight-improvement">Leichte Verbesserung</label><br>
+                    <input type="radio" id="family-relations-no-change" name="family-relations"
+                           value="keine Veränderung">
+                    <label for="family-relations-no-change">Keine Veränderung</label><br>
+                    <input type="radio" id="family-relations-slight-worsening" name="family-relations"
+                           value="leichte Verschlechterung">
+                    <label for="family-relations-slight-worsening">Leichte Verschlechterung</label><br>
+                    <input type="radio" id="family-relations-significant-worsening" name="family-relations"
+                           value="deutliche Verschlechterung">
+                    <label for="family-relations-significant-worsening">Deutliche Verschlechterung</label>
+                </div>
+
+                <!-- Auswirkungen der durchgeführten Behandlung auf allgemeine Anpassung -->
+                <div class="form-section">
+                    <label>Auswirkungen der durchgeführten Behandlung auf allgemeine Anpassung:</label><br>
+                    <input type="radio" id="general-adjustment-significant-improvement"
+                           name="general-adjustment" value="deutliche Verbesserung">
+                    <label for="general-adjustment-significant-improvement">Deutliche Verbesserung</label><br>
+                    <input type="radio" id="general-adjustment-slight-improvement" name="general-adjustment"
+                           value="leichte Verbesserung">
+                    <label for="general-adjustment-slight-improvement">Leichte Verbesserung</label><br>
+                    <input type="radio" id="general-adjustment-no-change" name="general-adjustment"
+                           value="keine Veränderung">
+                    <label for="general-adjustment-no-change">Keine Veränderung</label><br>
+                    <input type="radio" id="general-adjustment-slight-worsening" name="general-adjustment"
+                           value="leichte Verschlechterung">
+                    <label for="general-adjustment-slight-worsening">Leichte Verschlechterung</label><br>
+                    <input type="radio" id="general-adjustment-significant-worsening" name="general-adjustment"
+                           value="deutliche Verschlechterung">
+                    <label for="general-adjustment-significant-worsening">Deutliche Verschlechterung</label>
+                </div>
+
+                <!-- Auswirkungen der durchgeführten Behandlung auf die allgemeine Lebensqualität -->
+                <div class="form-section">
+                    <label>Auswirkungen der durchgeführten Behandlung auf die allgemeine Lebensqualität:</label><br>
+                    <input type="radio" id="life-quality-significant-improvement" name="life-quality"
+                           value="deutliche Verbesserung">
+                    <label for="life-quality-significant-improvement">Deutliche Verbesserung</label><br>
+                    <input type="radio" id="life-quality-slight-improvement" name="life-quality"
+                           value="leichte Verbesserung">
+                    <label for="life-quality-slight-improvement">Leichte Verbesserung</label><br>
+                    <input type="radio" id="life-quality-no-change" name="life-quality"
+                           value="keine Veränderung">
+                    <label for="life-quality-no-change">Keine Veränderung</label><br>
+                    <input type="radio" id="life-quality-slight-worsening" name="life-quality"
+                           value="leichte Verschlechterung">
+                    <label for="life-quality-slight-worsening">Leichte Verschlechterung</label><br>
+                    <input type="radio" id="life-quality-significant-worsening" name="life-quality"
+                           value="deutliche Verschlechterung">
+                    <label for="life-quality-significant-worsening">Deutliche Verschlechterung</label>
+                </div>
+
+                <!-- Beurteilung des Therapieerfolgs -->
+                <div class="form-section">
+                    <label>Beurteilung des Therapieerfolgs:</label><br>
+                    <input type="radio" id="therapy-successful" name="therapy-outcome" value="erfolgreich">
+                    <label for="therapy-successful">Erfolgreich</label><br>
+                    <input type="radio" id="therapy-partially-successful" name="therapy-outcome"
+                           value="teilweise erfolgreich">
+                    <label for="therapy-partially-successful">Teilweise erfolgreich</label><br>
+                    <input type="radio" id="therapy-not-successful" name="therapy-outcome"
+                           value="nicht erfolgreich">
+                    <label for="therapy-not-successful">Nicht erfolgreich</label>
+                </div>
+
+                <!-- Standardisierte Bewertungsinstrumente -->
+                <div class="form-section">
+                    <label for="standardized-tools">Standardisierte Bewertungsinstrumente, die zur Messung des
+                        Fortschritts und zur Bewertung des Behandlungserfolgs verwendet wurden:</label>
+                    <input type="text" id="standardized-tools" name="standardized-tools">
+                </div>
+
+                <!-- Individuelle Aspekte oder Besonderheiten der Entwicklung des Patienten -->
+                <div class="form-section">
+                    <label for="individual-aspects">Individuelle Aspekte oder Besonderheiten der Entwicklung des
+                        Patienten:</label>
+                    <textarea id="individual-aspects" name="individual-aspects" rows="4"></textarea>
+                </div>
+
+                <!-- Umstände der Behandlungsbeendigung -->
+                <div class="form-section">
+                    <label>Umstände der Behandlungsbeendigung:</label><br>
+                    <input type="radio" id="termination-mutual" name="termination"
+                           value="einvernehmliche Entscheidung">
+                    <label for="termination-mutual">Einvernehmliche Entscheidung</label><br>
+                    <input type="radio" id="termination-patient-initiated" name="termination"
+                           value="patienteninitiierte Beendigung">
+                    <label for="termination-patient-initiated">Patienteninitiierte Beendigung</label><br>
+                    <input type="radio" id="termination-therapist-initiated" name="termination"
+                           value="therapeuteninitiierte Beendigung">
+                    <label for="termination-therapist-initiated">Therapeuteninitiierte Beendigung</label><br>
+                    <input type="radio" id="termination-facility-change" name="termination"
+                           value="Patient wechselte die Einrichtung">
+                    <label for="termination-facility-change">Patient wechselte die Einrichtung</label><br>
+                    <input type="radio" id="termination-other" name="termination" value="Andere">
+                    <label for="termination-other">Andere:</label>
+                    <input type="text" id="termination-other-text" name="termination-other-text">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- PLAN NACH DEM BEHANDLUNGSABSCHLUSS / NACH DER ENTLASSUNG -->
+        <div class="form-section">
+            <fieldset>
+                <legend> PLAN NACH DEM BEHANDLUNGSABSCHLUSS / NACH DER ENTLASSUNG</legend>
+                <div class="button">
+                    <button onclick="open_menu(this)">Open/Close</button>
+                </div>
+
+                <!-- Art der weiteren medizinischen/psychiatrisch psychotherapeutischen Versorgung -->
+                <div class="form-content" id="form-content17">
+                    <label for="ambulant">Art der weiteren medizinischen/psychiatrisch psychotherapeutischen
+                        Versorgung:</label><br>
+                    <input type="radio" id="ambulant" name="versorgung" value="ambulant">
+                    <label for="ambulant">Ambulant</label><br>
+                    <input type="radio" id="teilstationär" name="versorgung" value="teilstationär">
+                    <label for="teilstationär">Teilstationär</label><br>
+                    <input type="radio" id="stationär" name="versorgung" value="stationär">
+                    <label for="stationär">Stationär</label><br>
+                    <input type="radio" id="keine_weitere_versorgung" name="versorgung"
+                           value="keine weitere Versorgung erforderlich">
+                    <label for="keine_weitere_versorgung">Keine weitere Versorgung erforderlich</label><br>
+
+                    <!-- Verantwortliche Einrichtung oder Fachperson für die weitere Versorgung -->
+                    <label for="verantwortliche">Verantwortliche Einrichtung oder Fachperson für die weitere
+                        Versorgung:</label>
+                    <input type="text" id="verantwortliche" name="verantwortliche">
+
+                    <!-- Empfohlene medikamentöse Behandlung nach Entlassung -->
+                    <label for="medikament">Empfohlene medikamentöse Behandlung nach Entlassung:</label>
+                    <input type="text" id="medikament" name="medikament">
+
+                    <!-- Anforderung weiterer Rezepte für Medikamente -->
+                    <label for="rezepte">Anforderung weiterer Rezepte für Medikamente:</label>
+                    <input type="text" id="rezepte" name="rezepte">
+
+                    <!-- Soziale Dienste und Unterstützung -->
+                    <label for="soziale_dienste">Soziale Dienste und Unterstützung:</label>
+                    <input type="text" id="soziale_dienste" name="soziale_dienste">
+
+                    <!-- Lebensstiländerungen oder -empfehlungen -->
+                    <label for="lebensstil">Lebensstiländerungen oder -empfehlungen:</label>
+                    <input type="text" id="lebensstil" name="lebensstil">
+
+                    <!-- Eventuelle Sicherheitsbedenken oder Risikofaktoren -->
+                    <label for="sicherheitsbedenken">Eventuelle Sicherheitsbedenken oder Risikofaktoren:</label>
+                    <input type="text" id="sicherheitsbedenken" name="sicherheitsbedenken">
+
+                    <!-- Individuelle Aspekte oder Anweisungen für die Nachsorge -->
+                    <label for="individuelle_aspekte">Individuelle Aspekte oder Anweisungen für die
+                        Nachsorge:</label>
+                    <input type="text" id="individuelle_aspekte" name="individuelle_aspekte">
+                </div>
+            </fieldset>
+        </div>
+
+
+        <button type="button" onclick="generateReport()">Bericht generieren</button>
+    </div>
+    <!-- </div> -->
+</form>
+<div id="results"></div>
+
+
+<script src="scripts.js"></script>
+<div style="text-align:right;position:fixed;z-index:9999999;bottom:0;width:auto;right:1%;cursor:pointer;line-height:0;display:block!important"><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&utm_campaign=000_logo&utm_medium=website&utm_content=footer_img"><img src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png" alt="www.000webhost.com"></a></div><script>function getCookie(t){for(var e=t+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(e))return i.substring(e.length,i.length)}return""}getCookie("hostinger")&&(document.cookie="hostinger=;expires=Thu, 01 Jan 1970 00:00:01 GMT;",location.reload());var wordpressAdminBody=document.getElementsByClassName("wp-admin")[0],notification=document.getElementsByClassName("notice notice-success is-dismissible"),hostingerLogo=document.getElementsByClassName("hlogo"),mainContent=document.getElementsByClassName("notice_content")[0];if(null!=wordpressAdminBody&&0<notification.length&&null!=mainContent){var googleFont=document.createElement("link");googleFontHref=document.createAttribute("href"),googleFontRel=document.createAttribute("rel"),googleFontHref.value="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700",googleFontRel.value="stylesheet",googleFont.setAttributeNode(googleFontHref),googleFont.setAttributeNode(googleFontRel);var css="@media only screen and (max-width: 576px) {#main_content {max-width: 320px !important;} #main_content h1 {font-size: 30px !important;} #main_content h2 {font-size: 40px !important; margin: 20px 0 !important;} #main_content p {font-size: 14px !important;} #main_content .content-wrapper {text-align: center !important;}} @media only screen and (max-width: 781px) {#main_content {margin: auto; justify-content: center; max-width: 445px;}} @media only screen and (max-width: 1325px) {.web-hosting-90-off-image-wrapper {position: absolute; max-width: 95% !important;} .notice_content {justify-content: center;} .web-hosting-90-off-image {opacity: 1;}} @media only screen and (min-width: 769px) {.notice_content {justify-content: space-between;} #main_content {margin-left: 5%; max-width: 445px;} .web-hosting-90-off-image-wrapper {position: absolute; display: flex; justify-content: center; width: 50%; margin-left: 45%;}} .web-hosting-90-off-image {max-width: 90%;} .content-wrapper {min-height: 454px; display: flex; flex-direction: column; justify-content: center; z-index: 5} .notice_content {display: flex; align-items: center;} * {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .upgrade_button_red_sale{box-shadow: 0 2px 4px 0 rgba(255, 69, 70, 0.2); width: 264px; border: 0; border-radius: 3px; background-color: #FF5C62 !important; padding: 15px 55px !important; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; color: #ffffff;} .upgrade_button_red_sale:hover{color: #ffffff !important; background: #d10303 !important;}",style=document.createElement("style"),sheet=window.document.styleSheets[0];style.styleSheet?style.styleSheet.cssText=css:style.appendChild(document.createTextNode(css)),document.getElementsByTagName("head")[0].appendChild(style),document.getElementsByTagName("head")[0].appendChild(googleFont);var button=document.getElementsByClassName("upgrade_button_red")[0],link=button.parentElement;link.setAttribute("href","https://www.hostinger.com/hosting-starter-offer?utm_source=000webhost&utm_medium=panel&utm_campaign=000-wp"),link.innerHTML='<button class="upgrade_button_red_sale">Claim Deal</button>',(notification=notification[0]).setAttribute("style","padding-bottom: 0; padding-top: 5px; background-color: #040713; background-size: cover; background-repeat: no-repeat; color: #ffffff; border-left-color: #040713;"),notification.className="notice notice-error is-dismissible";var mainContentHolder=document.getElementById("main_content");mainContentHolder.setAttribute("style","padding: 0;"),hostingerLogo[0].remove();var h1Tag=notification.getElementsByTagName("H1")[0];h1Tag.className="000-h1",h1Tag.innerHTML="Black Friday",h1Tag.setAttribute("style",'color: white; font-family: "Roboto", sans-serif; font-size: 48px; font-weight: 700;');var h2Tag=document.createElement("H2");h2Tag.innerHTML="Up to 90% off 4-year hosting plans + free domain, SSL & DDoS protection",h2Tag.setAttribute("style",'color: white; margin: 10px 0 15px 0; font-family: "Roboto", sans-serif; font-size: 16px; font-weight: 400; line-height: 1;'),h1Tag.parentNode.insertBefore(h2Tag,h1Tag.nextSibling);var paragraph=notification.getElementsByTagName("p")[0];paragraph.innerHTML="$<span style='font-size: 80px;'>2.49</span>/mo",paragraph.setAttribute("style",'font-family: "Roboto", sans-serif; font-size: 48px; font-weight: 700; margin: 0;');var list=notification.getElementsByTagName("UL")[0];list.remove();var org_html=mainContent.innerHTML,new_html='<div class="content-wrapper">'+mainContent.innerHTML+'</div><div class="web-hosting-90-off-image-wrapper"><img class="web-hosting-90-off-image" src="https://cdn.000webhost.com/000webhost/promotions/bf-2022-bottom-banner.png"></div>';mainContent.innerHTML=new_html;var saleImage=mainContent.getElementsByClassName("web-hosting-90-off-image")[0]}</script></body>
+</html>

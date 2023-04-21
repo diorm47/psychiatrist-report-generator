@@ -1,0 +1,139 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.med-form {
+  display: none;
+}
+.med-form-display {
+  display: block;
+}
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+legend {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 5px;
+}
+.active {
+  display: block;
+}
+label {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+textarea {
+  resize: vertical;
+}
+input[type="text"],
+textarea,
+select {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.form-section {
+  margin-bottom: 30px;
+}
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+#results {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  white-space: pre-wrap;
+}
+
+legend {
+  cursor: pointer;
+}
+.button {
+  text-align: right;
+}
+.form-content {
+  display: none;
+}
+.form-content_animation {
+  display: block;
+}
+.symptom-block {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: lightgreen;
+}
+#results {
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.choice_menu .choice_part {
+  display: none;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  background-color: #4caf50;
+  color: white;
+  padding: 5px;
+  border-radius: 50px;
+}
+.choice_menu .choice_part_style {
+  background-color: black;
+}
+.choice_menu .choice_part_animation {
+  display: grid;
+}
+.choice_menu {
+  display: flex;
+  margin-bottom: 20px;
+  /*display: none;*/
+}
+.choice_menu .choice_part {
+  margin-top: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.choice_menu .choice_part:hover {
+  transition: all 0.5s ease;
+  background-color: #09aa0e;
+}
+.choice_menu .choice_part p {
+  font-size: 12px;
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: 0.5s;
+}
+
+.choice_menu .choice_part span {
+  font-size: 23px;
+  transition: 0.5s;
+}
+
+.choice_menu .cross {
+  border-left: 1.6px solid black;
+  padding-left: 6px;
+}
