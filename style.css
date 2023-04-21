@@ -107,18 +107,13 @@ legend {
 }
 .choice_menu {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 20px;
   /*display: none;*/
 }
 .choice_menu .choice_part {
   margin-top: 30px;
   margin-right: 10px;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-.choice_menu .choice_part:hover {
-  transition: all 0.5s ease;
-  background-color: #09aa0e;
 }
 .choice_menu .choice_part p {
   font-size: 12px;
@@ -127,12 +122,16 @@ legend {
   padding-right: 5px;
   transition: 0.5s;
 }
-
+.choice_menu .choice_part p:hover {
+  color: black;
+}
 .choice_menu .choice_part span {
   font-size: 23px;
   transition: 0.5s;
 }
-
+.choice_menu .choice_part span:hover {
+  color: black;
+}
 .choice_menu .cross {
   border-left: 1.6px solid black;
   padding-left: 6px;
