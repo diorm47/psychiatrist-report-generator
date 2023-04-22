@@ -115,6 +115,9 @@ legend {
   margin-top: 30px;
   margin-right: 10px;
 }
+.other-problems div {
+  display: grid;
+}
 .choice_menu .choice_part p {
   font-size: 12px;
   margin: 0;
