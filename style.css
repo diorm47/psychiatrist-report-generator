@@ -30,6 +30,9 @@ label {
   display: inline-block;
   margin-bottom: 10px;
 }
+label.chechbox_title {
+  font-weight: 700;
+}
 textarea {
   resize: vertical;
 }
@@ -114,9 +117,6 @@ legend {
 .choice_menu .choice_part {
   margin-top: 30px;
   margin-right: 10px;
-}
-.other-problems div {
-  display: grid;
 }
 .choice_menu .choice_part p {
   font-size: 12px;

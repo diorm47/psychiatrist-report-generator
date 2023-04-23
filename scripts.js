@@ -1,12 +1,124 @@
+// function generateReport() {
+//     const inputs = document.querySelectorAll('input');
+//     const report = document.getElementById('results');
+//     for (let i=0; i < inputs.length; i++){
+//         if (inputs[i].type == "radio"){
+//             if (inputs[i].value != ""){
+//                 parent = inputs[i].parentElement;
+//                 label = parent.querySelector('label');
+//                 if (inputs[i].checked){
+//                     const fieldset = inputs[i].closest('fieldset');
+//                     const legend = fieldset.querySelector('legend');
+//                     if (!report.textContent.includes(legend.textContent)){
+//                         report.textContent = report.textContent + legend.textContent + '\n';
+//                     }
+//                     report.textContent =  report.textContent + label.textContent.replace(/\s+/g, ' ').trim() + ' ' + inputs[i].value + '\n';
+//                 }
+//             }
+//             // if (inputs[i].name == "discontinuation_outcome" && inputs[i].value == "no_changes"){
+//             //     report.textContent = report.textContent + document.querySelectorAll('textarea')[0];
+//             // }
+
+//         } else if (inputs[i].type == "checkbox"){
+//             parent = inputs[i].parentElement;
+//             label = parent.querySelector('label');
+//             if (inputs[i].checked && label){
+//                 if (!report.textContent.includes(label.textContent)){
+//                     const fieldset = inputs[i].closest('fieldset');
+//                     const legend = fieldset.querySelector('legend');
+//                     if (!report.textContent.includes(legend.textContent)){
+//                         report.textContent = report.textContent + legend.textContent + '\n';
+//                     }
+//                     report.textContent = report.textContent + label.textContent.replace(/\s+/g, ' ').trim() + inputs[i].value.split('\n') + ', ';
+//                 }else{
+//                     const fieldset = inputs[i].closest('fieldset');
+//                     const legend = fieldset.querySelector('legend');
+//                     if (!report.textContent.includes(legend.textContent)){
+//                         report.textContent = report.textContent + legend.textContent + '\n';
+//                     }
+//                     report.textContent =  report.textContent + ', ' + inputs[i].value.replace(/\s+/g, ' ').trim();
+//                 }
+
+//             }else if (inputs[i].checked && label == null && parent.parentElement.querySelector('h3') != null){
+//                 if (!report.textContent.includes(parent.parentElement.querySelector('h3').textContent)){
+//                     const fieldset = inputs[i].closest('fieldset');
+//                     const legend = fieldset.querySelector('legend');
+//                     if (!report.textContent.includes(legend.textContent)){
+//                         report.textContent = report.textContent + legend.textContent + '\n';
+//                     }
+//                     report.textContent += '\n';
+//                     report.textContent =   report.textContent + parent.parentElement.querySelector('h3').textContent.replace(/\s+/g, ' ').trim() + ': ' + inputs[i].value.split('\n') + ', ';
+//                 }else{
+//                     const fieldset = inputs[i].closest('fieldset');
+//                     const legend = fieldset.querySelector('legend');
+//                     if (!report.textContent.includes(legend.textContent)){
+//                         report.textContent = report.textContent + legend.textContent + '\n';
+//                     }
+//                     report.textContent = report.textContent + ', '  + inputs[i].value.split('\n') ;
+//                 }
+
+//             } else if (inputs[i].checked && label == null && parent.parentElement.parentElement.querySelector('legend') != null ){
+//                 if (!report.textContent.includes(parent.parentElement.parentElement.querySelector('legend').textContent)){
+//                     const fieldset = inputs[i].closest('fieldset');
+//                     const legend = fieldset.querySelector('legend');
+//                     if (!report.textContent.includes(legend.textContent)){
+//                         report.textContent = report.textContent + legend.textContent + '\n';
+//                     }
+//                     report.textContent += '\n';
+//                     report.textContent =   report.textContent + parent.parentElement.parentElement.querySelector('legend').textContent.replace(/\s+/g, ' ').trim() + ': ' + inputs[i].value.split('\n') + ', ';
+//                 }else{
+//                     const fieldset = inputs[i].closest('fieldset');
+//                     const legend = fieldset.querySelector('legend');
+//                     if (!report.textContent.includes(legend.textContent)){
+//                         report.textContent = report.textContent + legend.textContent + '\n';
+//                     }
+//                     report.textContent = report.textContent + ', '  + inputs[i].value.split('\n');
+//                 }
+//             }
+
+//         }else{
+//             if (inputs[i].value != ""){
+//                 const fieldset = inputs[i].closest('fieldset');
+//                 const legend = fieldset.querySelector('legend');
+//                 if (!report.textContent.includes(legend.textContent)){
+//                     report.textContent = report.textContent + legend.textContent + '\n';
+//                 }
+//                 report.textContent =  report.textContent + inputs[i].previousElementSibling.textContent.replace(/\s+/g, ' ').trim() + ' ' + inputs[i].value + '\n';
+//             }
+//             if (inputs[i].id == "standardized-tools" && inputs[i].name == "standardized-tools"){
+//                 const fieldset = inputs[i].closest('fieldset');
+//                 const legend = fieldset.querySelector('legend');
+//                 if (!report.textContent.includes(legend.textContent)){
+//                     report.textContent = report.textContent + legend.textContent + '\n';
+//                 }
+//                 report.textContent = report.textContent + document.querySelectorAll('textarea')[1].previousElementSibling.textContent.replace(/\s+/g, ' ').trim() + ' ' + document.querySelectorAll('textarea')[1].value + '\n';
+//             }
+
+//         }
+//         report.textContent = report.textContent.replace(/,\s*$/, "");
+//     }
+// }
+
 function generateReport() {
   const inputs = document.querySelectorAll("input");
   const report = document.getElementById("results");
   for (let i = 0; i < inputs.length; i++) {
-    if (inputs[i].type == "radio") {
+    if (inputs[i].type == "text") {
+      const label = inputs[i].previousElementSibling;
       if (inputs[i].value != "") {
-        parent = inputs[i].parentElement;
-        label = parent.querySelector("label");
-        if (inputs[i].checked) {
+        const fieldset = inputs[i].closest("fieldset");
+        const legend = fieldset.querySelector("legend");
+        if (legend) {
+          if (!report.textContent.includes(legend.textContent)) {
+            report.textContent = report.textContent + legend.textContent + "\n";
+          }
+          report.textContent =
+            report.textContent +
+            label.textContent.replace(/\s+/g, " ").trim() +
+            " " +
+            inputs[i].value +
+            "\n";
+        } else {
           report.textContent =
             report.textContent +
             label.textContent.replace(/\s+/g, " ").trim() +
@@ -15,37 +127,202 @@ function generateReport() {
             "\n";
         }
       }
-      if (
-        inputs[i].name == "discontinuation_outcome" &&
-        inputs[i].value == "no_changes"
-      ) {
-        report.textContent =
-          report.textContent +
-          document
-            .querySelectorAll("textarea")[0]
-            .previousElementSibling.textContent.replace(/\s+/g, " ")
-            .trim() +
-          " " +
-          document.querySelectorAll("textarea")[0].value +
-          "\n";
+    } else if (inputs[i].type == "radio") {
+      if (inputs[i].value != "") {
+        const parent = inputs[i].parentElement;
+        let label = parent.querySelector("label");
+        if (parent.tagName == "LABEL") {
+          label = parent.parentElement.querySelector("label");
+        }
+
+        if (inputs[i].checked) {
+          const fieldset = inputs[i].closest("fieldset");
+          const legend = fieldset.querySelector("legend");
+          if (!report.textContent.includes(legend.textContent)) {
+            report.textContent = report.textContent + legend.textContent + "\n";
+          }
+          report.textContent =
+            report.textContent +
+            label.textContent.replace(/\s+/g, " ").trim() +
+            " " +
+            inputs[i].value +
+            "\n";
+        }
       }
     } else if (inputs[i].type == "checkbox") {
       parent = inputs[i].parentElement;
       label = parent.querySelector("label");
-      if (inputs[i].checked && label) {
+      const fieldset = inputs[i].closest("fieldset");
+      const legend = fieldset.querySelector("legend");
+      if (
+        parent.parentElement.querySelector("label").textContent ==
+        "Probleme im Zusammenhang mit Angst:"
+      ) {
+        if (inputs[i].checked) {
+          if (
+            !report.textContent.includes(
+              parent.parentElement.querySelector("label").textContent
+            )
+          ) {
+            if (legend) {
+              if (!report.textContent.includes(legend.textContent)) {
+                report.textContent =
+                  report.textContent + legend.textContent + "\n";
+              }
+            }
+            report.textContent =
+              report.textContent +
+              "\n" +
+              parent.parentElement.querySelector("label").textContent +
+              " " +
+              inputs[i].value;
+          } else {
+            report.textContent = report.textContent + ", " + inputs[i].value;
+          }
+        }
+      } else if (
+        parent.parentElement.querySelector("label").innerText ==
+        "Probleme im Zusammenhang mit Emotionen, Stimmung und Emotionsregulation:"
+      ) {
+        if (inputs[i].checked) {
+          if (
+            !report.textContent.includes(
+              "Probleme im Zusammenhang mit Emotionen, Stimmung und Emotionsregulation:"
+            )
+          ) {
+            report.textContent =
+              report.textContent +
+              "\n" +
+              "Probleme im Zusammenhang mit Emotionen, Stimmung und Emotionsregulation:" +
+              inputs[i].value;
+            if (legend) {
+              if (!report.textContent.includes(legend.textContent)) {
+                report.textContent =
+                  report.textContent + legend.textContent + "\n";
+              }
+            }
+          } else {
+            report.textContent = report.textContent + ", " + inputs[i].value;
+          }
+        }
+      } else if (
+        parent.parentElement.querySelector("label").innerText ==
+        "Probleme im Zusammenhang mit Impulskontrolle:"
+      ) {
+        if (inputs[i].checked) {
+          if (
+            !report.textContent.includes(
+              "Probleme im Zusammenhang mit Impulskontrolle:"
+            )
+          ) {
+            if (legend) {
+              if (!report.textContent.includes(legend.textContent)) {
+                report.textContent =
+                  report.textContent + legend.textContent + "\n";
+              }
+            }
+            report.textContent =
+              report.textContent +
+              "\n" +
+              "Probleme im Zusammenhang mit Impulskontrolle:" +
+              inputs[i].value;
+          } else {
+            report.textContent = report.textContent + ", " + inputs[i].value;
+          }
+        }
+      } else if (
+        parent.parentElement.querySelector("label").innerText ==
+        "Probleme im Zusammenhang mit Kommunikation und Beziehungen:"
+      ) {
+        if (inputs[i].checked) {
+          if (
+            !report.textContent.includes(
+              "Probleme im Zusammenhang mit Kommunikation und Beziehungen:"
+            )
+          ) {
+            if (legend) {
+              if (!report.textContent.includes(legend.textContent)) {
+                report.textContent =
+                  report.textContent + legend.textContent + "\n";
+              }
+            }
+            report.textContent =
+              report.textContent +
+              "\n" +
+              "Probleme im Zusammenhang mit Kommunikation und Beziehungen:" +
+              inputs[i].value;
+          } else {
+            report.textContent = report.textContent + ", " + inputs[i].value;
+          }
+        }
+      } else if (
+        parent.parentElement.querySelector("label").innerText ==
+          "Probleme im Zusammenhang mit den kognitiven Funktionen:" ||
+        parent.parentElement.querySelector("label").innerText ==
+          "Probleme im Zusammenhang mit eigenem Selbst:" ||
+        parent.parentElement.querySelector("label").innerText ==
+          "Probleme im Zusammenhang mit der psychischen Anpassung:" ||
+        parent.parentElement.querySelector("label").innerText ==
+          "Probleme im Zusammenhang mit der Erfahrung von Trauma und Missbrauch:" ||
+        parent.parentElement.querySelector("label").innerText ==
+          "Probleme im Zusammenhang mit körperlichen und psychosomatischen Faktoren:" ||
+        parent.parentElement.querySelector("label").innerText ==
+          "Sonstige Probleme:"
+      ) {
+        if (inputs[i].checked) {
+          if (
+            !report.textContent.includes(
+              parent.parentElement.querySelector("label").textContent
+            )
+          ) {
+            if (legend) {
+              if (!report.textContent.includes(legend.textContent)) {
+                report.textContent =
+                  report.textContent + legend.textContent + "\n";
+              }
+            }
+            report.textContent =
+              report.textContent +
+              "\n" +
+              parent.parentElement.querySelector("label").textContent +
+              inputs[i].value;
+          } else {
+            report.textContent = report.textContent + ", " + inputs[i].value;
+          }
+        }
+      } else if (inputs[i].checked && label) {
         if (!report.textContent.includes(label.textContent)) {
-          report.textContent += "\n";
+          const fieldset = inputs[i].closest("fieldset");
+          const legend = fieldset.querySelector("legend");
+          if (!report.textContent.includes(legend.textContent)) {
+            if (legend) {
+              if (!report.textContent.includes(legend.textContent)) {
+                report.textContent =
+                  report.textContent + legend.textContent + "\n";
+              }
+            }
+            report.textContent = report.textContent + "\n" + legend.textContent;
+          }
           report.textContent =
             report.textContent +
             label.textContent.replace(/\s+/g, " ").trim() +
-            inputs[i].value.split("\n") +
-            ",";
+            inputs[i].value.split("\n");
         } else {
+          const fieldset = inputs[i].closest("fieldset");
+          const legend = fieldset.querySelector("legend");
+          if (!report.textContent.includes(legend.textContent)) {
+            if (legend) {
+              if (!report.textContent.includes(legend.textContent)) {
+                report.textContent =
+                  report.textContent + legend.textContent + "\n";
+              }
+            }
+            report.textContent = report.textContent + "\n" + legend.textContent;
+          }
           report.textContent =
             report.textContent +
-            " " +
-            inputs[i].value.replace(/\s+/g, " ").trim() +
-            ",";
+            ", " +
+            inputs[i].value.replace(/\s+/g, " ").trim();
         }
       } else if (
         inputs[i].checked &&
@@ -57,6 +334,11 @@ function generateReport() {
             parent.parentElement.querySelector("h3").textContent
           )
         ) {
+          const fieldset = inputs[i].closest("fieldset");
+          const legend = fieldset.querySelector("legend");
+          if (!report.textContent.includes(legend.textContent)) {
+            report.textContent = report.textContent + "\n" + legend.textContent;
+          }
           report.textContent += "\n";
           report.textContent =
             report.textContent +
@@ -65,11 +347,15 @@ function generateReport() {
               .textContent.replace(/\s+/g, " ")
               .trim() +
             ": " +
-            inputs[i].value.split("\n") +
-            ", ";
+            inputs[i].value.split("\n");
         } else {
+          const fieldset = inputs[i].closest("fieldset");
+          const legend = fieldset.querySelector("legend");
+          if (!report.textContent.includes(legend.textContent)) {
+            report.textContent = report.textContent + "\n" + legend.textContent;
+          }
           report.textContent =
-            report.textContent + inputs[i].value.split("\n") + ", ";
+            report.textContent + ", " + inputs[i].value.split("\n");
         }
       } else if (
         inputs[i].checked &&
@@ -82,6 +368,11 @@ function generateReport() {
               .textContent
           )
         ) {
+          const fieldset = inputs[i].closest("fieldset");
+          const legend = fieldset.querySelector("legend");
+          if (!report.textContent.includes(legend.textContent)) {
+            report.textContent = report.textContent + "\n" + legend.textContent;
+          }
           report.textContent += "\n";
           report.textContent =
             report.textContent +
@@ -90,41 +381,22 @@ function generateReport() {
               .textContent.replace(/\s+/g, " ")
               .trim() +
             ": " +
-            inputs[i].value.split("\n") +
-            ", ";
+            inputs[i].value.split("\n");
         } else {
+          const fieldset = inputs[i].closest("fieldset");
+          const legend = fieldset.querySelector("legend");
+          if (!report.textContent.includes(legend.textContent)) {
+            report.textContent = report.textContent + "\n" + legend.textContent;
+          }
           report.textContent =
-            report.textContent + inputs[i].value.split("\n") + ", ";
+            report.textContent + ", " + inputs[i].value.split("\n");
         }
       }
-    } else {
-      if (inputs[i].value != "") {
-        report.textContent =
-          report.textContent +
-          inputs[i].previousElementSibling.textContent
-            .replace(/\s+/g, " ")
-            .trim() +
-          " " +
-          inputs[i].value +
-          "\n";
-      }
-      if (
-        inputs[i].id == "standardized-tools" &&
-        inputs[i].name == "standardized-tools"
-      ) {
-        report.textContent =
-          report.textContent +
-          document
-            .querySelectorAll("textarea")[1]
-            .previousElementSibling.textContent.replace(/\s+/g, " ")
-            .trim() +
-          " " +
-          document.querySelectorAll("textarea")[1].value +
-          "\n";
-      }
     }
+    report.textContent = report.textContent.replace(/,\s*$/, "");
   }
 }
+
 function open_menu(item) {
   if (
     item.parentElement.previousElementSibling.textContent ==
@@ -163,23 +435,23 @@ function open_menu(item) {
 function addSymptom() {
   const symptomContainer = document.getElementById("symptom-container");
   const newSymptomBlock = `
-            <div class="symptom-block">
-                <strong>Symptom:</strong> <input type="text" class="symptom-input"><br>
-                Schweregrad:
-                <input type="radio" name="severity" value="geringfügig"> geringfügig
-                <input type="radio" name="severity" value="deutlich"> deutlich
-                <input type="radio" name="severity" value="stark"> stark
-                <input type="radio" name="severity" value="extrem"> extrem<br>
-                Entwicklungsart:
-                <input type="radio" name="development" value="schleichend"> schleichend
-                <input type="radio" name="development" value="abrupt"> abrupt
-                <input type="radio" name="development" value="episodisch"> episodisch<br>
-                Dauer:
-                <input type="radio" name="duration" value="akut"> akut
-                <input type="radio" name="duration" value="chronisch"> chronisch<br>
-                Zeitpunkt des Auftretens sowie eventueller Verschlechterung oder Verbesserung: <input type="text" class="timing-input"><br>
-                <button onclick="removeSymptom(this)">Remove</button>
-            </div>`;
+          <div class="symptom-block">
+              <strong>Symptom:</strong> <input type="text" class="symptom-input"><br>
+              Schweregrad 
+              <input type="radio" name="severity" value="geringfügig"> geringfügig
+              <input type="radio" name="severity" value="deutlich"> deutlich
+              <input type="radio" name="severity" value="stark"> stark
+              <input type="radio" name="severity" value="extrem"> extrem<br>
+              Entwicklungsart:
+              <input type="radio" name="development" value="schleichend"> schleichend
+              <input type="radio" name="development" value="abrupt"> abrupt
+              <input type="radio" name="development" value="episodisch"> episodisch<br>
+              Dauer:
+              <input type="radio" name="duration" value="akut"> akut
+              <input type="radio" name="duration" value="chronisch"> chronisch<br>
+              Zeitpunkt des Auftretens sowie eventueller Verschlechterung oder Verbesserung: <input type="text" class="timing-input"><br>
+              <button onclick="removeSymptom(this)">Remove</button>
+          </div>`;
   symptomContainer.insertAdjacentHTML("beforeend", newSymptomBlock);
 }
 
