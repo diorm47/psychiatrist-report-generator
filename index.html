@@ -43,7 +43,7 @@
                 <button onclick="open_menu(this)">Open/Close</button>
             </div>
             <div class="form-content" id="form-content">
-                <label for="last-name">Name:</label>
+                <label for="last-name">Informationen zum patienten:</label>
                 <input type="text" id="last-name" required>
                 <label for="first-name">Vorname:</label>
                 <input type="text" id="first-name" required>
@@ -149,7 +149,7 @@
                     <input type="radio" id="institution-practice" name="institution" value="Praxis">
                     <label for="institution-practice">Praxis</label>
                 </div>
-                <label for="institution-name">Name der psychiatrischen Institution:</label>
+                <label for="institution-name">Informationen zur behandlung:</label>
                 <input type="text" id="institution-name">
 
                 <div>
@@ -178,7 +178,7 @@
                         Systemsitzungen</label>
                 </div>
 
-                <label for="referrer-name">Zuweisende Person: Name und Funktion</label>
+                <label for="referrer-name">Zuweisende Person (Name und Funktion):</label>
                 <input type="text" id="referrer-name">
                 <label for="preliminary-consultation-date">Datum des Indikationsgesprächs bzw. Vorgesprächs (falls
                     zutreffend):</label>
@@ -261,21 +261,21 @@
                                         </legend>
                                         <div>
                                             <div>
-                                                <label>Probleme im Zusammenhang mit Angst:</label>
-                                            <input type="checkbox" id="anxiety-problems-general"
+                                                <input type="checkbox" id="anxiety-problems-general"
                                                    value="Generalisierte Ängste">
+                                                <label>Probleme im Zusammenhang mit Angst:</label>
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="anxiety-problems-phobias" value="Phobien">
                                                 <label for="anxiety-problems-general">Generalisierte Ängste</label>
-                                            <input type="checkbox" id="anxiety-problems-phobias" value="Phobien">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="anxiety-problems-social" value="Soziale Ängste">
                                                 <label for="anxiety-problems-phobias">Phobien</label>
-                                            <input type="checkbox" id="anxiety-problems-social" value="Soziale Ängste">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="anxiety-problems-panic" value="Panikattacken">
                                                 <label for="anxiety-problems-social">Soziale Ängste</label>
-                                            <input type="checkbox" id="anxiety-problems-panic" value="Panikattacken">
                                             </div>
                                             <label for="anxiety-problems-panic">Panikattacken</label>
                                         </div>
@@ -386,106 +386,106 @@
                                         </div>
                                         <div>
                                             <div>
+                                                <input type="checkbox" id="cognitive-problems-concentration"
+                                                value="Konzentrationsprobleme">
                                                 <label>Probleme im Zusammenhang mit den kognitiven Funktionen:</label>
-                                            <input type="checkbox" id="cognitive-problems-concentration"
-                                                   value="Konzentrationsprobleme">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="cognitive-problems-memory"
+                                                value="Probleme mit dem Gedächtnis">
                                                 <label for="cognitive-problems-concentration">Konzentrationsprobleme</label>
-                                            <input type="checkbox" id="cognitive-problems-memory"
-                                                   value="Probleme mit dem Gedächtnis">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="cognitive-problems-perception"
+                                                value="Probleme mit der Auffassung">
                                                 <label for="cognitive-problems-memory">Probleme mit dem Gedächtnis</label>
-                                            <input type="checkbox" id="cognitive-problems-perception"
-                                                   value="Probleme mit der Auffassung">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="cognitive-problems-flexibility"
+                                                value="Probleme mit der kognitiven Flexibilität">
                                                 <label for="cognitive-problems-perception">Probleme mit der
                                                     Auffassung</label>
-                                                <input type="checkbox" id="cognitive-problems-flexibility"
-                                                       value="Probleme mit der kognitiven Flexibilität">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="cognitive-problems-creativity"
+                                                value="Probleme mit der Kreativität">
                                                 <label for="cognitive-problems-flexibility">Probleme mit der kognitiven
                                                     Flexibilität</label>
-                                                <input type="checkbox" id="cognitive-problems-creativity"
-                                                       value="Probleme mit der Kreativität">
                                             </div>
                                             <label for="cognitive-problems-creativity">Probleme mit der
                                                 Kreativität</label>
                                         </div>
                                         <div>
                                             <div>
-                                                <label>Probleme im Zusammenhang mit eigenem Selbst:</label>
-                                            <input type="checkbox" id="self-problems-image"
+                                                <input type="checkbox" id="self-problems-image"
                                                    value="Probleme mit dem Selbstbild und Selbstwahrnehmung">
+                                                <label>Probleme im Zusammenhang mit eigenem Selbst:</label>
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="self-problems-esteem"
+                                                value="Probleme mit dem Selbstwertgefühl">
                                                 <label for="self-problems-image">Probleme mit dem Selbstbild und
                                                     Selbstwahrnehmung</label>
-                                                <input type="checkbox" id="self-problems-esteem"
-                                                       value="Probleme mit dem Selbstwertgefühl">
                                             </div>
                                            <div>
-                                            <label for="self-problems-esteem">Probleme mit dem Selbstwertgefühl</label>
                                             <input type="checkbox" id="self-problems-acceptance"
-                                                   value="Probleme mit der Selbstakzeptanz">
+                                            value="Probleme mit der Selbstakzeptanz">
+                                            <label for="self-problems-esteem">Probleme mit dem Selbstwertgefühl</label>
                                            </div>
                                             <div>
+                                                <input type="checkbox" id="self-problems-confidence"
+                                                value="Probleme mit dem Selbstvertrauen">
                                                 <label for="self-problems-acceptance">Probleme mit der
                                                     Selbstakzeptanz</label>
-                                                <input type="checkbox" id="self-problems-confidence"
-                                                       value="Probleme mit dem Selbstvertrauen">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="self-problems-respect"
+                                                value="Probleme mit der Selbstachtung">
                                                 <label for="self-problems-confidence">Probleme mit dem
                                                     Selbstvertrauen</label>
-                                                <input type="checkbox" id="self-problems-respect"
-                                                       value="Probleme mit der Selbstachtung">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="self-problems-reflection"
+                                                value="Probleme mit der Selbstreflexion">
                                                 <label for="self-problems-respect">Probleme mit der Selbstachtung</label>
-                                            <input type="checkbox" id="self-problems-reflection"
-                                                   value="Probleme mit der Selbstreflexion">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="self-problems-awareness"
+                                                value="Probleme mit dem Selbstbewusstsein">
                                                 <label for="self-problems-reflection">Probleme mit der
                                                     Selbstreflexion</label>
-                                                <input type="checkbox" id="self-problems-awareness"
-                                                       value="Probleme mit dem Selbstbewusstsein">
                                             </div>
                                             <label for="self-problems-awareness">Probleme mit dem
                                                 Selbstbewusstsein</label>
                                         </div>
                                         <div>
                                             <div>
-                                                <label>Probleme im Zusammenhang mit der psychischen Anpassung:</label>
-                                            <input type="checkbox" id="adaptation-problems-resilience"
+                                                <input type="checkbox" id="adaptation-problems-resilience"
                                                    value="Probleme mit der Resilienz">
+                                                <label>Probleme im Zusammenhang mit der psychischen Anpassung:</label>
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="adaptation-problems-psychological-resistance"
+                                                value="Probleme mit der psychischen Widerstandsfähigkeit">
                                                 <label for="adaptation-problems-resilience">Probleme mit der
                                                     Resilienz</label>
-                                                <input type="checkbox" id="adaptation-problems-psychological-resistance"
-                                                       value="Probleme mit der psychischen Widerstandsfähigkeit">
                                             </div>
                                             <label for="adaptation-problems-psychological-resistance">Probleme mit der
                                                 psychischen Widerstandsfähigkeit</label>
                                         </div>
                                         <div>
                                             <div>
+                                                <input type="checkbox" id="trauma-problems-coping-trauma"
+                                                value="Schwierigkeiten bei der Bewältigung von Trauma">
                                                 <label>Probleme im Zusammenhang mit der Erfahrung von Trauma und
                                                     Missbrauch:</label>
-                                                <input type="checkbox" id="trauma-problems-coping-trauma"
-                                                       value="Schwierigkeiten bei der Bewältigung von Trauma">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="trauma-problems-coping-abuse"
+                                                value="Schwierigkeiten bei der Bewältigung von Missbrauchserfahrungen">
                                                 <label for="trauma-problems-coping-trauma">Schwierigkeiten bei der
                                                     Bewältigung von
                                                     Trauma</label>
-                                                <input type="checkbox" id="trauma-problems-coping-abuse"
-                                                       value="Schwierigkeiten bei der Bewältigung von Missbrauchserfahrungen">
                                             </div>
                                             <label for="trauma-problems-coping-abuse">Schwierigkeiten bei der
                                                 Bewältigung von
@@ -493,47 +493,47 @@
                                         </div>
                                         <div>
                                             <div>
+                                                <input type="checkbox" id="physical-problems-sleep"
+                                                value="Probleme mit dem Schlaf">
                                                 <label>Probleme im Zusammenhang mit körperlichen und psychosomatischen
                                                     Faktoren:</label>
-                                                <input type="checkbox" id="physical-problems-sleep"
-                                                       value="Probleme mit dem Schlaf">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="physical-problems-sexual"
+                                                value="Sexuelle Probleme oder Dysfunktionen">
                                                 <label for="physical-problems-sleep">Probleme mit dem Schlaf</label>
-                                            <input type="checkbox" id="physical-problems-sexual"
-                                                   value="Sexuelle Probleme oder Dysfunktionen">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="physical-problems-psychosomatic"
+                                                value="Psychosomatische Beschwerden">
                                                 <label for="physical-problems-sexual">Sexuelle Probleme oder
                                                     Dysfunktionen</label>
-                                                <input type="checkbox" id="physical-problems-psychosomatic"
-                                                       value="Psychosomatische Beschwerden">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="physical-problems-body-perception"
+                                                value="Probleme mit der Körperwahrnehmung">
                                                 <label for="physical-problems-psychosomatic">Psychosomatische
                                                     Beschwerden</label>
-                                                <input type="checkbox" id="physical-problems-body-perception"
-                                                       value="Probleme mit der Körperwahrnehmung">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="physical-problems-eating"
+                                                value="Probleme mit dem Essverhalten">
                                                 <label for="physical-problems-body-perception">Probleme mit der
                                                     Körperwahrnehmung</label>
-                                                <input type="checkbox" id="physical-problems-eating"
-                                                       value="Probleme mit dem Essverhalten">
                                             </div>
                                             <div>
+                                                <input type="checkbox"
+                                                id="physical-problems-psychological-consequences-illness"
+                                                value="Probleme im Umgang mit psychischen Folgen von körperlichen Erkrankungen">
                                                 <label for="physical-problems-eating">Probleme mit dem Essverhalten</label>
-                                            <input type="checkbox"
-                                                   id="physical-problems-psychological-consequences-illness"
-                                                   value="Probleme im Umgang mit psychischen Folgen von körperlichen Erkrankungen">
                                             </div>
                                             <div>
+                                                <input type="checkbox"
+                                                id="physical-problems-psychological-consequences-injury"
+                                                value="Probleme im Umgang mit psychischen Folgen von Verletzungen">
                                                 <label for="physical-problems-psychological-consequences-illness">Probleme
                                                     im Umgang
                                                     mit psychischen Folgen von körperlichen Erkrankungen</label>
-                                                <input type="checkbox"
-                                                       id="physical-problems-psychological-consequences-injury"
-                                                       value="Probleme im Umgang mit psychischen Folgen von Verletzungen">
                                             </div>
                                             <label for="physical-problems-psychological-consequences-injury">Probleme im
                                                 Umgang
@@ -541,26 +541,26 @@
                                         </div>
                                         <div>
                                             <div>
-                                                <label>Sonstige Probleme:</label>
-                                            <input type="checkbox" id="other-problems-self-regulation"
+                                                <input type="checkbox" id="other-problems-self-regulation"
                                                    value="Probleme mit der Selbstregulation">
+                                                <label>Sonstige Probleme:</label>
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="other-problems-motivation"
+                                                value="Probleme mit der Motivation">
                                                 <label for="other-problems-self-regulation">Probleme mit der
                                                     Selbstregulation</label>
-                                                <input type="checkbox" id="other-problems-motivation"
-                                                       value="Probleme mit der Motivation">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="other-problems-decision-making"
+                                                value="Probleme mit der Entscheidungsfindung">
                                                 <label for="other-problems-motivation">Probleme mit der Motivation</label>
-                                            <input type="checkbox" id="other-problems-decision-making"
-                                                   value="Probleme mit der Entscheidungsfindung">
                                             </div>
                                             <div>
+                                                <input type="checkbox" id="other-problems-problem-solving"
+                                                value="Probleme mit dem Problemlösungsverhalten">
                                                 <label for="other-problems-decision-making">Probleme mit der
                                                     Entscheidungsfindung</label>
-                                                <input type="checkbox" id="other-problems-problem-solving"
-                                                       value="Probleme mit dem Problemlösungsverhalten">
                                             </div>
                                             <label for="other-problems-problem-solving">Probleme mit dem
                                                 Problemlösungsverhalten</label>
@@ -623,61 +623,111 @@
                 <div class="deficits">
                     <h3>Defizite</h3>
                     <!-- Checkbox options for deficits -->
-                    <label><input type="checkbox" name="deficits"
-                                  value="Fehlende soziale oder familiäre Unterstützung">Fehlende soziale oder
-                        familiäre Unterstützung</label>
-                    <label><input type="checkbox" name="deficits" value="Fehlen eines sozialen Netzes">Fehlen eines
-                        sozialen Netzes</label>
-                    <label><input type="checkbox" name="deficits" value="Kritische finanzielle Situation">Kritische
-                        finanzielle Situation</label>
-                    <label><input type="checkbox" name="deficits" value="Kritische Wohnsituation">Kritische
-                        Wohnsituation</label>
-                    <label><input type="checkbox" name="deficits" value="Fehlen des festen Wohnsitzes">Fehlen des
-                        festen Wohnsitzes</label>
-                    <label><input type="checkbox" name="deficits" value="Fehlende Tagesstruktur">Fehlende
-                        Tagesstruktur</label>
-                    <label><input type="checkbox" name="deficits" value="Arbeitslosigkeit">Arbeitslosigkeit</label>
-                    <label><input type="checkbox" name="deficits" value="Körperliche Krankheit">Körperliche
-                        Krankheit [Textfeld]</label>
-                    <label><input type="checkbox" name="deficits" value="Schwere körperliche Behinderung">Schwere
-                        körperliche Behinderung [Textfeld]</label>
-                    <label><input type="checkbox" name="deficits" value="Fehlende Behandlungsmotivation">Fehlende
-                        Behandlungsmotivation</label>
-                    <label><input type="checkbox" name="deficits" value="Erfahrung von Flucht">Erfahrung von
-                        Flucht</label>
-                    <label><input type="checkbox" name="deficits"
-                                  value="Migrationshintergrund">Migrationshintergrund</label>
+                    <div>
+                        <label><input type="checkbox" name="deficits"
+                            value="Fehlende soziale oder familiäre Unterstützung">Fehlende soziale oder
+                  familiäre Unterstützung</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Fehlen eines sozialen Netzes">Fehlen eines
+                            sozialen Netzes</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Kritische finanzielle Situation">Kritische
+                            finanzielle Situation</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Kritische Wohnsituation">Kritische
+                            Wohnsituation</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Fehlen des festen Wohnsitzes">Fehlen des
+                            festen Wohnsitzes</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Fehlende Tagesstruktur">Fehlende
+                            Tagesstruktur</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Arbeitslosigkeit">Arbeitslosigkeit</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Körperliche Krankheit">Körperliche
+                            Krankheit [Textfeld]</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Schwere körperliche Behinderung">Schwere
+                            körperliche Behinderung [Textfeld]</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Fehlende Behandlungsmotivation">Fehlende
+                            Behandlungsmotivation</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits" value="Erfahrung von Flucht">Erfahrung von
+                            Flucht</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="deficits"
+                            value="Migrationshintergrund">Migrationshintergrund</label>
+                    </div>
                 </div>
 
                 <div class="resources">
                     <h3>Ressourcen</h3>
                     <!-- Checkbox options for resources -->
-                    <label><input type="checkbox" name="resources" value="Familiär gut eingebettet">Familiär gut
-                        eingebettet</label>
-                    <label><input type="checkbox" name="resources" value="Sozial gut eingebettet">Sozial gut
-                        eingebettet</label>
-                    <label><input type="checkbox" name="resources" value="Hohe Behandlungsmotivation">Hohe
-                        Behandlungsmotivation</label>
-                    <label><input type="checkbox" name="resources"
-                                  value="Die in der Vergangenheit entwickelten Bewältigungsmechanismen">Die in der
-                        Vergangenheit entwickelten Bewältigungsmechanismen</label>
-                    <label><input type="checkbox" name="resources" value="Gute Introspektionsfähigkeit">Gute
-                        Introspektionsfähigkeit</label>
-                    <label><input type="checkbox" name="resources" value="Hohe Resilienz">Hohe Resilienz</label>
-                    <label><input type="checkbox" name="resources" value="Gute Selbstfürsorge">Gute
-                        Selbstfürsorge</label>
-                    <label><input type="checkbox" name="resources" value="Vorhandensein einer festen Arbeitsstelle">Vorhandensein
-                        einer festen Arbeitsstelle</label>
-                    <label><input type="checkbox" name="resources"
-                                  value="Stabile zufriedenstellende finanzielle Situation">Stabile
-                        zufriedenstellende finanzielle Situation</label>
-                    <label><input type="checkbox" name="resources" value="Interessen und Hobbies">Interessen und
-                        Hobbies [Textfeld]</label>
-                    <label><input type="checkbox" name="resources" value="Gute Integration und Assimilation">Gute
-                        Integration und Assimilation</label>
-                    <label><input type="checkbox" name="resources" value="Hohe Intelligenz">Hohe Intelligenz</label>
-                    <label><input type="checkbox" name="resources" value="Hoher Bildungsgrad">Hoher
-                        Bildungsgrad</label>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Familiär gut eingebettet">Familiär gut
+                            eingebettet</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Sozial gut eingebettet">Sozial gut
+                            eingebettet</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Hohe Behandlungsmotivation">Hohe
+                            Behandlungsmotivation</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources"
+                            value="Die in der Vergangenheit entwickelten Bewältigungsmechanismen">Die in der
+                  Vergangenheit entwickelten Bewältigungsmechanismen</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Gute Introspektionsfähigkeit">Gute
+                            Introspektionsfähigkeit</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Hohe Resilienz">Hohe Resilienz</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Gute Selbstfürsorge">Gute
+                            Selbstfürsorge</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Vorhandensein einer festen Arbeitsstelle">Vorhandensein
+                            einer festen Arbeitsstelle</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources"
+                            value="Stabile zufriedenstellende finanzielle Situation">Stabile
+                  zufriedenstellende finanzielle Situation</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Interessen und Hobbies">Interessen und
+                            Hobbies [Textfeld]</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Gute Integration und Assimilation">Gute
+                            Integration und Assimilation</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Hohe Intelligenz">Hohe Intelligenz</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="resources" value="Hoher Bildungsgrad">Hoher
+                            Bildungsgrad</label>
+                    </div>
                 </div>
             </div>
         </fieldset>
@@ -1949,7 +1999,7 @@
                 <!-- Standardisierte Bewertungsinstrumente -->
                 <!-- Individuelle Aspekte oder Besonderheiten der Entwicklung des Patienten -->
                 <div class="form-section">
-                    <fieldset>
+                    <fieldset class="individuelle_aspekte">
                         <label for="individual-aspects">Individuelle Aspekte oder Besonderheiten der Entwicklung des
                             Patienten:</label>
                         <input id="individual-aspects" name="individual-aspects" rows="4" type="text"></textarea>
