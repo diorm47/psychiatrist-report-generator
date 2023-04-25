@@ -69,6 +69,22 @@ function generateReport() {
               ": " +
               inputs[i].nextSibling.textContent.replace(/\s+/g, " ").trim();
             continue;
+          } else if (inputs[i].name == "compliance") {
+            if (
+              !report.textContent.includes(
+                " ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG"
+              )
+            ) {
+              report.textContent =
+                report.textContent +
+                "\n" +
+                " ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG" +
+                "\n" +
+                "Therapieeinhaltung durch den Patienten: " +
+                inputs[i].value +
+                "\n";
+              continue;
+            }
           } else if (parent.parentElement.parentElement.querySelector("h3")) {
             if (
               !report.textContent.includes("FUNKTIONSFÄHIGKEIT (NACH MINI ICF)")
@@ -468,23 +484,23 @@ function addSymptom() {
   const symptomContainer = document.getElementById("symptom-container");
   symptomNumber += 1;
   const newSymptomBlock = `
-            <div class="symptom-block">
-                <strong>Symptom:</strong> <input type="text" class="symptom-input"><br>
-                <label>Schweregrad: </label>
-                <input type="radio" name="severity${symptomNumber}" value="geringfügig"> geringfügig
-                <input type="radio" name="severity${symptomNumber}" value="deutlich"> deutlich
-                <input type="radio" name="severity${symptomNumber}" value="stark"> stark
-                <input type="radio" name="severity${symptomNumber}" value="extrem"> extrem<br>
-                <label>Entwicklungsart: </label>
-                <input type="radio" name="development${symptomNumber}" value="schleichend"> schleichend
-                <input type="radio" name="development${symptomNumber}" value="abrupt"> abrupt
-                <input type="radio" name="development${symptomNumber}" value="episodisch"> episodisch<br>
-                <label>Dauer: </label>
-                <input type="radio" name="duration${symptomNumber}" value="akut"> akut
-                <input type="radio" name="duration${symptomNumber}" value="chronisch"> chronisch<br>
-                <label>Zeitpunkt des Auftretens sowie eventueller Verschlechterung oder Verbesserung: </label> <input type="text" class="timing-input"><br>
-                <button onclick="removeSymptom(this)">Remove</button>
-            </div>`;
+          <div class="symptom-block">
+              <strong>Symptom:</strong> <input type="text" class="symptom-input"><br>
+              <label>Schweregrad: </label>
+              <input type="radio" name="severity${symptomNumber}" value="geringfügig"> geringfügig
+              <input type="radio" name="severity${symptomNumber}" value="deutlich"> deutlich
+              <input type="radio" name="severity${symptomNumber}" value="stark"> stark
+              <input type="radio" name="severity${symptomNumber}" value="extrem"> extrem<br>
+              <label>Entwicklungsart: </label>
+              <input type="radio" name="development${symptomNumber}" value="schleichend"> schleichend
+              <input type="radio" name="development${symptomNumber}" value="abrupt"> abrupt
+              <input type="radio" name="development${symptomNumber}" value="episodisch"> episodisch<br>
+              <label>Dauer: </label>
+              <input type="radio" name="duration${symptomNumber}" value="akut"> akut
+              <input type="radio" name="duration${symptomNumber}" value="chronisch"> chronisch<br>
+              <label>Zeitpunkt des Auftretens sowie eventueller Verschlechterung oder Verbesserung: </label> <input type="text" class="timing-input"><br>
+              <button onclick="removeSymptom(this)">Remove</button>
+          </div>`;
   symptomContainer.insertAdjacentHTML("beforeend", newSymptomBlock);
 }
 
