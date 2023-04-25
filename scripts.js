@@ -2,7 +2,15 @@ function generateReport() {
   const inputs = document.querySelectorAll("input");
   const report = document.getElementById("results");
   for (let i = 0; i < inputs.length; i++) {
-    if (inputs[i].type == "text") {
+    if (inputs[i].type == "number") {
+      if (inputs[i].value != 0) {
+        report.textContent =
+          report.textContent +
+          "Anzahl der durchgeführten Therapiesitzungen: " +
+          inputs[i].value +
+          "\n";
+      }
+    } else if (inputs[i].type == "text") {
       const label = inputs[i].previousElementSibling;
       if (inputs[i].value != "") {
         const fieldset = inputs[i].closest("fieldset");
@@ -10,9 +18,10 @@ function generateReport() {
         if (inputs[i].placeholder == "Namen von Symptomen") {
           report.textContent =
             report.textContent +
-            "Auswirkungen der durchgeführten Behandlung auf spezifische psychopathologische Symptome: " +
+            "Auswirkungen der durchgeführten Behandlung auf spezifische psychopathologische Symptome:" +
             inputs[i].value +
             ": ";
+          continue;
         } else if (inputs[i].id == "symptom-1") {
           if (!report.textContent.includes("GRUND FÜR DIE BEHANDLUNG")) {
             report.textContent =
@@ -21,6 +30,8 @@ function generateReport() {
               "GRUND FÜR DIE BEHANDLUNG" +
               "\n" +
               "Vorhandene psychopathologische Symptome: " +
+              "\n" +
+              "Symptom: " +
               inputs[i].value +
               "\n";
           }
@@ -62,7 +73,29 @@ function generateReport() {
         if (inputs[i].checked) {
           const fieldset = inputs[i].closest("fieldset");
           const legend = fieldset.querySelector("legend");
-          if (inputs[i].name == "no_med_treatment") {
+          if (inputs[i].name == "symptom-effect") {
+            report.textContent = report.textContent + inputs[i].value + "\n";
+            continue;
+          } else if (
+            legend.textContent ==
+            "Aufbau und Charakter der therapeutischen Beziehung"
+          ) {
+            if (
+              !report.textContent.includes(" PSYCHOTHERAPEUTISCHE BEHANDLUNG")
+            ) {
+              report.textContent =
+                report.textContent + " PSYCHOTHERAPEUTISCHE BEHANDLUNG" + "\n";
+            }
+          } else if (inputs[i].name == "daily-life-impact") {
+            report.textContent =
+              report.textContent +
+              "Auswirkungen auf das tägliche Leben" +
+              "\n" +
+              "Auswirkungen auf das tägliche Leben der Gesamtheit der Symptome und weiterer Probleme: " +
+              inputs[i].value +
+              "\n";
+            continue;
+          } else if (inputs[i].name == "no_med_treatment") {
             report.textContent =
               report.textContent +
               "Keine medikamentöse Behandlung" +
@@ -106,15 +139,23 @@ function generateReport() {
                 report.textContent +
                 parent.parentElement.querySelector("label").textContent +
                 " " +
-                inputs[i].value;
+                inputs[i].value +
+                "\n";
             } else {
-              report.textContent = report.textContent + ", " + inputs[i].value;
+              report.textContent =
+                report.textContent +
+                parent.parentElement.querySelector("label").textContent +
+                " " +
+                inputs[i].value +
+                "\n";
             }
+            continue;
           } else if (
             inputs[i].parentElement.querySelector("label").innerText ==
             "Auswirkungen der durchgeführten Behandlung auf spezifische psychopathologische Symptome:"
           ) {
             report.textContent = report.textContent + inputs[i].value + "\n";
+            continue;
           }
           if (!(inputs[i].value == "Andere")) {
             if (!report.textContent.includes(legend.textContent)) {
@@ -128,6 +169,7 @@ function generateReport() {
                 inputs[i].value +
                 "\n";
             }
+            continue;
           }
         }
       }
