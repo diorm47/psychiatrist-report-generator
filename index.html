@@ -43,7 +43,7 @@
                 <button onclick="open_menu(this)">Open/Close</button>
             </div>
             <div class="form-content" id="form-content">
-                <label for="last-name">Name:</label>
+                <label for="last-name">Informationen zum patienten:</label>
                 <input type="text" id="last-name" required>
                 <label for="first-name">Vorname:</label>
                 <input type="text" id="first-name" required>
@@ -149,7 +149,7 @@
                     <input type="radio" id="institution-practice" name="institution" value="Praxis">
                     <label for="institution-practice">Praxis</label>
                 </div>
-                <label for="institution-name">Name der psychiatrischen Institution:</label>
+                <label for="institution-name">Informationen zur behandlung:</label>
                 <input type="text" id="institution-name">
 
                 <div>
@@ -386,7 +386,9 @@
                                         </div>
                                         <div>
                                             <div>
-                                                <label class="chechbox_title">Probleme im Zusammenhang mit den kognitiven Funktionen:</label>
+                                                <input type="checkbox" id="cognitive-problems-concentration"
+                                                value="Konzentrationsprobleme">
+                                                <label>Probleme im Zusammenhang mit den kognitiven Funktionen:</label>
                                             </div>
                                             <div>
                                                 <input type="checkbox" id="cognitive-problems-memory"
@@ -415,7 +417,9 @@
                                         </div>
                                         <div>
                                             <div>
-                                                   <label class="chechbox_title">Probleme im Zusammenhang mit eigenem Selbst:</label>
+                                                <input type="checkbox" id="self-problems-image"
+                                                   value="Probleme mit dem Selbstbild und Selbstwahrnehmung">
+                                                <label>Probleme im Zusammenhang mit eigenem Selbst:</label>
                                             </div>
                                             <div>
                                                 <input type="checkbox" id="self-problems-esteem"
@@ -456,7 +460,9 @@
                                         </div>
                                         <div>
                                             <div>
-                                                <label class="chechbox_title">Probleme im Zusammenhang mit der psychischen Anpassung:</label>
+                                                <input type="checkbox" id="adaptation-problems-resilience"
+                                                   value="Probleme mit der Resilienz">
+                                                <label>Probleme im Zusammenhang mit der psychischen Anpassung:</label>
                                             </div>
                                             <div>
                                                 <input type="checkbox" id="adaptation-problems-psychological-resistance"
@@ -469,7 +475,9 @@
                                         </div>
                                         <div>
                                             <div>
-                                                <label class="chechbox_title">Probleme im Zusammenhang mit der Erfahrung von Trauma und
+                                                <input type="checkbox" id="trauma-problems-coping-trauma"
+                                                value="Schwierigkeiten bei der Bewältigung von Trauma">
+                                                <label>Probleme im Zusammenhang mit der Erfahrung von Trauma und
                                                     Missbrauch:</label>
                                             </div>
                                             <div>
@@ -485,7 +493,9 @@
                                         </div>
                                         <div>
                                             <div>
-                                                <label class="chechbox_title">Probleme im Zusammenhang mit körperlichen und psychosomatischen
+                                                <input type="checkbox" id="physical-problems-sleep"
+                                                value="Probleme mit dem Schlaf">
+                                                <label>Probleme im Zusammenhang mit körperlichen und psychosomatischen
                                                     Faktoren:</label>
                                             </div>
                                             <div>
@@ -531,7 +541,9 @@
                                         </div>
                                         <div>
                                             <div>
-                                                <label class="chechbox_title">Sonstige Probleme:</label>
+                                                <input type="checkbox" id="other-problems-self-regulation"
+                                                   value="Probleme mit der Selbstregulation">
+                                                <label>Sonstige Probleme:</label>
                                             </div>
                                             <div>
                                                 <input type="checkbox" id="other-problems-motivation"
@@ -885,7 +897,6 @@
                 <button onclick="open_menu(this)">Open/Close</button>
             </div>
             <div class="form-content">
-                <button onclick="add_block()">Add</button>
                 <div class="choice_menu">
                     <div class="choice_part 0_search">
                         <div class="choice" onclick="block_enter_one()"><p>Einleitung der Therapie</p></div>
@@ -927,10 +938,14 @@
 
                             <!-- 1 -->
                             <div class="form-content" id="form-content7">
-                                <label for="einleitung-med">mit dem Medikament</label>
-                                <input type="text" name="einleitung-med" id="einleitung-med">
-                                <label for="einleitung-dosis">in einer Tagesdosis von</label>
-                                <input type="text" name="einleitung-dosis" id="einleitung-dosis">
+                                <div>
+                                    <label for="einleitung-med">mit dem Medikament</label>
+                                    <input type="text" name="einleitung-med" id="einleitung-med">
+                                </div>
+                                <div>
+                                    <label for="einleitung-dosis">in einer Tagesdosis von</label>
+                                    <input type="text" name="einleitung-dosis" id="einleitung-dosis">
+                                </div>
                                 <legend>Ergebnis:</legend>
                                 <div>
                                     <input type="radio" name="einleitung-ergebnis" id="einleitung-verbesserung">
@@ -970,13 +985,19 @@
                             </div>
 
                             <div class="form-content" id="form-content8">
-                                <label for="pre_treatment">durch</label>
-                                <input type="text" name="pre_treatment"
+                                <div>
+                                    <label for="pre_treatment">durch</label>
+                                    <input type="text" name="pre_treatment"
                                        placeholder="Funktion und evtl. Name des Vorbehandlers">
-                                <label for="continuing_med_name">mit dem Medikament</label>
-                                <input type="text" id="continuing_med_name" name="continuing_med_name">
-                                <label for="continuing_dose">in einer Tagesdosis von</label>
-                                <input type="text" id="continuing_dose" name="continuing_dose">
+                                </div>
+                                <div>
+                                    <label for="continuing_med_name">mit dem Medikament</label>
+                                    <input type="text" id="continuing_med_name" name="continuing_med_name">
+                                </div>
+                                <div>
+                                    <label for="continuing_dose">in einer Tagesdosis von</label>
+                                    <input type="text" id="continuing_dose" name="continuing_dose">
+                                </div>
 
 
                                 <legend>Ergebnis:</legend>
@@ -1026,13 +1047,19 @@
                             </div>
 
                             <div class="form-content" id="form-content9">
-                                <label for="pre_treatment_addition">durch</label>
-                                <input type="text" name="pre_treatment_addition"
+                                <div>
+                                    <label for="pre_treatment_addition">durch</label>
+                                    <input type="text" name="pre_treatment_addition"
                                        placeholder="Funktion und evtl. Name des Vorbehandlers">
-                                <label for="additional_med_name">mit dem Medikament</label>
-                                <input type="text" id="additional_med_name" name="additional_med_name">
-                                <label for="additional_dose">in einer Tagesdosis von</label>
-                                <input type="text" id="additional_dose" name="additional_dose">
+                                </div>
+                                <div>
+                                    <label for="additional_med_name">mit dem Medikament</label>
+                                    <input type="text" id="additional_med_name" name="additional_med_name">
+                                </div>
+                                <div>
+                                    <label for="additional_dose">in einer Tagesdosis von</label>
+                                    <input type="text" id="additional_dose" name="additional_dose">
+                                </div>
                                 <legend>Ergebnis:</legend>
                                 <div>
                                     <input type="radio" name="einleitung-ergebnis" id="einleitung-verbesserung">
@@ -1073,51 +1100,70 @@
 
                             <div class="form-content" id="form-content10">
 
-                                <label for="medIncreaseName">Name des Medikaments:</label>
-                                <input type="text" id="medIncreaseName" name="medIncreaseName">
+                                <div>
+                                    <label for="medIncreaseName">Name des Medikaments:</label>
+                                    <input type="text" id="medIncreaseName" name="medIncreaseName">
+                                </div>
 
-                                <label for="initialDoseIncrease">Anfangsdosis (Zahl und Einheit):</label>
-                                <input type="text" id="initialDoseIncrease" name="initialDoseIncrease">
+                                <div>
+                                    <label for="initialDoseIncrease">Anfangsdosis (Zahl und Einheit):</label>
+                                    <input type="text" id="initialDoseIncrease" name="initialDoseIncrease">
+                                </div>
 
-                                <label for="newDoseIncrease">Neue Dosis (Zahl und Einheit):</label>
-                                <input type="text" id="newDoseIncrease" name="newDoseIncrease">
+                                <div>
+                                    <label for="newDoseIncrease">Neue Dosis (Zahl und Einheit):</label>
+                                    <input type="text" id="newDoseIncrease" name="newDoseIncrease">
+                                </div>
 
-                                <legend>Grund:</legend>
-                                <label for="reasonNoResponse">
-                                    <input type="checkbox" id="reasonNoResponse" name="reasonIncrease"
-                                           value="noResponse"> Vollständiges Ausbleiben des Ansprechens
-                                </label>
-                                <label for="reasonInsufficientEffect">
-                                    <input type="checkbox" id="reasonInsufficientEffect" name="reasonIncrease"
-                                           value="insufficientEffect"> Unzureichende Wirksamkeit
-                                </label>
-                                <label for="reasonStandardProcedure">
-                                    <input type="checkbox" id="reasonStandardProcedure" name="reasonIncrease"
-                                           value="standardProcedure"> Im Rahmen des Standardverfahrens der
-                                    Dosistitration
-                                </label>
+                                <div>
+                                    <legend>Grund:</legend>
 
-                                <legend>Ergebnis:</legend>
-                                <label for="resultImprovement">
+                                    <input type="checkbox" id="reasonNoResponse" name="reasonIncrease" value="noResponse"> 
+                                    <label for="reasonNoResponse">Vollständiges Ausbleiben des Ansprechens</label>
+
+                                    <input type="checkbox" id="reasonInsufficientEffect" name="reasonIncrease" value="insufficientEffect"> 
+                                    <label for="reasonInsufficientEffect">Unzureichende Wirksamkeit</label>
+                                    
+                                    <input type="checkbox" id="reasonStandardProcedure" name="reasonIncrease" value="standardProcedure"> 
+                                    <label for="reasonStandardProcedure">Im Rahmen des Standardverfahrens der Dosistitration</label>
+                                </div>
+                                
+                                <div>
+                                    <legend>Ergebnis:</legend>
                                     <input type="radio" id="resultImprovement" name="resultIncrease"
-                                           value="improvement"> Verbesserung der Symptome:
-                                </label>
-                                <input type="text" id="resultImprovementText" name="resultImprovementText">
-                                <label for="resultWorsening">
+                                    value="improvement"> 
+                                    <label for="resultImprovement">Verbesserung der Symptome:</label>
+                                        
+                                    
+                                    <input type="text" id="resultImprovementText" name="resultImprovementText">
+                                </div>
+                                
+                                <div>
                                     <input type="radio" id="resultWorsening" name="resultIncrease"
-                                           value="worsening"> Verschlechterung der Symptome:
-                                </label>
-                                <input type="text" id="resultWorseningText" name="resultWorseningText">
-                                <label for="resultNoEffect">
+                                               value="worsening">
+                                    <label for="resultWorsening"> Verschlechterung der Symptome:</label>
+                                        
+                                    
+                                    <input type="text" id="resultWorseningText" name="resultWorseningText">
+                                </div>
+                                
+                                <div>
                                     <input type="radio" id="resultNoEffect" name="resultIncrease"
-                                           value="noEffect"> Ausbleiben der Wirkung auf die Symptome:
-                                </label>
-                                <input type="text" id="resultNoEffectText" name="resultNoEffectText">
-                                <label for="resultSideEffects">
+                                               value="noEffect"> 
+                                    <label for="resultNoEffect">Ausbleiben der Wirkung auf die Symptome:</label>
+                                        
+                                    
+                                    <input type="text" id="resultNoEffectText" name="resultNoEffectText">
+                                </div>
+
+                                <div>
                                     <input type="radio" id="resultSideEffects" name="resultIncrease"
-                                           value="sideEffects"> Nebenwirkungen oder allergische Reaktionen:
-                                </label>
-                                <input type="text" id="resultSideEffectsText" name="resultSideEffectsText">
+                                    value="sideEffects">
+                                    <label for="resultSideEffects"> Nebenwirkungen oder allergische Reaktionen:</label>
+                                        
+                                    
+                                    <input type="text" id="resultSideEffectsText" name="resultSideEffectsText">
+                                </div>
                             </div>
                         </fieldset>
                     </div>
@@ -1130,73 +1176,99 @@
                                 <button onclick="open_menu(this)">Open/Close</button>
                             </div>
                             <div class="form-content" id="form-content11">
-                                <label for="medDecreaseName">Name des Medikaments:</label>
-                                <input type="text" id="medDecreaseName" name="medDecreaseName">
+                                <div>
+                                    <label for="medDecreaseName">Name des Medikaments:</label>
+                                    <input type="text" id="medDecreaseName" name="medDecreaseName">
+                                </div>
 
-                                <label for="initialDoseDecrease">Anfangsdosis (Zahl und Einheit):</label>
-                                <input type="text" id="initialDoseDecrease" name="initialDoseDecrease">
+                                <div>
+                                    <label for="initialDoseDecrease">Anfangsdosis (Zahl und Einheit):</label>
+                                    <input type="text" id="initialDoseDecrease" name="initialDoseDecrease">
+                                </div>
 
-                                <label for="newDoseDecrease">Neue Dosis (Zahl und Einheit):</label>
-                                <input type="text" id="newDoseDecrease" name="newDoseDecrease">
+                                <div>
+                                    <label for="newDoseDecrease">Neue Dosis (Zahl und Einheit):</label>
+                                    <input type="text" id="newDoseDecrease" name="newDoseDecrease">
+                                </div>
 
-                                <legend>Grund:</legend>
-                                <label for="reasonIntolerance">
-                                    <input type="checkbox" id="reasonIntolerance" name="reasonDecrease"
-                                           value="intolerance"> Unverträglichkeit des Medikamentes in Form von:
-                                </label>
-                                <input type="text" id="reasonIntoleranceText" name="reasonIntoleranceText">
-                                <label for="reasonInteraction">
-                                    <input type="checkbox" id="reasonInteraction" name="reasonDecrease"
-                                           value="interaction"> Pharmakokinetische Interaktionen mit
-                                </label>
-                                <input type="text" id="reasonInteractionText" name="reasonInteractionText">
-                                <label for="reasonIndicationChange">
-                                    <input type="checkbox" id="reasonIndicationChange" name="reasonDecrease"
-                                           value="indicationChange"> Änderung der Indikation von
-                                </label>
-                                <input type="text" id="reasonIndicationChangeOld"
-                                       name="reasonIndicationChangeOld">
-                                <label for="reasonIndicationChangeNew"> auf </label>
-                                <input type="text" id="reasonIndicationChangeNew"
-                                       name="reasonIndicationChangeNew">
-                                <label for="reasonPatientRefusal">
-                                    <input type="checkbox" id="reasonPatientRefusal" name="reasonDecrease"
-                                           value="patientRefusal"> Weigerung des Patienten, das Medikament in
-                                    der ursprünglichen Dosis weiter einzunehmen:
-                                </label>
-                                <input type="text" id="reasonPatientRefusalText"
-                                       name="reasonPatientRefusalText">
-                                <label for="reasonPatientPreference">
-                                    <input type="checkbox" id="reasonPatientPreference" name="reasonDecrease"
-                                           value="patientPreference"> Patientenpräferenz:
-                                </label>
-                                <input type="text" id="reasonPatientPreferenceText"
-                                       name="reasonPatientPreferenceText">
+                                <div>
+                                    <legend>Grund:</legend>
+                                    <div>
+                                        <label for="reasonIntolerance">Unverträglichkeit des Medikamentes in Form von:</label>
+                                        <input type="checkbox" id="reasonIntolerance" name="reasonDecrease" value="intolerance"> 
+                                        <input type="text" id="reasonIntoleranceText" name="reasonIntoleranceText">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="reasonInteraction">Pharmakokinetische Interaktionen mit:</label>
+                                        <input type="checkbox" id="reasonInteraction" name="reasonDecrease" value="interaction">  
+                                        <input type="text" id="reasonInteractionText" name="reasonInteractionText">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="reasonIndicationChange">Änderung der Indikation von:</label>
+                                        <input type="checkbox" id="reasonIndicationChange" name="reasonDecrease" value="indicationChange"> 
+                                        <input type="text" id="reasonIndicationChangeOld" name="reasonIndicationChangeOld">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="reasonIndicationChangeNew"> auf </label>
+                                        <input type="text" id="reasonIndicationChangeNew" name="reasonIndicationChangeNew">
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="checkbox" id="reasonPatientRefusal" name="reasonDecrease" value="patientRefusal"> 
+                                        <label for="reasonPatientRefusal">Weigerung des Patienten, das Medikament in
+                                            der ursprünglichen Dosis weiter einzunehmen:</label>
+                                        <input type="text" id="reasonPatientRefusalText" name="reasonPatientRefusalText">
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="checkbox" id="reasonPatientPreference" name="reasonDecrease" value="patientPreference"> 
+                                        <label for="reasonPatientPreference">Patientenpräferenz:</label>
+                                        <input type="text" id="reasonPatientPreferenceText" name="reasonPatientPreferenceText">
+                                    </div>
+                                    
+                                </div>
 
                                 <legend>Ergebnis:</legend>
-                                <label for="resultImprovedTolerance">
+                                <div>
                                     <input type="radio" id="resultImprovedTolerance" name="resultDecrease"
-                                           value="improvedTolerance"> Verbesserung der Verträglichkeit:
-                                </label>
-                                <input type="text" id="resultImprovedToleranceText"
-                                       name="resultImprovedToleranceText">
-                                <label for="resultSymptomWorsening">
+                                           value="improvedTolerance"> 
+                                    <label for="resultImprovedTolerance">Verbesserung der Verträglichkeit:</label>
+                                    <input type="text" id="resultImprovedToleranceText"
+                                    name="resultImprovedToleranceText">
+                                </div>
+                                
+                                <div>  
                                     <input type="radio" id="resultSymptomWorsening" name="resultDecrease"
-                                           value="symptomWorsening"> Verschlechterung der Symptome:
-                                </label>
-                                <input type="text" id="resultSymptomWorseningText"
-                                       name="resultSymptomWorseningText">
-                                <label for="resultNoEffectDecrease">
+                                    value="symptomWorsening"> 
+                                    <label for="resultSymptomWorsening">Verschlechterung der Symptome:</label>
+                                    
+                                
+                                    <input type="text" id="resultSymptomWorseningText"
+                                           name="resultSymptomWorseningText">
+                                </div>  
+                                
+                                <div>
                                     <input type="radio" id="resultNoEffectDecrease" name="resultDecrease"
-                                           value="noEffect"> Ausbleiben der Wirkung auf die Symptome:
-                                </label>
-                                <input type="text" id="resultNoEffectDecreaseText"
-                                       name="resultNoEffectDecreaseText">
-                                <label for="resultSideEffectsDecrease">
+                                    value="noEffect"> 
+                                    <label for="resultNoEffectDecrease">Ausbleiben der Wirkung auf die Symptome:</label>
+                                    
+                                
+                                    <input type="text" id="resultNoEffectDecreaseText"
+                                           name="resultNoEffectDecreaseText">
+                                </div>
+                                
+                                <div>
                                     <input type="radio" id="resultSideEffectsDecrease" name="resultDecrease"
-                                           value="sideEffects"> Nebenwirkungen oder allergische Reaktionen:
-                                </label>
-                                <input type="text" id="resultSideEffectsDecreaseText"
+                                    value="sideEffects"> 
+                                    <label for="resultSideEffectsDecrease">Nebenwirkungen oder allergische Reaktionen:</label>
+                                    
+                                
+                                    <input type="text" id="resultSideEffectsDecreaseText"
+                                </div>
+                                
                             </div>
                         </fieldset>
                     </div>
@@ -1208,123 +1280,247 @@
                                 <button onclick="open_menu(this)">Open/Close</button>
                             </div>
                             <div class="form-content" id="form-content13">
-                                <label for="previous_med_name">Name des vorherigen Medikaments:</label>
-                                <input type="text" id="previous_med_name" name="previous_med_name">
-                                <label for="new_med_name">Name des neuen Medikaments:</label>
-                                <input type="text" id="new_med_name" name="new_med_name">
-                                <label for="new_med_dose">Tagesdosis des neuen Medikaments:</label>
-                                <input type="text" id="new_med_dose" name="new_med_dose">
-
-
-                                <legend>Grund:</legend>
-                                <label><input type="checkbox" name="grund" value="ausbleiben_ansprechen">vollständiges
-                                    Ausbleiben des Ansprechens</label><br>
-                                <label><input type="checkbox" name="grund" value="unzureichende_wirksamkeit">unzureichende
-                                    Wirksamkeit</label><br>
-                                <label><input type="checkbox" name="grund" value="unverträglichkeit">Unverträglichkeit
-                                    des ursprünglichen Medikamentes in Form von:</label>
-                                <input type="text" name="unverträglichkeit_text" placeholder="Beschreibung"><br>
-                                <label><input type="checkbox" name="grund" value="unzulässige_kombination">Umstellung
-                                    aufgrund der Unzulässigkeit der Kombination von</label>
-                                <input type="text" name="ursprüngliches_medikament"
-                                       placeholder="ursprüngliches Medikament">
-                                <input type="text" name="anderes_medikament"
-                                       placeholder="anderes eingenommenes Medikament"><br>
-                                <label><input type="checkbox" name="grund" value="änderung_indikation">Änderung
-                                    der Indikation von</label>
-                                <input type="text" name="ursprüngliche_indikation"
-                                       placeholder="ursprüngliche Indikation">
-                                <input type="text" name="neue_indikation" placeholder="neue Indikation"><br>
-                                <label><input type="checkbox" name="grund" value="toleranz_entwicklung">Entwicklung
-                                    der Toleranz</label><br>
-                                <label><input type="checkbox" name="grund" value="umstellung_generikum">Umstellung
-                                    auf ein Generikum auf Wunsch des Patienten</label><br>
-                                <label><input type="checkbox" name="grund" value="nichtverfügbarkeit">Nichtverfügbarkeit
-                                    des Medikaments auf dem lokalen Arzneimittelmarkt</label><br>
-                                <label><input type="checkbox" name="grund" value="weigerung">Weigerung des
-                                    Patienten, das Medikament weiter einzunehmen:</label>
-                                <input type="text" name="weigerung_grund" placeholder="Grund"><br>
-                                <label><input type="checkbox" name="grund"
-                                              value="patientenpräferenz">Patientenpräferenz:</label>
-                                <input type="text" name="patientenpräferenz_grund" placeholder="Grund">
-
-
-                                <!-- Verfahren der Umstellung -->
-                                <div class="form-section">
-
-                                    <legend>Verfahren der Umstellung</legend>
-                                    <label><input type="radio" name="verfahren"
-                                                  value="kreuztitration_schrittweise_dosisreduktion">Kreuztitration
-                                        mit schrittweiser Dosisreduktion und vollständigem Absetzen von</label>
-                                    <input type="text" name="ursprüngliches_medikament_1"
-                                           placeholder="ursprüngliches Medikament">
-                                    <label>und gleichzeitiger Einführung von</label>
-                                    <input type="text" name="neues_medikament_1" placeholder="neues Medikament">
-                                    <label>in der Tagesdosis von</label>
-                                    <input type="text" name="neues_medikament_dosis1"
-                                           placeholder="Dosis (mg/µg/g/mmol)"><br>
-                                    <label><input type="radio" name="verfahren"
-                                                  value="kreuztitration_schrittweise_dosissteigerung">Kreuztitration
-                                        mit schrittweiser Dosisreduktion und vollständigem Absetzen von</label>
-                                    <input type="text" name="ursprüngliches_medikament_2"
-                                           placeholder="ursprüngliches Medikament">
-                                    <label>und gleichzeitiger Einführung von</label>
-                                    <input type="text" name="neues_medikament_2" placeholder="neues Medikament">
-                                    <label>mit schrittweiser Tagesdosissteigerung von</label>
-                                    <input type="text" name="neues_medikament_dosis_2_start"
-                                           placeholder="Startdosis (mg/µg/g/mmol)">
-                                    <label>auf</label>
-                                    <input type="text" name="neues_medikament_dosis_2_end"
-                                           placeholder="Enddosis (mg/µg/g/mmol)"><br>
-                                    <label><input type="radio" name="verfahren" value="einschrittiges_absetzen">Einschrittiges
-                                        Absetzen von</label>
-                                    <input type="text" name="ursprüngliches_medikament_3"
-                                           placeholder="ursprüngliches Medikament">
-                                    <label>und Beginn der Therapie mit</label>
-                                    <input type="text" name="neues_medikament_3" placeholder="neues Medikament">
-                                    <label>in einer Tagesdosis</label>
-                                    <input type="text" name="neues_medikament_dosis_3"
-                                           placeholder="Dosis (mg/µg/g/mmol)"><br>
-                                    <label><input type="radio" name="verfahren"
-                                                  value="einschrittiges_absetzen_schrittweise_dosissteigerung">Einschrittiges
-                                        Absetzen von</label>
-                                    <input type="text" name="ursprüngliches_medikament_4"
-                                           placeholder="ursprüngliches Medikament">
-                                    <label>und Beginn der Therapie mit</label>
-                                    <input type="text" name="neues_medikament_4" placeholder="neues Medikament">
-                                    <label>mit schrittweiser Tagesdosissteigerung von</label>
-                                    <input type="text" name="neues_medikament_dosis_4_start"
-                                           placeholder="Startdosis (mg/µg/g/mmol)">
-                                    <label>auf</label>
-                                    <input type="text" name="neues_medikament_dosis_4_end"
-                                           placeholder="Enddosis (mg/µg/g/mmol)">
-
+                                <div>
+                                    <label for="previous_med_name">Name des vorherigen Medikaments:</label>
+                                    <input type="text" id="previous_med_name" name="previous_med_name">
                                 </div>
-                                <!-- Ergebnis -->
-                                <div class="form-section">
+                                <div>
+                                    <label for="new_med_name">Name des neuen Medikaments:</label>
+                                    <input type="text" id="new_med_name" name="new_med_name">
+                                </div>
+                                <div>
+                                    <label for="new_med_dose">Tagesdosis des neuen Medikaments:</label>
+                                    <input type="text" id="new_med_dose" name="new_med_dose">
+                                </div>
 
-                                    <legend>Ergebnis</legend>
-                                    <label><input type="radio" name="ergebnis" value="verbesserung">Verbesserung
-                                        der Symptome:</label>
-                                    <input type="text" name="verbesserung_text" placeholder="Beschreibung"><br>
-                                    <label><input type="radio" name="ergebnis" value="verschlechterung">Verschlechterung
-                                        der Symptome:</label>
-                                    <input type="text" name="verschlechterung_text"
-                                           placeholder="Beschreibung"><br>
-                                    <label><input type="radio" name="ergebnis" value="ausbleiben">Ausbleiben der
-                                        Wirkung auf die Symptome:</label>
-                                    <input type="text" name="verschlechterung_text"
-                                           placeholder="Beschreibung"><br>
-                                    <input type="text" name="ausbleiben_text" placeholder="Beschreibung"><br>
-                                    <input type="text" name="verschlechterung_text"
-                                           placeholder="Beschreibung"><br>
-                                    <label><input type="radio" name="ergebnis" value="nebenwirkungen">Nebenwirkungen
-                                        oder allergische Reaktionen:</label>
-                                    <input type="text" name="verschlechterung_text"
-                                           placeholder="Beschreibung"><br>
-                                    <input type="text" name="nebenwirkungen_text" placeholder="Beschreibung">
-                                    <input type="text" name="verschlechterung_text"
-                                           placeholder="Beschreibung"><br>
+
+                                <div>
+                                    <div>
+                                        <legend>Grund:</legend>
+                                        <div>
+                                            <input type="checkbox" name="grund" value="ausbleiben_ansprechen">
+                                            <label>vollständiges Ausbleiben des Ansprechens</label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" name="grund" value="unzureichende_wirksamkeit">
+                                            <label>unzureichende Wirksamkeit</label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" name="grund" value="unverträglichkeit">
+                                            <label>Unverträglichkeit des ursprünglichen Medikamentes in Form von:</label>
+                                            <input type="text" name="unverträglichkeit_text" placeholder="Beschreibung"><br>
+                                        </div>
+                                        
+                                        <div> 
+                                            <input type="checkbox" name="grund" value="unzulässige_kombination">
+                                            <label>Umstellung aufgrund der Unzulässigkeit der Kombination von:</label>
+                                            <input type="text" name="ursprüngliches_medikament" placeholder="ursprüngliches Medikament">
+                                        </div>
+                                        
+                                        <div>
+                                            <label for=""></label>
+                                            <input type="text" name="anderes_medikament" placeholder="anderes eingenommenes Medikament">
+                                        </div>
+                                        
+                                        <div>
+                                            <input type="checkbox" name="grund" value="änderung_indikation">
+                                            <label>Änderung der Indikation von</label>
+                                        </div>
+                                        
+                                        <div> 
+                                            <label for=""></label>
+                                            <input type="text" name="ursprüngliche_indikation" placeholder="ursprüngliche Indikation">
+                                        </div>
+
+                                        <div>
+                                            <label for=""></label>
+                                            <input type="text" name="neue_indikation" placeholder="neue Indikation">
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" name="grund" value="toleranz_entwicklung">
+                                            <label>Entwicklung der Toleranz</label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" name="grund" value="umstellung_generikum">
+                                            <label>Umstellung auf ein Generikum auf Wunsch des Patienten</label>
+                                        </div>
+                                        
+                                        <div>
+                                            <input type="checkbox" name="grund" value="nichtverfügbarkeit">
+                                            <label>Nichtverfügbarkeit des Medikaments auf dem lokalen Arzneimittelmarkt</label>
+                                        </div>
+                                        
+                                        <div>
+                                            <input type="checkbox" name="grund" value="weigerung">
+                                            <label>Weigerung des Patienten, das Medikament weiter einzunehmen:</label>
+                                            <input type="text" name="weigerung_grund" placeholder="Grund">
+                                        </div>
+                                        
+                                        <div>
+                                            <input type="checkbox" name="grund" value="patientenpräferenz">
+                                            <label>Patientenpräferenz:</label>
+                                            <input type="text" name="patientenpräferenz_grund" placeholder="Grund">
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <legend>Verfahren der Umstellung</legend>
+
+                                        <div>
+                                            <input type="radio" name="verfahren"
+                                                    value="kreuztitration_schrittweise_dosisreduktion">
+                                            <label>Kreuztitration
+                                                mit schrittweiser Dosisreduktion und vollständigem Absetzen von</label>
+                                            <input type="text" name="ursprüngliches_medikament_1"
+                                            placeholder="ursprüngliches Medikament">
+                                        </div>
+                                            
+                                        <div>
+                                            <label>und gleichzeitiger Einführung von</label>
+                                            <input type="text" name="neues_medikament_1" placeholder="neues Medikament">
+                                        </div>
+
+                                        <div>
+                                            <label>in der Tagesdosis von</label>
+                                            <input type="text" name="neues_medikament_dosis1"
+                                                placeholder="Dosis (mg/µg/g/mmol)">
+                                        </div>
+                                        
+                                        <div>
+                                            <input type="radio" name="verfahren"
+                                                    value="kreuztitration_schrittweise_dosissteigerung">
+                                            <label>Kreuztitration
+                                                mit schrittweiser Dosisreduktion und vollständigem Absetzen von</label>
+                                            <input type="text" name="ursprüngliches_medikament_2"
+                                            placeholder="ursprüngliches Medikament">
+                                        </div>
+                                        
+                                        <div>
+                                            <label>und gleichzeitiger Einführung von</label>
+                                            <input type="text" name="neues_medikament_2" placeholder="neues Medikament">
+                                        </div>
+                                        
+                                        <div>
+                                            <label>mit schrittweiser Tagesdosissteigerung von</label>
+                                            <input type="text" name="neues_medikament_dosis_2_start"
+                                                placeholder="Startdosis (mg/µg/g/mmol)">
+                                        </div>
+                                        
+                                        <div>
+                                            <label>auf</label>
+                                            <input type="text" name="neues_medikament_dosis_2_end"
+                                                placeholder="Enddosis (mg/µg/g/mmol)">
+                                        </div>
+
+                                        <div>
+                                            <input type="radio" name="verfahren" value="einschrittiges_absetzen">
+                                            <label>Einschrittiges
+                                                Absetzen von</label>
+                                            <input type="text" name="ursprüngliches_medikament_3"
+                                            placeholder="ursprüngliches Medikament">
+                                        </div>
+                                        
+                                        <div>
+                                            <label>und Beginn der Therapie mit</label>
+                                            <input type="text" name="neues_medikament_3" placeholder="neues Medikament">
+                                        </div>
+                                        
+                                        <div>
+                                            <label>in einer Tagesdosis</label>
+                                            <input type="text" name="neues_medikament_dosis_3"
+                                                placeholder="Dosis (mg/µg/g/mmol)">
+                                        </div>
+                                        
+                                        <div>
+                                            <input type="radio" name="verfahren"
+                                                    value="einschrittiges_absetzen_schrittweise_dosissteigerung">
+                                            <label>Einschrittiges
+                                                Absetzen von</label>
+                                            <input type="text" name="ursprüngliches_medikament_4"
+                                            placeholder="ursprüngliches Medikament">
+                                        </div>
+
+                                        <div> 
+                                            <label>und Beginn der Therapie mit</label>
+                                            <input type="text" name="neues_medikament_4" placeholder="neues Medikament">
+                                        </div>
+                                        
+                                        <div>
+                                            <label>mit schrittweiser Tagesdosissteigerung von</label>
+                                            <input type="text" name="neues_medikament_dosis_4_start"
+                                                placeholder="Startdosis (mg/µg/g/mmol)">
+                                        </div>
+                                        
+                                        <div>
+                                            <label>auf</label>
+                                            <input type="text" name="neues_medikament_dosis_4_end"
+                                                placeholder="Enddosis (mg/µg/g/mmol)">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <legend>Ergebnis</legend>
+
+                                        <div>
+                                            <input type="radio" name="ergebnis" value="verbesserung">
+                                            <label>Verbesserung
+                                                der Symptome:</label>
+                                            <input type="text" name="verbesserung_text" placeholder="Beschreibung"><br>
+                                        </div>
+                                        
+                                        <div>
+                                            <input type="radio" name="ergebnis" value="verschlechterung">
+                                            <label>Verschlechterung
+                                                der Symptome:</label>
+                                            <input type="text" name="verschlechterung_text"
+                                            placeholder="Beschreibung">
+                                        </div>
+                                        
+                                        <div> 
+                                            <input type="radio" name="ergebnis" value="ausbleiben">
+                                            <label>Ausbleiben der
+                                                Wirkung auf die Symptome:</label>
+                                            <input type="text" name="verschlechterung_text"
+                                                placeholder="Beschreibung">
+                                        </div>
+                                        
+                                        <div>
+                                            <label for=""></label>
+                                            <input type="text" name="ausbleiben_text" placeholder="Beschreibung"><br>
+                                        </div>
+
+                                        <div>
+                                            <label for=""></label>
+                                            <input type="text" name="verschlechterung_text"
+                                            placeholder="Beschreibung"><br>
+                                        </div>
+                                        
+                                        <div>
+                                            <input type="radio" name="ergebnis" value="nebenwirkungen">
+                                            <label>Nebenwirkungen
+                                                oder allergische Reaktionen:</label>
+                                            <input type="text" name="verschlechterung_text"
+                                            placeholder="Beschreibung">
+                                        </div>
+
+                                        <div>
+                                            <label for=""></label>
+                                            <input type="text" name="nebenwirkungen_text" placeholder="Beschreibung">
+                                        </div>
+
+                                        <div>
+                                            <label for=""></label>
+                                            <input type="text" name="verschlechterung_text"
+                                                placeholder="Beschreibung">
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </fieldset>
@@ -1338,115 +1534,152 @@
                             </div>
 
                             <div class="form-content" id="form-content12">
-                                <label for="discontinued_med_name">Name des Medikaments:</label>
-                                <input type="text" id="discontinued_med_name" name="discontinued_med_name">
-
+                                <div>
+                                    <label for="discontinued_med_name">Name des Medikaments:</label>
+                                    <input type="text" id="discontinued_med_name" name="discontinued_med_name">
+                                </div>
 
                                 <legend>Grund für das Absetzen:</legend>
-                                <label>
+                                
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason"
                                            value="symptom_disappearance">
-                                    Vollständiges Abklingen der Symptomatik und keine Indikation für eine
-                                    fortgesetzte Anwendung als Erhaltungstherapie
-                                </label>
-                                <br>
-                                <label>
+                                    <label>
+                                        Vollständiges Abklingen der Symptomatik und keine Indikation für eine
+                                        fortgesetzte Anwendung als Erhaltungstherapie
+                                    </label>
+                                </div>
+
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason" value="no_response">
-                                    Vollständiges Ausbleiben des Ansprechens
-                                </label>
-                                <br>
-                                <label>
+                                    <label>
+                                        Vollständiges Ausbleiben des Ansprechens
+                                    </label>
+                                </div>
+                                
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason"
                                            value="insufficient_effectiveness">
-                                    Unzureichende Wirksamkeit
-                                </label>
-                                <br>
-                                <label>
+                                    <label>
+                                        Unzureichende Wirksamkeit
+                                    </label>
+                                </div>
+
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason" value="intolerance">
-                                    Unverträglichkeit des Medikamentes in Form von:
-                                </label>
-                                <input type="text" name="intolerance_description" placeholder="Beschreibung">
-                                <br>
-                                <label>
+                                    <label>
+                                        Unverträglichkeit des Medikamentes in Form von:
+                                    </label>
+                                    <input type="text" name="intolerance_description" placeholder="Beschreibung">
+                                </div>
+                                
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason"
                                            value="incompatibility">
-                                    Absetzen aufgrund der Unzulässigkeit der Kombination von
-                                </label>
-                                <input type="text" name="discontinued_med"
+                                    <label>
+                                        Absetzen aufgrund der Unzulässigkeit der Kombination von
+                                    </label>
+                                    <input type="text" name="discontinued_med"
                                        placeholder="Name des abgesetzten Medikaments">
-                                <label>mit</label>
-                                <input type="text" name="other_med"
+                                </div>
+                                
+                                <div>
+                                    <label>mit</label>
+                                    <input type="text" name="other_med"
                                        placeholder="Name des anderen eingenommenen Medikaments">
-                                <br>
-                                <label>
+                                </div>
+                                
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason"
                                            value="indication_change">
-                                    Änderung der Indikation von
-                                </label>
-                                <input type="text" name="initial_indication"
-                                       placeholder="ursprüngliche Indikation">
-                                <label>auf</label>
-                                <input type="text" name="new_indication" placeholder="neue Indikation">
-                                <br>
-                                <label>
+                                    <label>
+                                        Änderung der Indikation von
+                                    </label>
+                                    <input type="text" name="initial_indication"
+                                        placeholder="ursprüngliche Indikation">
+                                </div>
+                                
+                                <div>
+                                    <label>auf</label>
+                                    <input type="text" name="new_indication" placeholder="neue Indikation">
+                                </div>
+                                
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason"
                                            value="tolerance_development">
-                                    Entwicklung der Toleranz
-                                </label>
-                                <br>
-                                <label>
+                                    <label>
+                                        Entwicklung der Toleranz
+                                    </label>
+                                </div>
+                                
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason"
                                            value="drug_unavailability">
-                                    Nichtverfügbarkeit des Medikaments auf dem lokalen Arzneimittelmarkt
-                                </label>
-                                <br>
-                                <label>
+                                    <label>
+                                        Nichtverfügbarkeit des Medikaments auf dem lokalen Arzneimittelmarkt
+                                    </label>
+                                </div>
+                                
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason"
                                            value="patient_refusal">
-                                    Weigerung des Patienten, das Medikament weiter einzunehmen:
-                                </label>
-                                <input type="text" name="refusal_reason" placeholder="Grund (optional)">
-                                <br>
-                                <label>
+                                    <label>
+                                        Weigerung des Patienten, das Medikament weiter einzunehmen:
+                                    </label>
+                                    <input type="text" name="refusal_reason" placeholder="Grund (optional)">
+                                </div>
+                                
+                                <div>
                                     <input type="checkbox" name="discontinuation_reason"
                                            value="patient_preference">
-                                    Patientenpräferenz:
-                                </label>
-                                <input type="text" name="preference_reason" placeholder="Grund (optional)">
-
-
-                                <legend>Verfahren des Absetzens:</legend>
-                                <label>
+                                    <label>
+                                        Patientenpräferenz:
+                                    </label>
+                                    <input type="text" name="preference_reason" placeholder="Grund (optional)">
+                                </div>
+                                
+                                <div>
+                                    <legend>Verfahren des Absetzens:</legend>
                                     <input type="radio" name="discontinuation_method" value="gradual_reduction">
-                                    Schrittweise Dosisreduktion mit anschließendem vollständigen Absetzen
-                                </label>
-                                <br>
-                                <label>
+                                    <label>
+                                        Schrittweise Dosisreduktion mit anschließendem vollständigen Absetzen
+                                    </label>
+                                </div>
+
+                                <div>
                                     <input type="radio" name="discontinuation_method"
                                            value="one_step_discontinuation">
-                                    Einschrittiges Absetzen
-                                </label>
-
-
-                                <legend>Ergebnis:</legend>
-                                <label>
+                                    <label>
+                                        Einschrittiges Absetzen
+                                    </label>
+                                </div>
+                                
+                                <div>
+                                    <legend>Ergebnis:</legend>
                                     <input type="radio" name="discontinuation_outcome"
-                                           value="symptom_improvement">
-                                    Verbesserung der Unverträglichkeitssymptome:
-                                </label>
-                                <input type="text" name="improvement_description" placeholder="Beschreibung">
-                                <br>
-                                <label>
+                                        value="symptom_improvement">
+                                    <label>
+                                        Verbesserung der Unverträglichkeitssymptome:
+                                    </label>
+                                    <input type="text" name="improvement_description" placeholder="Beschreibung">
+                                </div>
+
+                                <div>
                                     <input type="radio" name="discontinuation_outcome"
                                            value="symptom_worsening">
-                                    Verschlechterung der Symptomatik:
-                                </label>
-                                <input type="text" name="worsening_description" placeholder="Beschreibung">
-                                <br>
-                                <label>
+                                    <label>
+                                        Verschlechterung der Symptomatik:
+                                    </label>
+                                    <input type="text" name="worsening_description" placeholder="Beschreibung">
+                                </div>
+                                
+                                <div>
                                     <input type="radio" name="discontinuation_outcome" value="no_changes">
-                                    Keine Veränderungen des Zustandes
-                                </label>
+                                    <label>
+                                        Keine Veränderungen des Zustandes
+                                    </label>
+                                </div>
+                                
 
                             </div>
                         </fieldset>

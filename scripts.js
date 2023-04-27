@@ -15,7 +15,9 @@ function generateReport() {
       if (inputs[i].value != "") {
         const fieldset = inputs[i].closest("fieldset");
         const legend = fieldset.querySelector("legend");
-        if (inputs[i].placeholder == "Namen von Symptomen") {
+        if (inputs[i].name == "newDoseDecrease") {
+          report.textContent = report.textContent + "Grund: " + "\n";
+        } else if (inputs[i].placeholder == "Namen von Symptomen") {
           report.textContent =
             report.textContent +
             "Auswirkungen der durchgeführten Behandlung auf spezifische psychopathologische Symptome:" +
@@ -41,6 +43,52 @@ function generateReport() {
             "Umstände der Behandlungsbeendigung: " +
             inputs[i].value +
             "\n";
+        } else if (
+          inputs[i].parentElement.parentElement.classList.contains(
+            "form-content"
+          )
+        ) {
+          if (!report.textContent.includes("MEDIKAMENTÖSE BEHANDLUNG")) {
+            report.textContent =
+              report.textContent + " MEDIKAMENTÖSE BEHANDLUNG" + "\n";
+          }
+          if (
+            !report.textContent.includes(
+              inputs[i].closest("fieldset").querySelector("legend").textContent
+            )
+          ) {
+            report.textContent =
+              report.textContent +
+              inputs[i].closest("fieldset").querySelector("legend")
+                .textContent +
+              "\n";
+          }
+          if (
+            inputs[i].name == "resultImprovedToleranceText" ||
+            inputs[i].name == "resultSymptomWorseningText" ||
+            inputs[i].name == "resultNoEffectDecreaseText" ||
+            inputs[i].id == "resultSideEffectsDecreaseText"
+          ) {
+            report.textContent = report.textContent + "Ergebnis: " + "\n";
+          }
+          report.textContent =
+            report.textContent +
+            inputs[i].parentElement
+              .querySelector("label")
+              .textContent.replace(/\s+/g, " ")
+              .trim() +
+            " " +
+            inputs[i].value +
+            "\n";
+          if (
+            inputs[i].name == "einleitung-dosis" ||
+            inputs[i].name == "continuing_dose" ||
+            inputs[i].name == "additional_dose"
+          ) {
+            report.textContent = report.textContent + "Ergebnis: " + "\n";
+          }
+
+          continue;
         } else {
           if (legend) {
             if (!report.textContent.includes(legend.textContent)) {
@@ -64,7 +112,56 @@ function generateReport() {
         }
       }
     } else if (inputs[i].type == "radio") {
-      if (inputs[i].value != "") {
+      const fieldset = inputs[i].closest("fieldset");
+      const legend = fieldset.querySelector("legend");
+      if (inputs[i].name == "discontinuation_outcome") {
+        if (inputs[i].checked) {
+          report.textContent = report.textContent + "Ergebnis: " + "\n";
+          if (inputs[i].value == "no_changes") {
+            report.textContent =
+              report.textContent + "Keine Veränderungen des Zustandes";
+          }
+          continue;
+        }
+      } else if (inputs[i].name == "discontinuation_method") {
+        if (inputs[i].checked) {
+          report.textContent =
+            report.textContent +
+            "Verfahren des Absetzens: " +
+            inputs[i].nextElementSibling.textContent
+              .replace(/\s+/g, " ")
+              .trim() +
+            "\n";
+          continue;
+        }
+      } else if (inputs[i].name == "ergebnis") {
+        if (inputs[i].checked) {
+          report.textContent = report.textContent + "Ergebnis" + "\n";
+          continue;
+        }
+      } else if (legend.textContent == "Umstellung von Medikament") {
+        const section =
+          inputs[i].parentElement.parentElement.querySelector("legend");
+        if (section.textContent == "Verfahren der Umstellung") {
+          if (inputs[i].checked) {
+            if (!report.textContent.includes("Verfahren der Umstellung")) {
+              report.textContent =
+                report.textContent + "Verfahren der Umstellung" + "\n";
+            }
+            if (inputs[i].parentElement.querySelector('input[type="text"]')) {
+              continue;
+            } else {
+              report.textContent =
+                report.textContent +
+                inputs[i].nextElementSibling.textContent
+                  .replace(/\s+/g, " ")
+                  .trim() +
+                "\n";
+              continue;
+            }
+          }
+        }
+      } else if (inputs[i].value != "") {
         const parent = inputs[i].parentElement;
         let label = parent.querySelector("label");
         if (parent.tagName == "LABEL") {
@@ -73,7 +170,13 @@ function generateReport() {
         if (inputs[i].checked) {
           const fieldset = inputs[i].closest("fieldset");
           const legend = fieldset.querySelector("legend");
-          if (inputs[i].name == "symptom-effect") {
+          if (
+            inputs[i].parentElement.parentElement.classList.contains(
+              "form-content"
+            )
+          ) {
+            continue;
+          } else if (inputs[i].name == "symptom-effect") {
             report.textContent = report.textContent + inputs[i].value + "\n";
             continue;
           } else if (
@@ -178,7 +281,114 @@ function generateReport() {
       const label = parent.querySelector("label");
       const fieldset = inputs[i].closest("fieldset");
       const legend = fieldset.querySelector("legend");
-      if (
+      if (legend.textContent == "Umstellung von Medikament") {
+        const section =
+          inputs[i].parentElement.parentElement.querySelector("legend");
+        if (section.textContent == "Grund:") {
+          if (inputs[i].checked) {
+            if (!report.textContent.includes("Grund:")) {
+              report.textContent = report.textContent + "Grund:" + "\n";
+            }
+            if (inputs[i].parentElement.querySelector('input[type="text"]')) {
+              continue;
+            } else {
+              report.textContent =
+                report.textContent +
+                inputs[i].nextElementSibling.textContent +
+                "\n";
+              continue;
+            }
+          }
+        }
+      } else if (legend.textContent == "Absetzen der Therapie") {
+        const section =
+          inputs[i].parentElement.parentElement.querySelector("legend");
+        if (section.textContent == "Grund für das Absetzen:") {
+          if (inputs[i].checked) {
+            if (!report.textContent.includes("Grund für das Absetzen:")) {
+              report.textContent =
+                report.textContent + "Grund für das Absetzen:" + "\n";
+            }
+            if (inputs[i].parentElement.querySelector('input[type="text"]')) {
+              continue;
+            } else {
+              report.textContent =
+                report.textContent +
+                inputs[i].nextElementSibling.textContent
+                  .replace(/\s+/g, " ")
+                  .trim() +
+                "\n";
+              continue;
+            }
+          }
+        }
+      } else if (
+        inputs[i].parentElement.parentElement.classList.contains(
+          "form-content"
+        ) ||
+        inputs[i].parentElement.parentElement.parentElement.classList.contains(
+          "form-content"
+        )
+      ) {
+        if (inputs[i].parentElement.querySelector('input[type="text"]')) {
+          if (
+            inputs[i].previousElementSibling &&
+            inputs[i].previousElementSibling.tagName == "LABEL"
+          ) {
+            if (inputs[i].checked) {
+              if (
+                !report.textContent.includes(
+                  inputs[i].parentElement
+                    .querySelector("label")
+                    .textContent.replace(/\s+/g, " ")
+                    .trim()
+                )
+              ) {
+                report.textContent =
+                  report.textContent +
+                  inputs[i].parentElement
+                    .querySelector("label")
+                    .textContent.replace(/\s+/g, " ")
+                    .trim();
+                continue;
+              }
+            }
+          }
+
+          continue;
+        } else {
+          if (inputs[i].checked) {
+            if (
+              inputs[i].name == "reasonIncrease" &&
+              !report.textContent.includes("Grund:")
+            ) {
+              report.textContent =
+                report.textContent +
+                "Grund: " +
+                inputs[i].nextElementSibling.textContent
+                  .replace(/\s+/g, " ")
+                  .trim();
+            }
+            report.textContent =
+              report.textContent +
+              ", " +
+              inputs[i].nextElementSibling.textContent
+                .replace(/\s+/g, " ")
+                .trim() +
+              "\n";
+          }
+          if (
+            inputs[i].name == "reasonIncrease" &&
+            !report.textContent.includes("Ergebnis:") &&
+            inputs[i].value == "standardProcedure" &&
+            (inputs[i - 1].checked || inputs[i - 2].checked)
+          ) {
+            report.textContent = report.textContent + "Ergebnis:" + "\n";
+          }
+
+          continue;
+        }
+      } else if (
         parent.parentElement.querySelector("label").textContent ==
         "Probleme im Zusammenhang mit Angst:"
       ) {
@@ -550,15 +760,7 @@ function removeSymptom(button) {
   const symptomBlock = button.closest(".symptom-block");
   symptomBlock.remove();
 }
-//add_block
-function add_block() {
-  const get_choice_part = document.querySelectorAll(
-    ".choice_menu .choice_part"
-  );
-  get_choice_part.forEach((item) => {
-    item.classList.toggle("choice_part_animation");
-  });
-}
+
 const get_form_section_one = document.querySelector(".form-section-one");
 let form_section_one_quantity = 0;
 const get_form_section_two = document.querySelector(".form-section-two");

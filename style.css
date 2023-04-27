@@ -98,7 +98,7 @@ legend {
 }
 
 .choice_menu .choice_part {
-  display: none;
+  display: block;
   grid-template-columns: 1fr auto;
   align-items: center;
   background-color: #4caf50;
