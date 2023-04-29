@@ -9,41 +9,16 @@
 <body>
 <h1>Psychiatrischer Bericht</h1>
 <form id="psych-report-form">
-    <!-- TYP DES BERICHTS -->
-    <div class="form-section">
-        <fieldset>
-            <legend>TYP DES BERICHTS</legend>
-            <select id="report-type">
-                <option value="entlassungsbericht-akut">Entlassungsbericht (Austrittsbericht) stationäre Behandlung:
-                    Akutstation
-                </option>
-                <option value="entlassungsbericht-psychotherapiestation">Entlassungsbericht (Austrittsbericht)
-                    stationäre Behandlung: Psychotherapiestation
-                </option>
-                <option value="abschlussbericht-ambulant">Abschlussbericht ambulante Behandlung</option>
-                <option value="erstgesprach-ambulant">Bericht über das ambulante Erstgespräch</option>
-                <option value="verlaufsbericht-ambulant">Verlaufsbericht ambulant</option>
-                <option value="arztbericht-krankenkasse">Arztbericht an die Krankenkasse</option>
-                <option value="iv-bericht">IV-Bericht (Invalidenversicherung)</option>
-                <option value="psychiatrisches-konsilium">Bericht des psychiatrischen Konsiliums</option>
-                <option value="stellungnahme-arbeitsfahigkeit">Psychiatrische Stellungnahme zur Arbeitsfähigkeit
-                </option>
-                <option value="psychopharmakologischer-konsultationsbericht">Psychopharmakologischer
-                    Konsultationsbericht
-                </option>
-            </select>
-        </fieldset>
-    </div>
     <!-- 1 -->
     <!-- INFORMATIONEN ZUM PATIENTEN -->
     <div class="form-section">
         <fieldset>
             <legend>INFORMATIONEN ZUM PATIENTEN</legend>
-            <div class="button">
+            <!-- <div class="button">
                 <button onclick="open_menu(this)">Open/Close</button>
-            </div>
+            </div> -->
             <div class="form-content" id="form-content">
-                <label for="last-name">Informationen zum patienten:</label>
+                <label for="last-name">Name:</label>
                 <input type="text" id="last-name" required>
                 <label for="first-name">Vorname:</label>
                 <input type="text" id="first-name" required>
@@ -134,9 +109,9 @@
     <div class="form-section">
         <fieldset>
             <legend>INFORMATIONEN ZUR BEHANDLUNG</legend>
-            <div class="button">
+            <!-- <div class="button">
                 <button onclick="open_menu(this)">Open/Close</button>
-            </div>
+            </div> -->
             <div class="form-content" id="form-content1">
                 <div>
                     <label>Art der psychiatrischen Institution:</label>
@@ -149,7 +124,7 @@
                     <input type="radio" id="institution-practice" name="institution" value="Praxis">
                     <label for="institution-practice">Praxis</label>
                 </div>
-                <label for="institution-name">Informationen zur behandlung:</label>
+                <label for="institution-name">Name der psychiatrischen Institution:</label>
                 <input type="text" id="institution-name">
 
                 <div>
@@ -204,9 +179,9 @@
     <div class="form-section">
         <fieldset>
             <legend>GRUND FÜR DIE BEHANDLUNG</legend>
-            <div class="button">
+            <!-- <div class="button">
                 <button onclick="open_menu(this)">Open/Close</button>
-            </div>
+            </div> -->
             <div class="form-content" id="form-content2">
                 <div id="symptoms-list">
                     <div class="symptom">
@@ -596,9 +571,9 @@
     <div class="form-section">
         <fieldset>
             <legend>DIAGNOSE</legend>
-            <div class="button">
+            <!-- <div class="button">
                 <button onclick="open_menu(this)">Open/Close</button>
-            </div>
+            </div> -->
             <div class="form-content" id="form-content3">
                 <label for="main-diagnosis">Psychiatrische Hauptdiagnose:</label>
                 <input type="text" id="main-diagnosis" name="main-diagnosis">
@@ -616,9 +591,9 @@
     <div class="form-section">
         <fieldset>
             <legend>DEFIZITE UND RESSOURCEN</legend>
-            <div class="button">
+            <!-- <div class="button">
                 <button onclick="open_menu(this)">Open/Close</button>
-            </div>
+            </div> -->
             <div class="form-content" id="form-content4">
                 <div class="deficits">
                     <h3>Defizite</h3>
@@ -653,11 +628,11 @@
                     </div>
                     <div>
                         <label><input type="checkbox" name="deficits" value="Körperliche Krankheit">Körperliche
-                            Krankheit [Textfeld]</label>
+                            Krankheit</label>
                     </div>
                     <div>
                         <label><input type="checkbox" name="deficits" value="Schwere körperliche Behinderung">Schwere
-                            körperliche Behinderung [Textfeld]</label>
+                            körperliche Behinderung</label>
                     </div>
                     <div>
                         <label><input type="checkbox" name="deficits" value="Fehlende Behandlungsmotivation">Fehlende
@@ -715,7 +690,7 @@
                     </div>
                     <div>
                         <label><input type="checkbox" name="resources" value="Interessen und Hobbies">Interessen und
-                            Hobbies [Textfeld]</label>
+                            Hobbies</label>
                     </div>
                     <div>
                         <label><input type="checkbox" name="resources" value="Gute Integration und Assimilation">Gute
@@ -737,9 +712,9 @@
     <div class="form-section">
         <fieldset>
             <legend>FUNKTIONSFÄHIGKEIT (NACH MINI ICF)</legend>
-            <div class="button">
+            <!-- <div class="button">
                 <button onclick="open_menu(this)">Open/Close</button>
-            </div>
+            </div> -->
             <!-- Radio button options for functional impairments -->
             <div class="functional-impairments">
                 <!-- Anpassung an Regeln und Routinen -->
@@ -893,9 +868,9 @@
     <div class="form-section">
         <fieldset>
             <legend> MEDIKAMENTÖSE BEHANDLUNG</legend>
-            <div class="button">
+            <!-- <div class="button">
                 <button onclick="open_menu(this)">Open/Close</button>
-            </div>
+            </div> -->
             <div class="form-content">
                 <div class="choice_menu">
                     <div class="choice_part 0_search">
@@ -932,9 +907,9 @@
                     <div class="med-section med-form form-section form-section-one" data-type="einleitung">
                         <fieldset>
                             <legend>Einleitung der Therapie</legend>
-                            <div class="button">
+                            <!-- <div class="button">
                                 <button onclick="open_menu(this)">Open/Close</button>
-                            </div>
+                            </div> -->
 
                             <!-- 1 -->
                             <div class="form-content" id="form-content7">
@@ -980,9 +955,9 @@
                     <div class="med-form form-section form-section-two">
                         <fieldset>
                             <legend>Fortsetzung der bereits verordneter Therapie</legend>
-                            <div class="button">
+                            <!-- <div class="button">
                                 <button onclick="open_menu(this)">Open/Close</button>
-                            </div>
+                            </div> -->
 
                             <div class="form-content" id="form-content8">
                                 <div>
@@ -1042,9 +1017,9 @@
                     <div class="med-form form-section form-section-three">
                         <fieldset>
                             <legend>Ergänzung der bereits verordneter Therapie</legend>
-                            <div class="button">
+                            <!-- <div class="button">
                                 <button onclick="open_menu(this)">Open/Close</button>
-                            </div>
+                            </div> -->
 
                             <div class="form-content" id="form-content9">
                                 <div>
@@ -1094,9 +1069,9 @@
                     <div class="med-form form-section form-section-four">
                         <fieldset>
                             <legend>Erhöhung der Tagesdosis</legend>
-                            <div class="button">
+                            <!-- <div class="button">
                                 <button onclick="open_menu(this)">Open/Close</button>
-                            </div>
+                            </div> -->
 
                             <div class="form-content" id="form-content10">
 
@@ -1172,9 +1147,9 @@
                     <div class="med-form form-section form-section-five">
                         <fieldset>
                             <legend>Reduktion der Tagesdosis</legend>
-                            <div class="button">
+                            <!-- <div class="button">
                                 <button onclick="open_menu(this)">Open/Close</button>
-                            </div>
+                            </div> -->
                             <div class="form-content" id="form-content11">
                                 <div>
                                     <label for="medDecreaseName">Name des Medikaments:</label>
@@ -1194,20 +1169,20 @@
                                 <div>
                                     <legend>Grund:</legend>
                                     <div>
-                                        <label for="reasonIntolerance">Unverträglichkeit des Medikamentes in Form von:</label>
                                         <input type="checkbox" id="reasonIntolerance" name="reasonDecrease" value="intolerance"> 
+                                        <label for="reasonIntolerance">Unverträglichkeit des Medikamentes in Form von:</label>
                                         <input type="text" id="reasonIntoleranceText" name="reasonIntoleranceText">
                                     </div>
                                     
                                     <div>
-                                        <label for="reasonInteraction">Pharmakokinetische Interaktionen mit:</label>
                                         <input type="checkbox" id="reasonInteraction" name="reasonDecrease" value="interaction">  
+                                        <label for="reasonInteraction">Pharmakokinetische Interaktionen mit:</label>
                                         <input type="text" id="reasonInteractionText" name="reasonInteractionText">
                                     </div>
                                     
                                     <div>
-                                        <label for="reasonIndicationChange">Änderung der Indikation von:</label>
                                         <input type="checkbox" id="reasonIndicationChange" name="reasonDecrease" value="indicationChange"> 
+                                        <label for="reasonIndicationChange">Änderung der Indikation von:</label>
                                         <input type="text" id="reasonIndicationChangeOld" name="reasonIndicationChangeOld">
                                     </div>
                                     
@@ -1276,9 +1251,9 @@
                     <div class="med-form form-section form-section-six">
                         <fieldset>
                             <legend>Umstellung von Medikament</legend>
-                            <div class="button">
+                            <!-- <div class="button">
                                 <button onclick="open_menu(this)">Open/Close</button>
-                            </div>
+                            </div> -->
                             <div class="form-content" id="form-content13">
                                 <div>
                                     <label for="previous_med_name">Name des vorherigen Medikaments:</label>
@@ -1320,7 +1295,7 @@
                                         </div>
                                         
                                         <div>
-                                            <label for=""></label>
+                                            <label for="">mit</label>
                                             <input type="text" name="anderes_medikament" placeholder="anderes eingenommenes Medikament">
                                         </div>
                                         
@@ -1335,7 +1310,7 @@
                                         </div>
 
                                         <div>
-                                            <label for=""></label>
+                                            <label for="">auf</label>
                                             <input type="text" name="neue_indikation" placeholder="neue Indikation">
                                         </div>
 
@@ -1362,7 +1337,7 @@
                                         
                                         <div>
                                             <input type="checkbox" name="grund" value="patientenpräferenz">
-                                            <label>Patientenpräferenz:</label>
+                                            <label>Wechsel auf ein lang wirksames Äquivalent:</label>
                                             <input type="text" name="patientenpräferenz_grund" placeholder="Grund">
                                         </div>
                                     </div>
@@ -1529,9 +1504,9 @@
                     <div class="med-form form-section form-section-seven">
                         <fieldset>
                             <legend>Absetzen der Therapie</legend>
-                            <div class="button">
+                            <!-- <div class="button">
                                 <button onclick="open_menu(this)">Open/Close</button>
-                            </div>
+                            </div> -->
 
                             <div class="form-content" id="form-content12">
                                 <div>
@@ -1688,14 +1663,6 @@
             </div>
         </fieldset>
     </div>
-    <div class="form-section">
-        <fieldset>
-            <legend>Medikamente und Dosierungen bei Behandlungsabschluss</legend>
-            <label for="medications-dosages">Spezifische Medikamente und Dosierungen bei
-                Behandlungsabschluss:</label>
-            <input class="medikamente_textarea" id="medications-dosages" type="text">
-        </fieldset>
-    </div>
 
 
     <!-- Keine medikamentöse Behandlung -->
@@ -1720,9 +1687,9 @@
     <div class="form-section">
         <fieldset>
             <legend> PSYCHOTHERAPEUTISCHE BEHANDLUNG</legend>
-            <div class="button">
+            <!-- <div class="button">
                 <button onclick="open_menu(this)">Open/Close</button>
-            </div>
+            </div> -->
 
             <!-- Aufbau und Charakter der therapeutischen Beziehung -->
             <div class="form-content" id="form-content15">
@@ -2084,9 +2051,9 @@
     <div class="form-section">
         <fieldset>
             <legend> ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG</legend>
-            <div class="button">
+            <!-- <div class="button">
                 <button onclick="open_menu(this)">Open/Close</button>
-            </div>
+            </div> -->
 
             <!-- Therapieeinhaltung durch den Patienten -->
             <div class="form-content" id="form-content16">
@@ -2253,9 +2220,9 @@
         <div class="form-section">
             <fieldset>
                 <legend> PLAN NACH DEM BEHANDLUNGSABSCHLUSS / NACH DER ENTLASSUNG</legend>
-                <div class="button">
+                <!-- <div class="button">
                     <button onclick="open_menu(this)">Open/Close</button>
-                </div>
+                </div> -->
 
                 <!-- Art der weiteren medizinischen/psychiatrisch psychotherapeutischen Versorgung -->
                 <div class="form-content" id="form-content17">

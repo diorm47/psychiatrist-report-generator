@@ -15,8 +15,43 @@ function generateReport() {
       if (inputs[i].value != "") {
         const fieldset = inputs[i].closest("fieldset");
         const legend = fieldset.querySelector("legend");
-        if (inputs[i].name == "newDoseDecrease") {
-          report.textContent = report.textContent + "Grund: " + "\n";
+        if (inputs[i].name == "initial_indication") {
+          report.textContent =
+            report.textContent +
+            "Änderung der Indikation von " +
+            inputs[i].value +
+            " auf " +
+            inputs[i + 1].value +
+            "\n";
+          i++;
+          continue;
+        } else if (inputs[i].name == "discontinued_med") {
+          report.textContent =
+            report.textContent +
+            "Absetzen aufgrund der Unzulässigkeit der Kombination von " +
+            inputs[i].value +
+            " mit " +
+            inputs[i + 1].value +
+            "\n";
+          i++;
+          continue;
+        } else if (inputs[i].id == "reasonIndicationChangeOld") {
+          report.textContent =
+            report.textContent +
+            "Änderung der Indikation von: " +
+            inputs[i].value +
+            " auf " +
+            inputs[i + 1].value +
+            "\n";
+          i++;
+        } else if (inputs[i].name == "newDoseDecrease") {
+          report.textContent =
+            report.textContent +
+            "Neue Dosis (Zahl und Einheit): " +
+            inputs[i].value +
+            "\n";
+          report.textContent = report.textContent + "Grund: ";
+          continue;
         } else if (inputs[i].placeholder == "Namen von Symptomen") {
           report.textContent =
             report.textContent +
@@ -114,7 +149,50 @@ function generateReport() {
     } else if (inputs[i].type == "radio") {
       const fieldset = inputs[i].closest("fieldset");
       const legend = fieldset.querySelector("legend");
-      if (inputs[i].name == "discontinuation_outcome") {
+      if (
+        legend.textContent ==
+        " ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG"
+      ) {
+        if (inputs[i].checked) {
+          if (
+            !report.textContent.includes(
+              "ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG"
+            )
+          ) {
+            report.textContent =
+              report.textContent +
+              "ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG" +
+              "\n";
+          }
+          if (inputs[i].name == "symptom-effect") {
+            report.textContent +=
+              inputs[i].nextElementSibling.textContent
+                .replace(/\s+/g, " ")
+                .trim() + "\n";
+            continue;
+          } else if (inputs[i].id == "termination-other") {
+            report.textContent =
+              report.textContent +
+              "Umstände der Behandlungsbeendigung: Andere: " +
+              inputs[i + 1].value +
+              "\n";
+            i++;
+            continue;
+          } else {
+            report.textContent =
+              report.textContent +
+              inputs[i].parentElement
+                .querySelector("label")
+                .textContent.replace(/\s+/g, " ")
+                .trim() +
+              " " +
+              inputs[i].nextElementSibling.textContent
+                .replace(/\s+/g, " ")
+                .trim() +
+              "\n";
+          }
+        }
+      } else if (inputs[i].name == "discontinuation_outcome") {
         if (inputs[i].checked) {
           report.textContent = report.textContent + "Ergebnis: " + "\n";
           if (inputs[i].value == "no_changes") {
@@ -281,7 +359,18 @@ function generateReport() {
       const label = parent.querySelector("label");
       const fieldset = inputs[i].closest("fieldset");
       const legend = fieldset.querySelector("legend");
-      if (legend.textContent == "Umstellung von Medikament") {
+      if (legend.textContent == "Reduktion der Tagesdosis") {
+        if (
+          inputs[i].checked &&
+          legend.textContent == "Erhöhung der Tagesdosis"
+        ) {
+          report.textContent =
+            report.textContent +
+            inputs[i].nextElementSibling.textContent +
+            ", ";
+          continue;
+        }
+      } else if (legend.textContent == "Umstellung von Medikament") {
         const section =
           inputs[i].parentElement.parentElement.querySelector("legend");
         if (section.textContent == "Grund:") {
@@ -358,24 +447,25 @@ function generateReport() {
           continue;
         } else {
           if (inputs[i].checked) {
-            if (
-              inputs[i].name == "reasonIncrease" &&
-              !report.textContent.includes("Grund:")
-            ) {
+            if (inputs[i].name == "reasonIncrease") {
+              if (!report.textContent.includes("Grund:")) {
+                report.textContent += "Grund: ";
+              }
               report.textContent =
                 report.textContent +
-                "Grund: " +
                 inputs[i].nextElementSibling.textContent
                   .replace(/\s+/g, " ")
-                  .trim();
+                  .trim() +
+                ", ";
+            } else {
+              report.textContent =
+                report.textContent +
+                ", " +
+                inputs[i].nextElementSibling.textContent
+                  .replace(/\s+/g, " ")
+                  .trim() +
+                "\n";
             }
-            report.textContent =
-              report.textContent +
-              ", " +
-              inputs[i].nextElementSibling.textContent
-                .replace(/\s+/g, " ")
-                .trim() +
-              "\n";
           }
           if (
             inputs[i].name == "reasonIncrease" &&
@@ -383,7 +473,11 @@ function generateReport() {
             inputs[i].value == "standardProcedure" &&
             (inputs[i - 1].checked || inputs[i - 2].checked)
           ) {
-            report.textContent = report.textContent + "Ergebnis:" + "\n";
+            report.textContent =
+              report.textContent.replace(/,\s*$/, "") +
+              "\n" +
+              "Ergebnis:" +
+              "\n";
           }
 
           continue;
@@ -697,38 +791,23 @@ function generateReport() {
   }
 }
 
-function open_menu(item) {
-  if (
-    item.parentElement.previousElementSibling.textContent ==
-      "Einleitung der Therapie" ||
-    item.parentElement.previousElementSibling.textContent ==
-      "Fortsetzung der bereits verordneter Therapie" ||
-    item.parentElement.previousElementSibling.textContent ==
-      "Ergänzung der bereits verordneter Therapie" ||
-    item.parentElement.previousElementSibling.textContent ==
-      "Erhöhung der Tagesdosis" ||
-    item.parentElement.previousElementSibling.textContent ==
-      "Reduktion der Tagesdosis" ||
-    item.parentElement.previousElementSibling.textContent ==
-      "Umstellung von Medikament" ||
-    item.parentElement.previousElementSibling.textContent ==
-      "Absetzen der Therapie"
-  ) {
-    const get_form_content =
-      item.parentElement.parentElement.querySelector(".form-content");
-    get_form_content.classList.toggle("form-content_animation");
-  } else {
-    const get_section = item.closest(".form-section");
-    const label = get_section.querySelector("button");
-    const get_form_content = get_section.querySelector(".form-content");
-    get_form_content.classList.toggle("form-content_animation");
-    document.body.style["overflow"] = "hidden";
-    setTimeout(() => {
-      label.scrollIntoViewIfNeeded();
-      document.body.style["overflow"] = "visible";
-    }, 0);
-  }
-}
+// function open_menu(item) {
+//     if (item.parentElement.previousElementSibling.textContent == 'Einleitung der Therapie' || item.parentElement.previousElementSibling.textContent == 'Fortsetzung der bereits verordneter Therapie' || item.parentElement.previousElementSibling.textContent == 'Ergänzung der bereits verordneter Therapie' || item.parentElement.previousElementSibling.textContent == 'Erhöhung der Tagesdosis' || item.parentElement.previousElementSibling.textContent == 'Reduktion der Tagesdosis' || item.parentElement.previousElementSibling.textContent == 'Umstellung von Medikament' || item.parentElement.previousElementSibling.textContent == 'Absetzen der Therapie'){
+//         const get_form_content = item.parentElement.parentElement.querySelector('.form-content');
+//         get_form_content.classList.toggle("form-content_animation");
+
+//     } else{
+//         const get_section = item.closest(".form-section");
+//         const label = get_section.querySelector('button');
+//         const get_form_content = get_section.querySelector(".form-content");
+//         get_form_content.classList.toggle("form-content_animation");
+//         document.body.style["overflow"] = "hidden";
+//         setTimeout(()=>{
+//             label.scrollIntoViewIfNeeded();
+//             document.body.style["overflow"] = "visible";
+//         }, 0);
+//     }
+// }
 
 // add remove symptome
 let symptomNumber = 0;
