@@ -15,7 +15,16 @@ function generateReport() {
       if (inputs[i].value != "") {
         const fieldset = inputs[i].closest("fieldset");
         const legend = fieldset.querySelector("legend");
-        if (inputs[i].name == "initial_indication") {
+        if (inputs[i].name == "main-diagnosis") {
+          report.textContent =
+            report.textContent +
+            "\n" +
+            "DIAGNOSE" +
+            "\n" +
+            "Psychiatrische Hauptdiagnose: " +
+            inputs[i].value +
+            "\n";
+        } else if (inputs[i].name == "initial_indication") {
           report.textContent =
             report.textContent +
             "Änderung der Indikation von " +
@@ -318,10 +327,13 @@ function generateReport() {
             "Aufbau und Charakter der therapeutischen Beziehung"
           ) {
             if (
-              !report.textContent.includes(" PSYCHOTHERAPEUTISCHE BEHANDLUNG")
+              !report.textContent.includes("PSYCHOTHERAPEUTISCHE BEHANDLUNG")
             ) {
               report.textContent =
-                report.textContent + " PSYCHOTHERAPEUTISCHE BEHANDLUNG" + "\n";
+                report.textContent +
+                "\n" +
+                "PSYCHOTHERAPEUTISCHE BEHANDLUNG" +
+                "\n";
             }
           } else if (inputs[i].name == "daily-life-impact") {
             report.textContent =
@@ -401,6 +413,35 @@ function generateReport() {
       const fieldset = inputs[i].closest("fieldset");
       const legend = fieldset.querySelector("legend");
       if (
+        inputs[i].id == "general-anxieties" ||
+        inputs[i].id == "phobias" ||
+        inputs[i].id == "phobias" ||
+        inputs[i].id == "panic-attacks"
+      ) {
+        if (inputs[i].checked) {
+          if (
+            !report.textContent.includes(
+              "Andere behandlungsrelevante Verhaltensweisen oder emotionale Probleme: "
+            )
+          ) {
+            report.textContent =
+              report.textContent +
+              "\n" +
+              "Andere behandlungsrelevante Verhaltensweisen oder emotionale Probleme: " +
+              "\n";
+          }
+          if (
+            !report.textContent.includes("Probleme im Zusammenhang mit Angst: ")
+          ) {
+            report.textContent =
+              report.textContent +
+              "Probleme im Zusammenhang mit Angst: " +
+              inputs[i].value;
+          } else {
+            report.textContent = report.textContent + ", " + inputs[i].value;
+          }
+        }
+      } else if (
         legend.innerText ==
         "Andere behandlungsrelevante Verhaltensweisen oder emotionale Probleme:"
       ) {
