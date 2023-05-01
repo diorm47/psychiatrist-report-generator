@@ -15,7 +15,15 @@ function generateReport() {
       if (inputs[i].value != "") {
         const fieldset = inputs[i].closest("fieldset");
         const legend = fieldset.querySelector("legend");
-        if (inputs[i].name == "main-diagnosis") {
+        if (inputs[i].id == "new_med_dose") {
+          report.textContent =
+            report.textContent +
+            "Tagesdosis des neuen Medikaments: " +
+            inputs[i].value +
+            "\n" +
+            "Grund: " +
+            "\n";
+        } else if (inputs[i].name == "main-diagnosis") {
           report.textContent =
             report.textContent +
             "\n" +
