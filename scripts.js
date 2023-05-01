@@ -55,7 +55,7 @@ function generateReport() {
         } else if (inputs[i].placeholder == "Namen von Symptomen") {
           report.textContent =
             report.textContent +
-            "Auswirkungen der durchgeführten Behandlung auf spezifische psychopathologische Symptome:" +
+            "Auswirkungen der durchgeführten Behandlung auf spezifische psychopathologische Symptome: " +
             inputs[i].value +
             ": ";
           continue;
@@ -149,7 +149,30 @@ function generateReport() {
     } else if (inputs[i].type == "radio") {
       const fieldset = inputs[i].closest("fieldset");
       const legend = fieldset.querySelector("legend");
-      if (
+      if (inputs[i].name == "gender") {
+        if (inputs[i].checked) {
+          report.textContent =
+            report.textContent + "Gender: " + inputs[i].value + "\n";
+        }
+      } else if (inputs[i].name == "marital-status") {
+        if (inputs[i].checked) {
+          report.textContent =
+            report.textContent + "Familienstand: " + inputs[i].value + "\n";
+        }
+      } else if (inputs[i].name == "accommodation") {
+        if (inputs[i].checked) {
+          report.textContent =
+            report.textContent +
+            "Art der Unterkunft: " +
+            inputs[i].value +
+            "\n";
+        }
+      } else if (inputs[i].name == "living-arrangement") {
+        if (inputs[i].checked) {
+          report.textContent =
+            report.textContent + "Wohnumstände: " + inputs[i].value + "\n";
+        }
+      } else if (
         legend.textContent ==
         " ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG"
       ) {
@@ -161,14 +184,18 @@ function generateReport() {
           ) {
             report.textContent =
               report.textContent +
+              "\n" +
               "ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG" +
               "\n";
           }
           if (inputs[i].name == "symptom-effect") {
-            report.textContent +=
+            report.textContent =
+              report.textContent +
+              " " +
               inputs[i].nextElementSibling.textContent
                 .replace(/\s+/g, " ")
-                .trim() + "\n";
+                .trim() +
+              "\n";
             continue;
           } else if (inputs[i].id == "termination-other") {
             report.textContent =
@@ -248,7 +275,36 @@ function generateReport() {
         if (inputs[i].checked) {
           const fieldset = inputs[i].closest("fieldset");
           const legend = fieldset.querySelector("legend");
-          if (
+          if (inputs[i].name == "versorgung") {
+            if (inputs[i].checked) {
+              report.textContent =
+                report.textContent +
+                " PLAN NACH DEM BEHANDLUNGSABSCHLUSS / NACH DER ENTLASSUNG" +
+                "\n";
+              report.textContent =
+                report.textContent +
+                "Art der weiteren medizinischen/psychiatrisch psychotherapeutischen Versorgung: " +
+                inputs[i].value +
+                "\n";
+              continue;
+            }
+          } else if (inputs[i].name == "compliance") {
+            if (
+              !report.textContent.includes(
+                "ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG"
+              )
+            ) {
+              report.textContent =
+                report.textContent +
+                "\n" +
+                "ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG" +
+                "\n" +
+                "Therapieeinhaltung durch den Patienten: " +
+                inputs[i].value +
+                "\n";
+              continue;
+            }
+          } else if (
             inputs[i].parentElement.parentElement.classList.contains(
               "form-content"
             )
@@ -270,6 +326,7 @@ function generateReport() {
           } else if (inputs[i].name == "daily-life-impact") {
             report.textContent =
               report.textContent +
+              "\n" +
               "Auswirkungen auf das tägliche Leben" +
               "\n" +
               "Auswirkungen auf das tägliche Leben der Gesamtheit der Symptome und weiterer Probleme: " +
@@ -283,22 +340,6 @@ function generateReport() {
               ": " +
               inputs[i].nextSibling.textContent.replace(/\s+/g, " ").trim();
             continue;
-          } else if (inputs[i].name == "compliance") {
-            if (
-              !report.textContent.includes(
-                " ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG"
-              )
-            ) {
-              report.textContent =
-                report.textContent +
-                "\n" +
-                " ENTWICKLUNG DES PATIENTEN WÄHREND DER BEHANDLUNG" +
-                "\n" +
-                "Therapieeinhaltung durch den Patienten: " +
-                inputs[i].value +
-                "\n";
-              continue;
-            }
           } else if (parent.parentElement.parentElement.querySelector("h3")) {
             if (
               !report.textContent.includes("FUNKTIONSFÄHIGKEIT (NACH MINI ICF)")
@@ -359,7 +400,43 @@ function generateReport() {
       const label = parent.querySelector("label");
       const fieldset = inputs[i].closest("fieldset");
       const legend = fieldset.querySelector("legend");
-      if (legend.textContent == "Reduktion der Tagesdosis") {
+      if (
+        legend.innerText ==
+        "Andere behandlungsrelevante Verhaltensweisen oder emotionale Probleme:"
+      ) {
+        if (inputs[i].checked) {
+          if (
+            inputs[i].id == "anxiety-problems-general" ||
+            inputs[i].id == "anxiety-problems-phobias" ||
+            inputs[i].id == "anxiety-problems-social" ||
+            inputs[i].id == "anxiety-problems-panic"
+          ) {
+            if (
+              !report.textContent.includes(
+                "Andere behandlungsrelevante Verhaltensweisen oder emotionale Probleme: "
+              )
+            ) {
+              report.textContent =
+                report.textContent +
+                "Andere behandlungsrelevante Verhaltensweisen oder emotionale Probleme: " +
+                inputs[i].value;
+            } else {
+              report.textContent = report.textContent + ", " + inputs[i].value;
+            }
+          } else {
+            const label = inputs[i].parentElement.parentElement
+              .querySelector("label")
+              .textContent.replace(/\s+/g, " ")
+              .trim();
+            if (!report.textContent.includes(label)) {
+              report.textContent =
+                report.textContent + "\n" + label + " " + inputs[i].value;
+            } else {
+              report.textContent = report.textContent + ", " + inputs[i].value;
+            }
+          }
+        }
+      } else if (legend.textContent == "Reduktion der Tagesdosis") {
         if (
           inputs[i].checked &&
           legend.textContent == "Erhöhung der Tagesdosis"
